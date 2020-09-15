@@ -12,7 +12,7 @@ string	toUpper(string str_org);
 class	month
 {
 	public:
-	// 1 - January 2 - February .... 12 - Dec
+	// index = 1 (January) 2 - February .... 12 - Dec
 	int	index;
 
 	month(string month);
@@ -46,9 +46,25 @@ string toUpper(string str_org){
 	return (str_final);
 };
 
-month::month(string month)
+int	isContained(string month, )
 {
-	// finish thiss function
+	//-1 returned  = File not found 
+	int 	i = -1;
+	
+}
+month::month(string set_month)
+{
+	int i;
+	set_month = toUpper(set_month);
+	string months_arr[] = {"JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL",\
+				"AUG", "SEP", "OCT", "NOV", "DEC"};
+	i = 0;
+	while (months_arr[i])
+	{
+		if (months_arr[i] = set_month)
+		{
+			month = set_month;
+		}
+		}
 	index = 1;
-	//cout << month << endl;
 }
