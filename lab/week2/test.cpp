@@ -12,7 +12,6 @@ string	toUpper(string str_org);
 class	month
 {
 	public:
-	// index = 1 (January) 2 - February .... 12 - Dec
 	int	index;
 
 	month(string month);
@@ -24,7 +23,6 @@ int	main(int argc, char** arv)
 {
 	string testing = "this is a lower case string";
 	month jan = month("JAN");
-	// testing output of toUpper
 	cout << "before function\n" << testing << endl;
 	cout << toUpper(testing) << endl;
 	return (0);	
@@ -33,7 +31,6 @@ int	main(int argc, char** arv)
 string toUpper(string str_org){
 	string	str_final;
 	str_final = str_org;
-	char test_char = 'x'; // testing 
 	
 	for (int i = 0 ; str_org[i] ; i++)
 	{
@@ -48,7 +45,6 @@ string toUpper(string str_org){
 
 int	isContained(string month, )
 {
-	//-1 returned  = File not found 
 	int 	i = -1;
 	
 }
