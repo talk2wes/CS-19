@@ -2,28 +2,38 @@
 #include <iostream>
 #include <cmath> 
 #include <vector>
+#include <cstdlib>
 using namespace std;
 
 unsigned const int	NUMBER_OF_STRINGS = pow(10, 6);
 
 // Generates a random string within the ascii values specified
+unsigned char	genChar(unsigned char min, unsigned char max){
+	unsigned char	randChar;
+	
+	randChar = rand() % (max - min + 1) + min;
+	return (randChar);
+}
+
 string	genStr(){
 	string 		newString;
 	unsigned char	randChar;
 	unsigned char	stopChar;
 
 	stopChar = 'Z' + 1;
+	newString = "";
+	randChar = genChar('A', 'Z');
 	while (randChar != stopChar){
-		
+		newString.push_back(randChar);
+		randChar = genChar('A', 'Z' + 1);
 	}
-	newString = "l"; //DUMMY RETURN VALUE 
 	return (newString);
 }
 
 
 int	main(int argc, char** argv){
 	vector<string>	allNumber;
-	long int	totalChars;
+	unsigned long int	totalChars;
 	double		average;	
 
 	totalChars = 0;
