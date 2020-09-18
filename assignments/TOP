@@ -1,0 +1,12 @@
+ * CS20J-1-115304 Programming Assignment #1 Part 1
+ * Filename: Words.java
+ * This program is designed to generate a series of strings
+ * specified by NUM_STRING and stores them into an Array List named
+ * arrlst. The length of each string in arrlst is stored into strLen. 
+ * The average string length is then calculated using the method average
+ * of the Words class. The average length is then output to std-out.
+ * Working/tested. Code Compile, works as expected.
+ * @Author Wesley Johanson, talk2wes@gmail.com, Pengo: wjohanso
+ * @Version: 1.0
+ * @Since Fall 2020 Semester. Java 14.0.2 2020-07-14
+ */
