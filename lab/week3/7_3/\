@@ -1,0 +1,23 @@
+PROGNAME=counter
+FILENAME=$(PROGNAME).cpp
+EXE=$(PROGNAME).out
+
+$(FILENAME):
+	g++ $(FILENAME) 
+
+clean: 
+	rm $(EXE)
+
+run: $(FILENAME) 
+	g++ $(FILENAME)
+
+crun: $(FILENAME)
+	clear
+	g++ $(FILENAME)
+	./$(EXE)
+
+git-master:
+	git add *
+	git commit -m "Makefile quick commit"
+	git push origin master
+
