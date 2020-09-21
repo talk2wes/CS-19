@@ -14,10 +14,12 @@ class Counter
 	Counter();
 	Counter(int countUpTo);
 
+	/* Display is the value that the counter displays,
+	 * countMax is the maximum value that the counter can take on */
 	private:
-	int		display;
-	int		countMax;
-
+	int			display;
+	int			countMax;
+	static const int	OVERFLOW_MAX = 9999;
 };
 
 //Default Constructor
@@ -37,10 +39,15 @@ Counter::Counter(int countUpTo)
 //Overflow Checker
 bool Counter::overflow(int n)
 {
-	const int	OVERFLOW_MAX = 9999;
 	if (n > OVERFLOW_MAX)
 		return (1);
 	return (0);
+}
+
+void	Counter::reset()
+{
+	display = 0;
+	countMax = 0;
 }
 
 int	main()
