@@ -37,8 +37,8 @@ Counter::Counter(int countUpTo)
 //Overflow Checker
 bool Counter::overflow(int n)
 {
-	const int	OVERFLOW_COUNT = 9999;
-	if (n > OVERFLOW_COUNT)
+	const int	OVERFLOW_MAX = 9999;
+	if (n > OVERFLOW_MAX)
 		return (1);
 	return (0);
 }
