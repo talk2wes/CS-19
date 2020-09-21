@@ -22,18 +22,42 @@ class Counter
 	static const int	OVERFLOW_MAX = 9999;
 };
 
+int	main()
+{
+	int	input;
+	cout << "Put in a number.... or else"  << endl;	
+	//cin >> input;
+	//While the input is an integer, run loop
+	while(!(cin >> input)){
+		cout << "You didn't enter a number: " << input << endl;
+		cin >> input;
+		cin.clear(); //Clear the error flag
+		cin.ignore(100000,'\n'); //Skip to the next line, up to n chars
+	}
+	cout << "you entered a number, you entered: " << input << endl;
+		
+}
+
 //Default Constructor
 Counter::Counter()
 {
 	display = 0;
-	countMax = 0;
+	countMax = OVERFLOW_MAX;
 }
 
 //Overloaded Constructor: such that the counter count's up to the integer given
 Counter::Counter(int countUpTo)
 {
 	display = 0;
-	countMax = countUpTo;
+	if (countUpTo <= OVERFLOW_MAX && countUpTo >=0)
+	{
+		countMax = countUpTo;
+	}else
+	{
+		countMax = OVERFLOW_MAX;
+		cout << "ERROR: value given is outside of the range";
+		cout << " of the counter" << endl;
+	}
 }
 
 //Overflow Checker
@@ -47,21 +71,6 @@ bool Counter::overflow(int n)
 void	Counter::reset()
 {
 	display = 0;
-	countMax = 0;
+	//countMax = OVERFLOW_MAX;
 }
 
-int	main()
-{
-	int	input;
-	cout << "hello world 77" << endl;	
-	//cin >> input;
-	//While the input is an integer, run loop
-	while(!(cin >> input)){
-		cout << "You didn't enter a number: " << input << endl;
-		cin >> input;
-		cin.clear(); //Clear the error flag
-		cin.ignore(100000,'\n'); //Skip to the next line, up to n chars
-	}
-	cout << "you entered a number, you entered: " << input << endl;
-		
-}
