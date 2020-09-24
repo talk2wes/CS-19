@@ -1,5 +1,5 @@
 /*
- * CS19 Programming Assignment #1 Part 1
+ * CS19 Programming Assignment #1 
  * Filename: words.cpp 
  * This program is designed to generate a series of strings
  * specified by userNumStr and stores them into a vector named
@@ -46,20 +46,36 @@ string		genStr(){
 	return (newString);
 }
 
-double		meanLength(vector<int> *allStr){
+double		meanLength(vector<int> *strLen){
 	double	mean = 0;
 	long	sum = 0;
-	for (int i = 0; i < allStr->capacity() ; i++)
+	for (int i = 0; i < strLen->capacity() ; i++)
 		{
-			sum += (*allStr)[i]; //(*allStr)[i];
-			//cout << "length = " << (*allStr)[i] << endl;
+			sum += (*strLen)[i]; //(*strLen)[i];
+			//cout << "length = " << (*strLen)[i] << endl;
 			//cout << "sum = " << sum << endl << endl;
 		}
-	cout << "allstr size is " << allStr->capacity() << endl;
-	mean = (double) sum / allStr->capacity();
+	//cout << "allstr size is " << strLen->capacity() << endl;
+	mean = (double) sum / strLen->capacity();
 	return (mean);	
 }
 
+double		stdDev(vector<int> *strLen)
+{	double rieSum = 0;
+	double mean = meanLength(strLen);
+
+	for (int i = 0; i < strLen->capacity() ; i++)
+	{
+		//cout << "strlen i = " << (*strLen)[i] << endl; // testing 
+		//cout << "mean = " << meanLength(strLen) << endl;
+		rieSum += pow((*strLen)[i] - mean, 2);
+		//cout << "riesum +=  " << rieSum << endl; //testing 
+	}
+	rieSum /= strLen->capacity();
+	//cout << "riesum  / capcity " << rieSum << endl; // testing 
+	//cout << "capcity of vector is " << strLen->capacity() << endl; //testing 
+	return (sqrt(rieSum));
+}
 
 
 int	main(int argc, char** argv){
@@ -68,7 +84,7 @@ int	main(int argc, char** argv){
 	unsigned long int	totalChars = 0;
 	double			average = 0;	
 	int 			userNumStr = 0;
-	
+	double 			stdDeviation = 0;	
 
 	//Determine the number of stings to generate
 	userNumStr = NUMBER_OF_STRINGS;
@@ -76,7 +92,7 @@ int	main(int argc, char** argv){
 			&& atoi(argv[1]) <= MAX_USER_INPUT){
 		userNumStr = atoi(argv[1]);
 	}
-	cout << "userNumStr = " << userNumStr << endl;
+	//cout << "userNumStr = " << userNumStr << endl;
 	strLen.reserve(userNumStr);
 	allStr.reserve(userNumStr);
 
@@ -89,9 +105,11 @@ int	main(int argc, char** argv){
 	//cout << "length of strLen is " << strLen.capacity() << endl;
 	//cout << "length of allStr is " << allStr.capacity() << endl;
 	average = meanLength(&strLen);
+	stdDeviation = stdDev(&strLen);
 	cout << fixed << showpoint << setprecision(1);
 	cout << "CS 19 Assignment #1 Random String Generator " << endl;
 	cout << "Wesley Johanson Talk2wes@gmail.com " << endl;
-	cout << "Mean = " << average << endl;
+	cout << average << " mean length" <<  endl;
+	cout << stdDeviation << " std dev" << endl; 
 		return(0);
 }
