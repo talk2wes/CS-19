@@ -16,6 +16,7 @@
 #include <cmath> 
 #include <vector>
 #include <iomanip>
+#include <stdlib.h>
 #include <cstdlib>
 using namespace 	std;
 unsigned const int	NUMBER_OF_STRINGS = pow(10, 6);
@@ -44,21 +45,27 @@ string		genStr(){
 	return (newString);
 }
 
-
-
-
 int	main(int argc, char** argv){
 	vector<string>		allStr;
 	unsigned long int	totalChars = 0;
-	double			average;	
-	
+	double			average = 0;	
+	int 			userNumStr = 0;
+
+	cout << "argc = " << argc << endl; // TESTING 
+	if (argc == 2){
+		cout << "atoi = " << atoi(argv[1]) << endl; // TESTING 
+		if (atoi(argv[1]) != 0)
+			userNumStr = atoi(argv[1]);
+	}
 	allStr.reserve(NUMBER_OF_STRINGS);
 	for (int i = 0; i < NUMBER_OF_STRINGS; i++){
 		allStr[i] = genStr();
 		totalChars += (allStr[i]).length();
 	}
 	average = (double) totalChars / NUMBER_OF_STRINGS;
-	cout << fixed << showpoint << setprecision(3);
+	cout << fixed << showpoint << setprecision(1);
+	cout << "CS 19 Assignment #1 Random String Generator " << endl;
+	cout << "Wesley Johanson Talk2wes@gmail.com " << endl;
 	cout << "Mean = " << average << endl;
 		return(0);
 }
