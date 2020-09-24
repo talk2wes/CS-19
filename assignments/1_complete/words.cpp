@@ -92,8 +92,13 @@ int	main(int argc, char** argv){
 
 	//Generate strings, store length
 	for (int i = 0; i < userNumStr; i++){
+		/* so the g++ compiler DOES NOT LIKE ARRAY notation!!
+		* ONLY CLANG 
 		allStr[i] = genStr();
 		strLen[i] = allStr[i].length();
+		*/
+		allStr.push_back(genStr());
+		strLen.push_back(allStr[1].length());
 	}
 	//Calculate statistics off data generated
 	average = meanLength(&strLen);

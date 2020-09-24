@@ -6,7 +6,7 @@ $(FILENAME):
 	g++ $(FILENAME) 
 
 clean: 
-	rm $(EXE)
+	rm *.out
 
 run: $(FILENAME)
 	@g++ $(FILENAME) -o $(EXE)
