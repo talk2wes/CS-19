@@ -53,7 +53,7 @@ double		meanLength(vector<int> *strLen){
 	double	mean = 0;
 	long	sum = 0;
 	for (int i = 0; i < strLen->size() ; i++)
-			sum += (*strLen)[i]; //(*strLen)[i];
+			sum += (*strLen).at(i); //(*strLen)[i];
 	mean = (double) sum / strLen->size();
 	return (mean);	
 }
@@ -64,10 +64,9 @@ double		stdDev(vector<int> *strLen)
 
 	for (int i = 0; i < strLen->size() ; i++)
 	{
-		rieSum += pow((*strLen)[i] - mean, 2);
+		rieSum += pow((*strLen).at(i) - mean, 2);
 	}
 	rieSum /= strLen->size();
-	cout << "size of the vector is: " << strLen->size() << endl; //testing 
 	return (sqrt(rieSum));
 }
 
@@ -99,7 +98,7 @@ int	main(int argc, char** argv){
 		strLen[i] = allStr[i].length();
 		*/
 		allStr.push_back(genStr());
-		strLen.push_back(allStr[1].length());
+		strLen.push_back(allStr.at(i).length());
 	}
 	//Calculate statistics off data generated
 	average = meanLength(&strLen);
@@ -108,8 +107,8 @@ int	main(int argc, char** argv){
 	cout << "CS 19 Assignment #1 Random String Generator " << endl;
 	cout << "Wesley Johanson Talk2wes@gmail.com " << endl;
 	cout << userNumStr << " random strings generated" << endl;
-	cout << "first string:" << allStr[0] << endl
-		<< "last string:" << allStr[userNumStr - 1] << endl;
+	cout << "first string:" << allStr.at(0) << endl
+		<< "last string:" << allStr.at(userNumStr - 1) << endl;
 	cout << average << " mean length" <<  endl;
 	cout << stdDeviation << " std dev" << endl; 
 		return(0);
