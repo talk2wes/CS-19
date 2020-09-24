@@ -109,6 +109,9 @@ int	main(int argc, char** argv){
 	cout << fixed << showpoint << setprecision(1);
 	cout << "CS 19 Assignment #1 Random String Generator " << endl;
 	cout << "Wesley Johanson Talk2wes@gmail.com " << endl;
+	cout << userNumStr << " random strings generated" << endl;
+	cout << "first string:" << allStr[0] << endl
+		<< "last string:" << allStr[userNumStr - 1] << endl;
 	cout << average << " mean length" <<  endl;
 	cout << stdDeviation << " std dev" << endl; 
 		return(0);
