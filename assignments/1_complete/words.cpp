@@ -52,9 +52,9 @@ string		genStr(){
 double		meanLength(vector<int> *strLen){
 	double	mean = 0;
 	long	sum = 0;
-	for (int i = 0; i < strLen->capacity() ; i++)
+	for (int i = 0; i < strLen->size() ; i++)
 			sum += (*strLen)[i]; //(*strLen)[i];
-	mean = (double) sum / strLen->capacity();
+	mean = (double) sum / strLen->size();
 	return (mean);	
 }
 
@@ -62,11 +62,12 @@ double		stdDev(vector<int> *strLen)
 {	double rieSum = 0;
 	double mean = meanLength(strLen);
 
-	for (int i = 0; i < strLen->capacity() ; i++)
+	for (int i = 0; i < strLen->size() ; i++)
 	{
 		rieSum += pow((*strLen)[i] - mean, 2);
 	}
-	rieSum /= strLen->capacity();
+	rieSum /= strLen->size();
+	cout << "size of the vector is: " << strLen->size() << endl; //testing 
 	return (sqrt(rieSum));
 }
 
@@ -87,8 +88,8 @@ int	main(int argc, char** argv){
 		userNumStr = atoi(argv[1]);
 		}
 	}
-	strLen.reserve(userNumStr);
-	allStr.reserve(userNumStr);
+	//strLen.reserve(userNumStr);
+	//allStr.reserve(userNumStr);
 
 	//Generate strings, store length
 	for (int i = 0; i < userNumStr; i++){
