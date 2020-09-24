@@ -2,9 +2,9 @@
  * CS19 Programming Assignment #1 Part 1
  * Filename: words.cpp 
  * This program is designed to generate a series of strings
- * specified by NUMBER_OF_STRINGS and stores them into a vector named
+ * specified by userNumStr and stores them into a vector named
  * allStr. The length of each string in allStr is summed into totalChars
- * and then divided by the NUMBER_OF_STRINGS to calculate a mean. 
+ * and then divided by the userNumStr to calculate a mean. 
  * Working/tested. Code Compile, works as expected.
  *
  * @Author Wesley Johanson, talk2wes@gmail.com, Pengo: wjohanso
@@ -52,17 +52,19 @@ int	main(int argc, char** argv){
 	int 			userNumStr = 0;
 
 	cout << "argc = " << argc << endl; // TESTING 
+	userNumStr = NUMBER_OF_STRINGS;
 	if (argc == 2){
 		cout << "atoi = " << atoi(argv[1]) << endl; // TESTING 
-		if (atoi(argv[1]) != 0)
+		if (atoi(argv[1]) != 0 && atoi(argv[1]) > 0)
 			userNumStr = atoi(argv[1]);
 	}
-	allStr.reserve(NUMBER_OF_STRINGS);
-	for (int i = 0; i < NUMBER_OF_STRINGS; i++){
+	cout << "userNumStr = " << userNumStr << endl;
+	allStr.reserve(userNumStr);
+	for (int i = 0; i < userNumStr; i++){
 		allStr[i] = genStr();
 		totalChars += (allStr[i]).length();
 	}
-	average = (double) totalChars / NUMBER_OF_STRINGS;
+	average = (double) totalChars / userNumStr;
 	cout << fixed << showpoint << setprecision(1);
 	cout << "CS 19 Assignment #1 Random String Generator " << endl;
 	cout << "Wesley Johanson Talk2wes@gmail.com " << endl;
