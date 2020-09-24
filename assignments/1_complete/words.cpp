@@ -20,6 +20,7 @@
 #include <cstdlib>
 using namespace 	std;
 unsigned const int	NUMBER_OF_STRINGS = pow(10, 6);
+const int		MAX_USER_INPUT = 78951604;
 
 // Generates a random string within the ascii values specified
 char	genChar(char min, char max){
@@ -45,26 +46,49 @@ string		genStr(){
 	return (newString);
 }
 
+double		meanLength(vector<int> *allStr){
+	double	mean = 0;
+	long	sum = 0;
+	for (int i = 0; i < allStr->capacity() ; i++)
+		{
+			sum += (*allStr)[i]; //(*allStr)[i];
+			//cout << "length = " << (*allStr)[i] << endl;
+			//cout << "sum = " << sum << endl << endl;
+		}
+	cout << "allstr size is " << allStr->capacity() << endl;
+	mean = (double) sum / allStr->capacity();
+	return (mean);	
+}
+
+
+
 int	main(int argc, char** argv){
 	vector<string>		allStr;
+	vector<int>		strLen;
 	unsigned long int	totalChars = 0;
 	double			average = 0;	
 	int 			userNumStr = 0;
+	
 
-	cout << "argc = " << argc << endl; // TESTING 
+	//Determine the number of stings to generate
 	userNumStr = NUMBER_OF_STRINGS;
-	if (argc == 2){
-		cout << "atoi = " << atoi(argv[1]) << endl; // TESTING 
-		if (atoi(argv[1]) != 0 && atoi(argv[1]) > 0)
-			userNumStr = atoi(argv[1]);
+	if (argc == 2 && atoi(argv[1]) != 0 && atoi(argv[1]) > 0
+			&& atoi(argv[1]) <= MAX_USER_INPUT){
+		userNumStr = atoi(argv[1]);
 	}
 	cout << "userNumStr = " << userNumStr << endl;
+	strLen.reserve(userNumStr);
 	allStr.reserve(userNumStr);
+
+	//Generate strings, store length
 	for (int i = 0; i < userNumStr; i++){
 		allStr[i] = genStr();
-		totalChars += (allStr[i]).length();
+		strLen[i] = allStr[i].length();
 	}
-	average = (double) totalChars / userNumStr;
+	//Calculate statistics off data generated
+	//cout << "length of strLen is " << strLen.capacity() << endl;
+	//cout << "length of allStr is " << allStr.capacity() << endl;
+	average = meanLength(&strLen);
 	cout << fixed << showpoint << setprecision(1);
 	cout << "CS 19 Assignment #1 Random String Generator " << endl;
 	cout << "Wesley Johanson Talk2wes@gmail.com " << endl;
