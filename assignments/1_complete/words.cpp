@@ -5,7 +5,7 @@
  * specified by userNumStr and stores them into a vector named
  * allStr. The length of each string in allStr is summed into totalChars
  * and then divided by the userNumStr to calculate a mean. 
- * Working/tested. Code Compile, works as expected.
+ * Working/tested. Code Compiles, works as expected.
  * 
  * NOTE: the random number generator will generate the same sequence of random
  * numbers (and strings) because it doesn't have a time dependent seed value
@@ -53,7 +53,7 @@ double		meanLength(vector<int> *strLen){
 	double	mean = 0;
 	long	sum = 0;
 	for (int i = 0; i < strLen->size() ; i++)
-			sum += (*strLen).at(i); //(*strLen)[i];
+			sum += (*strLen).at(i);
 	mean = (double) sum / strLen->size();
 	return (mean);	
 }
@@ -83,20 +83,11 @@ int	main(int argc, char** argv){
 	userNumStr = NUMBER_OF_STRINGS;
 	if (argc == 2){
 		if (atoi(argv[1]) != 0 && atoi(argv[1]) > 0
-			&& atoi(argv[1]) <= MAX_USER_INPUT){
-		userNumStr = atoi(argv[1]);
-		}
+			&& atoi(argv[1]) <= MAX_USER_INPUT)
+			userNumStr = atoi(argv[1]);
 	}
-	//strLen.reserve(userNumStr);
-	//allStr.reserve(userNumStr);
-
 	//Generate strings, store length
 	for (int i = 0; i < userNumStr; i++){
-		/* so the g++ compiler DOES NOT LIKE ARRAY notation!!
-		* ONLY CLANG 
-		allStr[i] = genStr();
-		strLen[i] = allStr[i].length();
-		*/
 		allStr.push_back(genStr());
 		strLen.push_back(allStr.at(i).length());
 	}
