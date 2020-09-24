@@ -15,13 +15,14 @@
 #include <iostream>
 #include <cmath> 
 #include <vector>
+#include <iomanip>
 #include <cstdlib>
 using namespace 	std;
 unsigned const int	NUMBER_OF_STRINGS = pow(10, 6);
 
 // Generates a random string within the ascii values specified
-unsigned char	genChar(unsigned char min, unsigned char max){
-	unsigned char	randChar;
+char	genChar(char min, char max){
+	char	randChar;
 	
 	randChar = rand() % (max - min + 1) + min;
 	return (randChar);
@@ -30,8 +31,8 @@ unsigned char	genChar(unsigned char min, unsigned char max){
 // Generates a random string with char's between 'A' and 'Z' on the ascii table
 string		genStr(){
 	string 		newString;
-	unsigned char	randChar;
-	unsigned char	stopChar;
+	char	randChar;
+	char	stopChar;
 
 	stopChar = 'Z' + 1;
 	newString = "";
@@ -44,17 +45,20 @@ string		genStr(){
 }
 
 
-int		main(int argc, char** argv){
+
+
+int	main(int argc, char** argv){
 	vector<string>		allStr;
 	unsigned long int	totalChars = 0;
 	double			average;	
-
+	
 	allStr.reserve(NUMBER_OF_STRINGS);
 	for (int i = 0; i < NUMBER_OF_STRINGS; i++){
 		allStr[i] = genStr();
 		totalChars += (allStr[i]).length();
 	}
 	average = (double) totalChars / NUMBER_OF_STRINGS;
-	printf("Average = %.1f\n",average);
-	return(0);
+	cout << fixed << showpoint << setprecision(3);
+	cout << "Mean = " << average << endl;
+		return(0);
 }
