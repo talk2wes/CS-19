@@ -57,6 +57,11 @@ void 	bubbleSort(vector<int> nums)
 	printVec(nums);
 }
 
+void	selectSort(vector<int> nums)
+{
+	cout << "heee hehee" << endl;
+}
+
 int	main()
 {
 	vector<int> nums{3,9,0,4,11,2,856,35,98,86521,24};
