@@ -1,4 +1,4 @@
-PROGNAME=bubbleSort
+PROGNAME=sort
 FILENAME=$(PROGNAME).cpp
 EXE=$(PROGNAME).out
 COMPILER=g++ -std=c++11

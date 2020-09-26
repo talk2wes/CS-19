@@ -59,13 +59,45 @@ void 	bubbleSort(vector<int> nums)
 
 void	selectSort(vector<int> nums)
 {
-	cout << "heee hehee" << endl;
+	int	bigInd = 0;
+	for (int n = nums.size() - 2; n > 0 ; n--)
+	{
+		//Biggest element starts with the first element
+		bigInd = 0;
+		//Find the biggest element in 1->n-1.
+		for (int i = 1; i < n ; i++)
+		{
+			cout << "n: " << n << "\t" << "i: " << i << endl;
+			if (nums[i] > nums[bigInd])
+				bigInd = i;
+		}
+		//Compare with the last element in the array and swap if >>
+		if (nums[bigInd] > nums[nums.size() - 1])
+		{
+			swap(&nums, bigInd, nums.size() - 1);
+			cout << "SWAP" << endl;
+		}
+		
+	}
+	printVec(nums);
 }
 
 int	main()
 {
-	vector<int> nums{3,9,0,4,11,2,856,35,98,86521,24};
-	printVec(nums);
-	bubbleSort(nums);
+	const vector<int> temp{3,9,0,4,11,2,856,35,98,86521,24};
+	vector<int> nums(temp);
+	printVec(nums);		//Initial vector
+	bubbleSort(nums);	//Bubblesort
+	cout << "BubbleSort output \t";
+	printVec(nums);		//Show result of bubblesort
+
+
+	nums = temp;		//Reset nums to the initial state
+	
+
+	printVec(nums);		//show that the vector has been reset
+	selectSort(nums);	//Select sort 	
+	cout << "Select sort output\t";
+	printVec(nums);		//Show results of the select sort 
 	return (0);
 }
