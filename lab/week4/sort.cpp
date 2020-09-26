@@ -60,7 +60,7 @@ void 	bubbleSort(vector<int> nums)
 void	selectSort(vector<int> nums)
 {
 	int	bigInd = 0;
-	for (int n = nums.size() - 2; n > 0 ; n--)
+	for (int n = nums.size() - 1; n > 0 ; n--)
 	{
 		//Biggest element starts with the first element
 		bigInd = 0;
@@ -72,10 +72,14 @@ void	selectSort(vector<int> nums)
 				bigInd = i;
 		}
 		//Compare with the last element in the array and swap if >>
-		if (nums[bigInd] > nums[nums.size() - 1])
+		cout << "test\n";
+		if (nums[bigInd] > nums[n])
 		{
-			swap(&nums, bigInd, nums.size() - 1);
+			cout << "test 00\n";
+
+			swap(&nums, bigInd, n);
 			cout << "SWAP" << endl;
+			printVec(nums);
 		}
 		
 	}
