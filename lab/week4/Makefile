@@ -4,7 +4,7 @@ EXE=$(PROGNAME).out
 COMPILER=g++ -std=c++11
 
 $(FILENAME):
-	g++ $(FILENAME) 
+	$(COMPILER) $(FILENAME) 
 
 clean: 
 	rm *.out
