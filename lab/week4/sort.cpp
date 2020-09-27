@@ -3,6 +3,12 @@
 #include <vector>
 
 using namespace std;
+/*
+ The functions that don't use pointers are passing by value and don't modify 
+ the vector parameters */
+
+// stupid one pass compilter c++ >.> 
+int	binarySearch(vector<int> nums, int key); 
 
 void	printVec(vector<int> nums)
 {
@@ -36,6 +42,7 @@ void	swap(vector<int> *nums, int x, int y)
 
 }
 
+//should be a pointer parameter 
 void 	bubbleSort(vector<int> nums)
 {
 	//	int 	bigger = 0;
@@ -55,8 +62,16 @@ void 	bubbleSort(vector<int> nums)
 		}
 	}
 	printVec(nums);
+	int search = 24;
+	cout << "binary search for value: " << search << endl; 
+	if (binarySearch(nums, search) > 0)
+		cout << "found " << search << " at index " 
+			<< binarySearch(nums,search) << endl;
+	else
+		cout << "file not found" << endl;
 }
 
+// should be a pointer parameter 
 void	selectSort(vector<int> nums)
 {
 	int	bigInd = 0;
@@ -67,24 +82,44 @@ void	selectSort(vector<int> nums)
 		//Find the biggest element in 1->n-1.
 		for (int i = 1; i < n ; i++)
 		{
-			cout << "n: " << n << "\t" << "i: " << i << endl;
+			//cout << "n: " << n << "\t" << "i: " << i << endl;
 			if (nums[i] > nums[bigInd])
 				bigInd = i;
 		}
 		//Compare with the last element in the array and swap if >>
-		cout << "test\n";
+		//cout << "test\n";
 		if (nums[bigInd] > nums[n])
 		{
-			cout << "test 00\n";
+			//cout << "test 00\n";
 
 			swap(&nums, bigInd, n);
-			cout << "SWAP" << endl;
-			printVec(nums);
+			//cout << "SWAP" << endl;
+			//printVec(nums);
 		}
 		
 	}
 	printVec(nums);
 }
+
+int	binarySearch(vector<int> nums, int key)
+{
+	const int NOT_FOUND = -1;
+	int hi = nums.size() - 1, low = 0, mid;
+
+	while (low <= hi)
+	{
+		mid = (hi + low) / 2;
+		//cout << "hi = " << hi << " low " << low << endl;
+		if (nums[mid] == key)
+			return (mid);
+		if (key > nums[mid])
+			low = mid + 1;
+		else
+			hi = mid - 1;
+	}
+	return (NOT_FOUND);
+}
+
 
 int	main()
 {
@@ -103,5 +138,6 @@ int	main()
 	selectSort(nums);	//Select sort 	
 	cout << "Select sort output\t";
 	printVec(nums);		//Show results of the select sort 
+
 	return (0);
 }
