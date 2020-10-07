@@ -38,7 +38,7 @@ int main(int argc, char **argv)
 		cout << "enter something in" << endl;
 		getline(cin, line, delimiter2);
 		tokens = strSplit(line, delimiter);
-		cout << "you entered in: " << tokens.size() << endl; 
+		cout << "number of words entered in: " << tokens.size() << endl; 
 	}
 
 	
