@@ -7,6 +7,7 @@
 
 using namespace std;
 
+const int MIN_SCAMBLE_LEN = 4;
 
 
 vector<string> strSplit(string str,const char delimiter)
@@ -67,16 +68,24 @@ void mat2cout(vector<vector<string> > mat, const char delimiter,
 int wordLen(string str)
 {
 	int length = 0;
-	cout << "wordLen, str passed: " << str << endl; 
+	//cout << "wordLen, str passed: " << str << endl; 
 	for (int i = 0 ; i < str.length() ; i++)
 	{
-		cout << "testing: " << str[i] << "ascii dec: " << (int) str[i] << endl; 
+		//cout << "testing: " << str[i] << "ascii dec: " << (int) str[i] << endl; 
 		if (str[i] >= 'A' && str[i] <= 'Z' ||
 			str[i] >= 'a' && str[i] <= 'z')
 			length++;
 		
 	}
 	return(length);
+}
+
+//suffles the chars in a string for indicies [start, stop] (inclusive)
+string wordShuffle(string str, int start, int stop)
+{
+	string shuffledWord = "";
+
+	return (shuffledWord);
 }
 
 vector<vector<string> > scramble(vector<vector<string> > mat)
@@ -89,7 +98,13 @@ vector<vector<string> > scramble(vector<vector<string> > mat)
 		for (int col = 0; col < mat[row].size(); col++)
 		{
 			length = wordLen(mat[row][col]);
-			cout << "length: " << length << endl; 			//testing 
+			if (length >= MIN_SCAMBLE_LEN)
+			{
+				mat[row][col] = wordShuffle(mat[row][col], 1,
+						mat[row][col].length() - 1);
+			}
+			cout << mat[row][col] << "__length: " << length << endl; 
+			//testing: doesn't print words with >= 4 chars ???? 
 
 		}
 	}
@@ -112,7 +127,7 @@ int main(int argc, char **argv)
 	//cout << "rows of mat: " << mat.size() << endl;
 	//cout << "mat2cout output\n";
 
-	mat = scramble(mat);
+	scramble(mat);
 
 	mat2cout(mat,WHITESPACE, NEWLINE);
 	}
