@@ -64,7 +64,7 @@ int wordLen(string str)
 	return(length);
 }
 
-void	swapChar(string *str, int i, int j)
+void	swapChar(string* str, int i, int j)
 {
 	char temp = (*str)[i];
 	(*str)[i] = (*str)[j];
@@ -74,41 +74,47 @@ void	swapChar(string *str, int i, int j)
 
 //suffles the chars in a string within the indicies [start, stop] (inclusive)
 //MAKE SURE THIS IS THE RIGHT RANDOM NUMBER GENERATOR
-string shuffleWord(string word, int start, int stop)
+void	shuffleWord(string* word, int start, int stop)
 {
 	int swapInd = -1;
-	string shuffledWord = word;
+	//string shuffledWord = word;
 
-	cout << "\n\nSHUFFLE WORD = " << word << endl; 			//testing 
+	cout << "SHUFFLE WORD = " << *word << endl; 			//testing 
 	if (start < 0 || stop < 0 || stop <= start)
-		return (shuffledWord);	
+		return;	
 	for (int i = stop; i > start; i--)
 	{
 		swapInd = (rand() % (i - start + 1)) + start;
-		swapChar(&shuffledWord, swapInd, i);
+		swapChar(word, swapInd, i);
 		//if (swapInd != i)
 		//cout << "SWAPCHAR RETURN: " << *(swapChar(&shuffledWord, swapInd, i))
 		//	<< endl;
-		cout << "shuffledWord: " << shuffledWord << endl;
+		cout << "shuffledWord: " << *word << endl;
 	}
-	return (shuffledWord);
+	//return;
 }
 
-vector<vector<string> > shuffleMatrix(vector<vector<string> > matrix)
+void		shuffleMatrix(vector<vector<string> >* matrix)
 {
 	vector<vector<string> > shuffledMatrix;
 	int length = 0;
-	for (int row = 0; row < matrix.size(); row++)
+	for (int row = 0; row < (*matrix).size(); row++)
 	{
-		for (int col = 0; col < matrix[row].size(); col++)
+		for (int col = 0; col < (*matrix)[row].size(); col++)
 		{
-			length = wordLen(matrix[row][col]);
+			cout << "shuffledMatrix_pre shuffle: " << (*matrix)[row][col] 
+				<< endl;
+			length = wordLen((*matrix)[row][col]);
 			if (length >= MIN_SCAMBLE_LEN)
-				matrix[row][col] = shuffleWord(matrix[row][col], 1,
-					wordLen(matrix[row][col]) - 2);
+				shuffleWord(&(*matrix)[row][col], 1, 
+					length - 2);								
+			cout << "shuffledMatrix_post shuffle: " << (*matrix)[row][col] 
+				<< endl;
+				//matrix[row][col] = shuffleWord(matrix[row][col], 1,
+				//	wordLen(matrix[row][col]) - 2);
 		}
 	}
-	return (shuffledMatrix);
+	//return (shuffledMatrix);
 }
 
 int main(int argc, char **argv)
@@ -118,7 +124,7 @@ int main(int argc, char **argv)
 	while(!cin.eof()) // not allowed to use this !!!! 
 	{
 		matrix = cin2matrix();
-		shuffleMatrix(matrix);
+		shuffleMatrix(&matrix);
 		matrix2cout(matrix);
 	}	
 }
