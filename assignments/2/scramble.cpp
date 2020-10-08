@@ -64,12 +64,12 @@ int wordLen(string str)
 	return(length);
 }
 
-string 	swapChar(string str, int i, int j)
+void	swapChar(string *str, int i, int j)
 {
-	char temp = str[i];
-	str[i] = str[j];
-	str[j] = temp;
-	return (str);
+	char temp = (*str)[i];
+	(*str)[i] = (*str)[j];
+	(*str)[j] = temp;
+	//return (str);
 }
 
 //suffles the chars in a string within the indicies [start, stop] (inclusive)
@@ -85,9 +85,11 @@ string shuffleWord(string word, int start, int stop)
 	for (int i = stop; i > start; i--)
 	{
 		swapInd = (rand() % (i - start + 1)) + start;
+		swapChar(&shuffledWord, swapInd, i);
 		//if (swapInd != i)
-		cout << "SWAPCHAR RETURN: " << swapChar(shuffledWord, swapInd, i)
-			<< endl;
+		//cout << "SWAPCHAR RETURN: " << *(swapChar(&shuffledWord, swapInd, i))
+		//	<< endl;
+		cout << "shuffledWord: " << shuffledWord << endl;
 	}
 	return (shuffledWord);
 }
