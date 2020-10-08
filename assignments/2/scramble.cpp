@@ -77,21 +77,13 @@ void	swapChar(string* str, int i, int j)
 void	shuffleWord(string* word, int start, int stop)
 {
 	int swapInd = -1;
-	//string shuffledWord = word;
-
-	cout << "SHUFFLE WORD = " << *word << endl; 			//testing 
 	if (start < 0 || stop < 0 || stop <= start)
 		return;	
 	for (int i = stop; i > start; i--)
 	{
 		swapInd = (rand() % (i - start + 1)) + start;
-		swapChar(word, swapInd, i);
-		//if (swapInd != i)
-		//cout << "SWAPCHAR RETURN: " << *(swapChar(&shuffledWord, swapInd, i))
-		//	<< endl;
-		cout << "shuffledWord: " << *word << endl;
+		swapChar(word, swapInd, i);		
 	}
-	//return;
 }
 
 void		shuffleMatrix(vector<vector<string> >* matrix)
@@ -102,19 +94,12 @@ void		shuffleMatrix(vector<vector<string> >* matrix)
 	{
 		for (int col = 0; col < (*matrix)[row].size(); col++)
 		{
-			cout << "shuffledMatrix_pre shuffle: " << (*matrix)[row][col] 
-				<< endl;
 			length = wordLen((*matrix)[row][col]);
 			if (length >= MIN_SCAMBLE_LEN)
 				shuffleWord(&(*matrix)[row][col], 1, 
 					length - 2);								
-			cout << "shuffledMatrix_post shuffle: " << (*matrix)[row][col] 
-				<< endl;
-				//matrix[row][col] = shuffleWord(matrix[row][col], 1,
-				//	wordLen(matrix[row][col]) - 2);
 		}
 	}
-	//return (shuffledMatrix);
 }
 
 int main(int argc, char **argv)
