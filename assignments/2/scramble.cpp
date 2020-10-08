@@ -44,7 +44,9 @@ void matrix2cout(vector<vector<string> > matrix)
 	{
 		for (int j = 0; j < matrix[i].size(); j++)
 			cout << matrix[i][j] << WHITESPACE;
-		cout << NEWLINE;
+		//don't output newline for blank strings/matricies 
+		if (matrix[0].size() != 0)
+			cout << NEWLINE;
 	}
 }
 
@@ -69,21 +71,21 @@ string shuffleWord(string word, int start, int stop)
 	int swapInd = -1;
 	string shuffledWord = word;
 
-	//cout << "\nshuffleword\n" ;						//TESTING 
 	if (start < 0 || stop < 0 || stop <= start)
-		return (word);
-	//cout << "GOT PASSED STOPPER\n";
-	
+		return (word);	
 	for (int i = stop; i > start; i--)
 	{
-		cout << "//word: " << word << "\tLen:" << wordLen(word) << endl; 
-		cout << "swapping location i: " << i << endl
+		/*
+		cout << "\nword: " << word << "\tLen:" << wordLen(word) << endl; 
+		cout << "swapping location\ti: " << i << endl
 			<< "looking in location: [" << start 
-			<< ", " << stop << "]" << endl;
-		swapInd = (rand() % (stop - start + 1)) + start;
-		
+			<< ", " << i << "]" << endl;
+		*/
+		swapInd = (rand() % (i - start + 1)) + start;
+		//cout << "swapInd: " << swapInd << endl; 
+		if (swapInd == i)
+			return (word);
 	}
-	
 	return (shuffledWord);
 }
 
@@ -91,18 +93,14 @@ vector<vector<string> > shuffleMatrix(vector<vector<string> > matrix)
 {
 	vector<vector<string> > shuffledMatrix;
 	int length = 0;
-	//cout << "\nshuffleMatrix" << endl; 				//TESTING 
 	for (int row = 0; row < matrix.size(); row++)
 	{
 		for (int col = 0; col < matrix[row].size(); col++)
 		{
 			length = wordLen(matrix[row][col]);
 			if (length >= MIN_SCAMBLE_LEN)
-			{
-				//cout << "inside of shuffleMatrix" << endl;
 				matrix[row][col] = shuffleWord(matrix[row][col], 1,
-						wordLen(matrix[row][col]) - 2);
-			}
+					wordLen(matrix[row][col]) - 2);
 		}
 	}
 	return (shuffledMatrix);
