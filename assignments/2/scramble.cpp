@@ -22,7 +22,7 @@ vector<string> strSplit(string str)
 		tokens.push_back(tempStr);
 	return (tokens);
 }
-
+//test ss
 //takes input from cin and returns a matrix of words. 
 vector<vector<string> > cin2matrix()
 {
@@ -47,6 +47,7 @@ void matrix2cout(vector<vector<string> > matrix)
 		//don't output newline for blank input/matricies 
 		if (matrix[0].size() != 0)
 			cout << NEWLINE;
+			//cout << "xxNEWLINEXX_size:" << matrix[0].size() << NEWLINE;
 	}
 }
 
@@ -69,8 +70,8 @@ void	swapChar(string* str, int i, int j)
 	char temp = (*str)[i];
 	(*str)[i] = (*str)[j];
 	(*str)[j] = temp;
-	//return (str);
-}
+	//return (str)
+;}
 
 //suffles the chars in a string within the indicies [start, stop] (inclusive)
 //MAKE SURE THIS IS THE RIGHT RANDOM NUMBER GENERATOR
