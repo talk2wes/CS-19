@@ -44,7 +44,7 @@ void matrix2cout(vector<vector<string> > matrix)
 	{
 		for (int j = 0; j < matrix[i].size(); j++)
 			cout << matrix[i][j] << WHITESPACE;
-		//don't output newline for blank strings/matricies 
+		//don't output newline for blank input/matricies 
 		if (matrix[0].size() != 0)
 			cout << NEWLINE;
 	}
@@ -64,6 +64,12 @@ int wordLen(string str)
 	return(length);
 }
 
+void	swapChar(string *str, int i, int j)
+{
+	char temp = str[i];
+	cout << "char: " << str[i] << endl; 
+}
+
 //suffles the chars in a string within the indicies [start, stop] (inclusive)
 //MAKE SURE THIS IS THE RIGHT RANDOM NUMBER GENERATOR
 string shuffleWord(string word, int start, int stop)
@@ -75,16 +81,10 @@ string shuffleWord(string word, int start, int stop)
 		return (word);	
 	for (int i = stop; i > start; i--)
 	{
-		/*
-		cout << "\nword: " << word << "\tLen:" << wordLen(word) << endl; 
-		cout << "swapping location\ti: " << i << endl
-			<< "looking in location: [" << start 
-			<< ", " << i << "]" << endl;
-		*/
 		swapInd = (rand() % (i - start + 1)) + start;
-		//cout << "swapInd: " << swapInd << endl; 
 		if (swapInd == i)
 			return (word);
+		shuffledWord = swapChar(word, swapInd, i);
 	}
 	return (shuffledWord);
 }

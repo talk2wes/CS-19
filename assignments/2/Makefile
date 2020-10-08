@@ -1,6 +1,7 @@
 PROGNAME=scramble
 FILENAME=$(PROGNAME).cpp
 EXE=$(PROGNAME).out
+STANDARD=-std=c++11
 
 $(FILENAME):
 	g++ $(FILENAME) 
@@ -9,7 +10,7 @@ clean:
 	rm *.out
 
 run: $(FILENAME)
-	@g++ $(FILENAME) -o $(EXE)
+	@g++ $(FILENAME) $(STANDARD)  -o $(EXE)
 	@./$(EXE)
 
 crun: $(FILENAME)
