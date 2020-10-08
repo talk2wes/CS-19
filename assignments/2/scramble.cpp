@@ -4,147 +4,118 @@
 #include <cstring>
 #include <sstream>
 #include <cstdlib>
-//#include <stdio.h>
+#include <ctime>
 
 using namespace std;
-
 const int MIN_SCAMBLE_LEN = 4;
+const char WHITESPACE = ' ';
+const char NEWLINE = '\n';
 
-
-vector<string> strSplit(string str,const char delimiter)
+//splits a string with a delimiter into a vector
+vector<string> strSplit(string str)
 {
 	vector<string> tokens;
-	
 	stringstream s(str);
-	string temp = "";
+	string tempStr = "";
 
-	//cout << "strSplit: "; 			//TESTING 
-	while (getline(s, temp, delimiter))
-	{
-		tokens.push_back(temp);
-		//cout << temp << delimiter; 			//testing 
-	}
-	//cout << endl; 					//testing 
+	while (getline(s, tempStr, WHITESPACE))
+		tokens.push_back(tempStr);
 	return (tokens);
-
 }
 
-vector<vector<string> > cin2mat( const char delimiter, 
-		const char delimiter2)
+//takes input from cin and returns a matrix of words. 
+vector<vector<string> > cin2matrix()
 {
-	vector<vector<string> > mat;
+	vector<vector<string> > matrix;
 	vector<string> line; 
 
-
-	string temp = "";
-	//while (!cin.eof())
-	//{
-		//cout << "enter something in" << endl;
-		//if (cin.hasNext())
-			getline(cin, temp, delimiter);
-			//cout << "getline:" << temp <<endl;		//TESTING 
-		//cout << "input:\t" << temp << endl;
-		//lines = istr2vec(cin, delimiter2);
-		line = strSplit(temp, delimiter2);
-		mat.push_back(line);
-		//cout << "mat:" << mat.back().back() << endl;	//TESTING 
-		//cout << "\tnumOfWords: " << line.size() << endl; 
-	//}
-	return(mat);
+	string tempStr = "";
+	getline(cin, tempStr);
+	line = strSplit(tempStr);
+	matrix.push_back(line);
+	return(matrix);
 }
 
-void mat2cout(vector<vector<string> > mat, const char delimiter,
-		const char delimiter2)
+//Outputs a matrix of words (strings) given the two delimiters.
+//delimiters are WHITESPACE and NEWLINE
+void matrix2cout(vector<vector<string> > matrix)
 {
-	for (int i = 0; i < mat.size() ; i++)
+	for (int i = 0; i < matrix.size() ; i++)
 	{
-		for (int j = 0; j < mat[i].size(); j++)
-		{
-			cout << mat[i][j] /*.length()*/ << delimiter;
-		}
-		cout << delimiter2;
+		for (int j = 0; j < matrix[i].size(); j++)
+			cout << matrix[i][j] << WHITESPACE;
+		cout << NEWLINE;
 	}
 }
 
+//Finds the length of a word in a string, 
+//only counting alphabetical characters.
 int wordLen(string str)
 {
 	int length = 0;
-	//cout << "wordLen, str passed: " << str << endl; 
 	for (int i = 0 ; i < str.length() ; i++)
 	{
-		//cout << "testing: " << str[i] << "ascii dec: " << (int) str[i] << endl; 
 		if (str[i] >= 'A' && str[i] <= 'Z' ||
 			str[i] >= 'a' && str[i] <= 'z')
 			length++;
-		
 	}
 	return(length);
 }
 
-//suffles the chars in a string for indicies [start, stop] (inclusive)
-string wordShuffle(string str, int start, int stop)
+//suffles the chars in a string within the indicies [start, stop] (inclusive)
+//MAKE SURE THIS IS THE RIGHT RANDOM NUMBER GENERATOR
+string shuffleWord(string word, int start, int stop)
 {
-	string shuffledWord = "";
+	int swapInd = -1;
+	string shuffledWord = word;
 
+	//cout << "\nshuffleword\n" ;						//TESTING 
+	if (start < 0 || stop < 0 || stop <= start)
+		return (word);
+	//cout << "GOT PASSED STOPPER\n";
+	
+	for (int i = stop; i > start; i--)
+	{
+		cout << "//word: " << word << "\tLen:" << wordLen(word) << endl; 
+		cout << "swapping location i: " << i << endl
+			<< "looking in location: [" << start 
+			<< ", " << stop << "]" << endl;
+		swapInd = (rand() % (stop - start + 1)) + start;
+		
+	}
+	
 	return (shuffledWord);
 }
 
-vector<vector<string> > scramble(vector<vector<string> > mat)
+vector<vector<string> > shuffleMatrix(vector<vector<string> > matrix)
 {
-	vector<vector<string> > scrambledEggs;
+	vector<vector<string> > shuffledMatrix;
 	int length = 0;
-
-	for (int row = 0; row < mat.size(); row++)
+	//cout << "\nshuffleMatrix" << endl; 				//TESTING 
+	for (int row = 0; row < matrix.size(); row++)
 	{
-		for (int col = 0; col < mat[row].size(); col++)
+		for (int col = 0; col < matrix[row].size(); col++)
 		{
-			length = wordLen(mat[row][col]);
+			length = wordLen(matrix[row][col]);
 			if (length >= MIN_SCAMBLE_LEN)
 			{
-				mat[row][col] = wordShuffle(mat[row][col], 1,
-						mat[row][col].length() - 1);
+				//cout << "inside of shuffleMatrix" << endl;
+				matrix[row][col] = shuffleWord(matrix[row][col], 1,
+						wordLen(matrix[row][col]) - 2);
 			}
-			//cout << mat[row][col] << "__length: " << length << endl; 
-			//testing: doesn't print words with >= 4 chars ???? 
-
 		}
 	}
-	return (scrambledEggs);
+	return (shuffledMatrix);
 }
-
-
 
 int main(int argc, char **argv)
 {
-	string line = "";
-	const char WHITESPACE = ' ';
-	const char NEWLINE = '\n';
-	vector<string> lines; 
-	vector<vector<string> > mat;
+	vector<vector<string> > matrix;
 
 	while(!cin.eof()) // not allowed to use this !!!! 
 	{
-	mat = cin2mat(NEWLINE, WHITESPACE);
-	//cout << "rows of mat: " << mat.size() << endl;
-	//cout << "mat2cout output\n";
-
-	scramble(mat);
-
-	mat2cout(mat,WHITESPACE, NEWLINE);
-	}
-	/*
-	while (!cin.eof())
-	{
-		cout << "enter something in" << endl;
-		getline(cin, line, delimiter2);
-		
-		//lines = istr2vec(cin, delimiter2);
-		
-
-		lines = strSplit(line, delimiter);
-		cout << "number of words entered in: " << lines.size() << endl; 
-	}
-	*/
-
-	
+		matrix = cin2matrix();
+		shuffleMatrix(matrix);
+		matrix2cout(matrix);
+	}	
 }
