@@ -1,3 +1,17 @@
+/*
+ * CS19 Programming Assignment #2
+ * Filename: scramble.cpp
+ * This program takes input from STDIN, scrambles the characters in each word 
+ * and outputs the scrambled words to STDOUT. First and last characters 
+ * are not scrambled. Newlines and whitespace info is conserved.
+ *
+ * Working/tested. Code Compiles. I had major difficulty trying to get 
+ * redirections to output the first character of all the lines input.
+ *
+ * @Author Wesley Johanson, talk2wes@gmail.com, Pengo: wjohanso
+ * @Version: 1.0
+ * @Since Fall 2020 Semester.
+*/
 #include <iostream>
 #include <string>
 #include <vector>
@@ -7,54 +21,53 @@
 #include <ctime>
 
 using namespace std;
-const int MIN_SCAMBLE_LEN = 4;
-const char WHITESPACE = ' ';
-const char NEWLINE = '\n';
+const int					MIN_SCAMBLE_LEN = 4;
+const char					WHITESPACE = ' ';
+const char					NEWLINE = '\n';
 
-//splits a string into a vector
-vector<string> strSplit(string str)
+//splits a string into a vector of words, delimited by whitespace
+vector<string> 				strSplit(string str)
 {
-	vector<string> tokens;
-	stringstream s(str);
-	string tempStr = "";
+	vector<string>			tokens;
+	stringstream 			s(str);
+	string 					tempStr = "";
 
 	while (getline(s, tempStr, WHITESPACE))
 		tokens.push_back(tempStr);
 	return (tokens);
 }
 
-//takes input from cin and returns a matrix of words. 
-vector<vector<string> > cin2matrix()
+//takes input from cin and returns a matrix of words. Each line becomes a row 
+//and each word becomes a column in the matrix. 
+vector<vector<string> >		cin2matrix()
 {
 	vector<vector<string> > matrix;
-	vector<string> line; 
-	string tempStr = "";
+	vector<string> 			line; 
+	string					tempStr = "";
 
-	getline(cin, tempStr);
-	line = strSplit(tempStr);
-	matrix.push_back(line);
+	getline(cin, tempStr);		//get a line
+	line = strSplit(tempStr);	//split line into a vector of words
+	matrix.push_back(line);		//add this row of words to the matrix
 	return(matrix);
 }
 
-//Outputs a matrix of words (strings) given the two delimiters.
-//delimiters are WHITESPACE and NEWLINE
-void	matrix2cout(vector<vector<string> > matrix)
+//Outputs a matrix of words (strings) to STDOUT
+void						matrix2cout(vector<vector<string> > matrix)
 {
 	for (int i = 0; i < matrix.size() ; i++)
 	{
 		for (int j = 0; j < matrix[i].size(); j++)
 			cout << matrix[i][j] << WHITESPACE;
-		//don't output newline at end of input
-		if (matrix[0].size() != 0)
+		if (matrix[0].size() != 0)		//don't output newline at end of input
 			cout << NEWLINE;
 	}
 }
 
-//Finds the length of a word in a string, 
-//only counting alphabetical characters.
-int wordLen(string str)
+//Finds the length of a word in a string, counting only alphabet characters.
+int							wordLen(string str)
 {
-	int length = 0;
+	int						length = 0;
+	
 	for (int i = 0 ; i < str.length() ; i++)
 	{
 		if (str[i] >= 'A' && str[i] <= 'Z' ||
@@ -64,18 +77,21 @@ int wordLen(string str)
 	return(length);
 }
 
-void	swapChar(string* str, int i, int j)
+//Swaps two characters in a string, specified by the two indicies: i, j
+void						swapChar(string* str, int i, int j)
 {
-	char temp = (*str)[i];
+	char 					temp = (*str)[i];
+	
 	(*str)[i] = (*str)[j];
 	(*str)[j] = temp;
 }
 
-//suffles the chars in a string within the indicies [start, stop] (inclusive)
-//MAKE SURE THIS IS THE RIGHT RANDOM NUMBER GENERATOR
-void	shuffleWord(string* word, int start, int stop)
+//Shuffles a characters in a string within the indicies: start, stop. 
+//Boundaries are inclusive
+void						shuffleWord(string* word, int start, int stop)
 {
-	int swapInd = -1;
+	int 					swapInd = -1;
+
 	if (start < 0 || stop < 0 || stop <= start)
 		return;	
 	for (int i = stop; i > start; i--)
@@ -85,10 +101,12 @@ void	shuffleWord(string* word, int start, int stop)
 	}
 }
 
-void		shuffleMatrix(vector<vector<string> >* matrix)
+//Individually shuffles characters in each word within the matrix
+void						shuffleMatrix(vector<vector<string> >* matrix)
 {
 	vector<vector<string> > shuffledMatrix;
-	int length = 0;
+	int 					length = 0;
+
 	for (int row = 0; row < (*matrix).size(); row++)
 	{
 		for (int col = 0; col < (*matrix)[row].size(); col++)
@@ -101,11 +119,11 @@ void		shuffleMatrix(vector<vector<string> >* matrix)
 	}
 }
 
-int main(int argc, char **argv)
+int 						main(int argc, char **argv)
 {
 	vector<vector<string> > matrix;
+	
 	srand(time(NULL));
-
 	while(cin)
 	{
 		matrix = cin2matrix();
