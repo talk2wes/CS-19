@@ -11,7 +11,7 @@ const int MIN_SCAMBLE_LEN = 4;
 const char WHITESPACE = ' ';
 const char NEWLINE = '\n';
 
-//splits a string with a delimiter into a vector
+//splits a string into a vector
 vector<string> strSplit(string str)
 {
 	vector<string> tokens;
@@ -22,14 +22,14 @@ vector<string> strSplit(string str)
 		tokens.push_back(tempStr);
 	return (tokens);
 }
-//test ss
+
 //takes input from cin and returns a matrix of words. 
 vector<vector<string> > cin2matrix()
 {
 	vector<vector<string> > matrix;
 	vector<string> line; 
-
 	string tempStr = "";
+
 	getline(cin, tempStr);
 	line = strSplit(tempStr);
 	matrix.push_back(line);
@@ -38,16 +38,15 @@ vector<vector<string> > cin2matrix()
 
 //Outputs a matrix of words (strings) given the two delimiters.
 //delimiters are WHITESPACE and NEWLINE
-void matrix2cout(vector<vector<string> > matrix)
+void	matrix2cout(vector<vector<string> > matrix)
 {
 	for (int i = 0; i < matrix.size() ; i++)
 	{
 		for (int j = 0; j < matrix[i].size(); j++)
 			cout << matrix[i][j] << WHITESPACE;
-		//don't output newline for blank input/matricies 
+		//don't output newline at end of input
 		if (matrix[0].size() != 0)
 			cout << NEWLINE;
-			//cout << "xxNEWLINEXX_size:" << matrix[0].size() << NEWLINE;
 	}
 }
 
@@ -70,8 +69,7 @@ void	swapChar(string* str, int i, int j)
 	char temp = (*str)[i];
 	(*str)[i] = (*str)[j];
 	(*str)[j] = temp;
-	//return (str)
-;}
+}
 
 //suffles the chars in a string within the indicies [start, stop] (inclusive)
 //MAKE SURE THIS IS THE RIGHT RANDOM NUMBER GENERATOR
@@ -106,8 +104,9 @@ void		shuffleMatrix(vector<vector<string> >* matrix)
 int main(int argc, char **argv)
 {
 	vector<vector<string> > matrix;
+	srand(time(NULL));
 
-	while(!cin.eof()) // not allowed to use this !!!! 
+	while(cin)
 	{
 		matrix = cin2matrix();
 		shuffleMatrix(&matrix);
