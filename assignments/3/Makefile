@@ -13,3 +13,11 @@ $(FILE1).o:
 
 clean:
 	rm *.o $(EXECTUTABLE)
+
+clean-SWP:
+	rm *.*.swp
+
+git-qs:
+	git add *
+	git commit -m "quicksave"
+	git push origin master
