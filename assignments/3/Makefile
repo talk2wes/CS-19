@@ -21,3 +21,6 @@ git-qs:
 	git add *
 	git commit -m "quicksave"
 	git push origin master
+
+run:
+	./$(EXECTUTABLE)

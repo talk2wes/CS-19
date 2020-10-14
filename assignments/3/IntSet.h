@@ -3,5 +3,6 @@
 	
 	#include <iostream>			//cout 
 	#include <cstdlib>			//rand
+	#include <vector>			
 	using namespace std;
 #endif

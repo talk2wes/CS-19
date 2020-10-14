@@ -3,11 +3,10 @@
 // NOTE: this main function test routine must be used for your final submission
 // this is not an exhaustive test, so you'll still need to do your own testing!
 main(){
-
-
   cout << "hello world" << endl;
-  /*
+  
   IntSet is1,is2(1,2,5),is3;
+  /*
   cout << "CS19 Program #4 Integer Set Class"<<endl;
   cout << "Insert your name and email here" <<endl; 
   is1.insertElement(2);    is1.insertElement(4);
