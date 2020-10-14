@@ -5,7 +5,30 @@
 main(){
   cout << "hello world" << endl;
   
-  //IntSet is1,is2(1,2,5),is3;
+  IntSet is1(1,6), is2, is3;
+  is1.toString();
+  is2.toString();
+  /*
+  cout << "is1" << endl; 
+  IntSet is1(3); //,is3;
+  cout << "is1.toString()\n";
+  is1.toString();
+
+  IntSet is3;
+  is3.toString();
+  */
+
+
+
+  /*
+  cout << "is2" << endl; 
+  IntSet is2(1,2,5);
+  cout << "is2.toString()\n" ;
+  is2.toString();
+  */
+
+
+
   /*
   cout << "CS19 Program #4 Integer Set Class"<<endl;
   cout << "Insert your name and email here" <<endl; 

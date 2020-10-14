@@ -14,6 +14,9 @@ $(FILE1).o:
 clean:
 	rm *.o $(EXECTUTABLE)
 
+clear:
+	clear
+
 clean-SWP:
 	rm *.*.swp
 
@@ -24,3 +27,7 @@ git-qs:
 
 run:
 	./$(EXECTUTABLE)
+
+rerun: clean $(EXECTUTABLE) run 
+
+crerun: clear clean $(EXECTUTABLE) run 
