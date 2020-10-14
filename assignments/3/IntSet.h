@@ -3,8 +3,6 @@
 	
 	#include <iostream>			//cout 
 	#include <cstdlib>			//rand
-	#include <vector>			
-	//#include <stringbuilder>	
 	using namespace std;
 
 	// CS19: C++ Integer Sets Program
@@ -14,7 +12,6 @@
 	  IntSet(int =-1,int =-1, int =-1, int =-1, int =-1);
 	  void 				insertElement(int);
 	  string 			toString() const;
-
 
 	  /*
 	  ~IntSet();  
@@ -26,7 +23,7 @@
 	  int static getMax(){ return MAXSETVAL; }
 	  */
 	private:
-	  static const int 	MAXSETVAL=20; // largest legal value
+	  static const int 	MAXSETVAL=10; // largest legal value
 	  bool 				*data; // array to store elements
 	};
 

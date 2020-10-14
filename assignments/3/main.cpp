@@ -7,7 +7,12 @@ main(){
   
   IntSet is1(1,6), is2, is3;
   is1.toString();
+  is2.insertElement(3);
+  is2.insertElement(7);
+  is3.insertElement(5);
   is2.toString();
+
+
   /*
   cout << "is1" << endl; 
   IntSet is1(3); //,is3;
