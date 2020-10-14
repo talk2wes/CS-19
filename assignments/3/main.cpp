@@ -5,7 +5,7 @@
 main(){
   cout << "hello world" << endl;
   
-  IntSet is1,is2(1,2,5),is3;
+  //IntSet is1,is2(1,2,5),is3;
   /*
   cout << "CS19 Program #4 Integer Set Class"<<endl;
   cout << "Insert your name and email here" <<endl; 
