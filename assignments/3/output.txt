@@ -1,0 +1,8 @@
+rm *.o p3
+g++ -std=c++11 -c main.cpp
+g++ -std=c++11 -c IntSet.cpp
+g++ -std=c++11 main.o IntSet.o -o p3
+./p3
+hello world
+is2 ={3, 5, 7, 8, 9}
+is3 ={}

@@ -1,7 +1,7 @@
 // Don't forget to comment code according to requirements
 
 #include "IntSet.h"
-
+using namespace std;
 void IntSet::insertElement(int num)
 {
   if (num >= 0 && num <= MAXSETVAL && data != NULL)
@@ -17,12 +17,25 @@ void IntSet::deleteElement(int num)
 IntSet::~IntSet()
 {
 	if (data != NULL)
-		delete []data;
+		delete[] data;
+	data = NULL;
 }
 
-void 	IntSet::unionOf(IntSet &, IntSet &)
+void 	IntSet::unionOf(IntSet& setA, IntSet& setB)
 {
-	cout << "definition here " ;
+	/*See how can I protect against null references
+	if (setA == NULL || setB == NULL)
+		return;
+	*/
+	IntSet unionSet;
+	cout << "unionSet=" << unionSet.toString() << endl; 
+	for (int i = 0; i <= MAXSETVAL; i++)
+	{
+		// CHECK TO SEE IF ELEMENT EXISTS IN EITHER 
+		// ADD ELEMENT TOO THE UNION SET 
+		// FIGURE OUT WHERE THE SET SHOULD GO
+		// PROTECT AGAINST SELF ASSIGNMENT PARAMETERS
+	}
 }
 
 string IntSet::toString() const
@@ -31,9 +44,9 @@ string IntSet::toString() const
 	bool 		firstElementPrinted = false;
 	string 		temp;
 
-	str.append("{");
 	if (data == NULL)
 		return (str);
+	str.append("{");
 	for (int i = 0; i <= MAXSETVAL; i++)
 	{
 		if (data[i] == true)

@@ -1,17 +1,25 @@
 
 #include "IntSet.h"
+using namespace std;
 // NOTE: this main function test routine must be used for your final submission
 // this is not an exhaustive test, so you'll still need to do your own testing!
-main(){
-  cout << "hello world" << endl;
-  
-  IntSet is1(1,6), is2, is3;
+main(){  
+  IntSet is1(1,6), is2(5, 8, 9), is3;
   is1.toString();
-  is2.insertElement(3);
+  is2.insertElement(20);
   is2.insertElement(7);
-  string temp = is2.toString();
-  cout << "is3:" << temp  <<  endl; 
-  is3.toString();
+  cout << "is1 =" << is1.toString() << endl; 
+  cout << "is2 =" << is2.toString() << endl; 
+  cout << "is3 =" << is3.toString() << endl;
+  cout << "remove 5 & 8 from is2\n";
+  is2.deleteElement(5);
+  is2.deleteElement(8);
+  cout << "is2 =" << is2.toString() << endl; 
+
+  //new shit 
+  is1.unionOf(is2, is3);
+
+
 
 
   /*

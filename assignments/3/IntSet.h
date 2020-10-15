@@ -5,15 +5,15 @@
 	#include <cstdlib>			//rand
 	#include <string>
 			//itoa
-	using namespace std;
-
+	
+	//using namespace std;
 	// CS19: C++ Integer Sets Program
 	// Starter Code by Steve J. Hodges
 	class IntSet{
 	public:
 	  IntSet(int =-1,int =-1, int =-1, int =-1, int =-1);
 	  void 				insertElement(int);
-	  string 			toString() const;
+	  std::string 		toString() const;
 	  					~IntSet();
 	  int static 		getMax(){ return MAXSETVAL; }
 	  void				deleteElement(int);
@@ -26,7 +26,7 @@
 	  
 	  */
 	private:
-	  static const int 	MAXSETVAL=10; // largest legal value
+	  static const int 	MAXSETVAL=20; // largest legal value
 	  bool 				*data; // array to store elements
 	};
 
