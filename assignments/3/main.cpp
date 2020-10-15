@@ -3,7 +3,7 @@ using namespace std;
 // NOTE: this main function test routine must be used for your final submission
 // this is not an exhaustive test, so you'll still need to do your own testing!
 int main(){  
-  IntSet is1(1,6), is2(5, 8, 9), is3;
+  IntSet is1(1,6), is2(5, 8, 9), is3(22, 45, 99);
   is1.toString();
   is2.insertElement(20);
   is2.insertElement(7);
@@ -17,7 +17,6 @@ int main(){
   cout << "does is2 have " << 7 << " : " << is2.hasElement(7) << endl;
   cout << "does is2 have " << 3 << " : " << is2.hasElement(3) << endl;
 
-  //new shit 
   is1.unionOf(is2, is3);
 
 

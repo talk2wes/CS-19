@@ -26,7 +26,7 @@
 	  
 	  */
 	private:
-	  static const int 	MAXSETVAL=20; // largest legal value
+	  static const int 	MAXSETVAL=1000; // largest legal value
 	  bool 				*data; // array to store elements
 	};
 

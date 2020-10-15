@@ -32,11 +32,6 @@ bool 	IntSet::hasElement(int num) const
 
 void 	IntSet::unionOf(IntSet& setA, IntSet& setB)
 {
-	/*See how can I protect against null references
-	if (setA == NULL || setB == NULL)
-		return;
-	*/
-
 	//Protect against self-refecence & NULL data
 	if ((data == setA.data && data == setB.data) ||
 		(setA.data == NULL) || (setB.data == NULL))
@@ -46,11 +41,16 @@ void 	IntSet::unionOf(IntSet& setA, IntSet& setB)
 	cout << "unionSet=" << unionSet.toString() << endl; 
 	for (int i = 0; i <= MAXSETVAL; i++)
 	{
+		if (setA.data[i] == true || setB.data[i] == true)
+		{
+			unionSet.insertElement(i);
+		}
 		// CHECK TO SEE IF ELEMENT EXISTS IN EITHER 
 		// ADD ELEMENT TOO THE UNION SET 
 		// FIGURE OUT WHERE THE SET SHOULD GO
 		// PROTECT AGAINST SELF ASSIGNMENT PARAMETERS
 	}
+	cout << "unionSet =" << unionSet.toString() << endl;
 }
 
 string IntSet::toString() const
