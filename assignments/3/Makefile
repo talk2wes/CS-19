@@ -30,4 +30,4 @@ run:
 
 rerun: clean $(EXECTUTABLE) run 
 
-crerun: clear clean $(EXECTUTABLE) run 
+crerun: clear rerun

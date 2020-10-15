@@ -4,14 +4,27 @@
 
 void IntSet::insertElement(int num)
 {
-  if (num >= 0 && num <= MAXSETVAL)
+  if (num >= 0 && num <= MAXSETVAL && data != NULL)
     	data[num] = true;
+}
+
+void IntSet::deleteElement(int num)
+{
+	if (num >= 0 && num <= MAXSETVAL && data != NULL)
+		data[num] = false;
 }
 
 IntSet::~IntSet()
 {
-	delete []data;
+	if (data != NULL)
+		delete []data;
 }
+
+void 	IntSet::unionOf(IntSet &, IntSet &)
+{
+	cout << "definition here " ;
+}
+
 string IntSet::toString() const
 {
 	string 		str = "";
@@ -19,6 +32,8 @@ string IntSet::toString() const
 	string 		temp;
 
 	str.append("{");
+	if (data == NULL)
+		return (str);
 	for (int i = 0; i <= MAXSETVAL; i++)
 	{
 		if (data[i] == true)

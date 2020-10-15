@@ -14,15 +14,16 @@
 	  IntSet(int =-1,int =-1, int =-1, int =-1, int =-1);
 	  void 				insertElement(int);
 	  string 			toString() const;
-	  ~IntSet();
+	  					~IntSet();
+	  int static 		getMax(){ return MAXSETVAL; }
+	  void				deleteElement(int);
+	  void 				unionOf(IntSet &, IntSet &);
+
 	  /*
-	  ~IntSet(); 
-	   void deleteElement(int);
-	  void unionOf(IntSet &, IntSet &);
 	  void intersectionOf(IntSet &, IntSet &);
 	  bool equals(const IntSet &) const;
 	  bool hasElement(int) const;
-	  int static getMax(){ return MAXSETVAL; }
+	  
 	  */
 	private:
 	  static const int 	MAXSETVAL=10; // largest legal value
