@@ -9,8 +9,9 @@ main(){
   is1.toString();
   is2.insertElement(3);
   is2.insertElement(7);
-  is3.insertElement(5);
-  is2.toString();
+  string temp = is2.toString();
+  cout << "is3:" << temp  <<  endl; 
+  is3.toString();
 
 
   /*

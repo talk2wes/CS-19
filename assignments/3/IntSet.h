@@ -3,6 +3,8 @@
 	
 	#include <iostream>			//cout 
 	#include <cstdlib>			//rand
+	#include <string>
+			//itoa
 	using namespace std;
 
 	// CS19: C++ Integer Sets Program
@@ -12,10 +14,10 @@
 	  IntSet(int =-1,int =-1, int =-1, int =-1, int =-1);
 	  void 				insertElement(int);
 	  string 			toString() const;
-
+	  ~IntSet();
 	  /*
-	  ~IntSet();  
-	  void deleteElement(int);
+	  ~IntSet(); 
+	   void deleteElement(int);
 	  void unionOf(IntSet &, IntSet &);
 	  void intersectionOf(IntSet &, IntSet &);
 	  bool equals(const IntSet &) const;
