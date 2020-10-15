@@ -23,9 +23,9 @@ IntSet::~IntSet()
 
 bool 	IntSet::hasElement(int num) const
 {
-	//write CODE HERE
-	 if (num >= 0 && num <= MAXSETVAL)
-	 	cout << "test" ; 
+	 if (num >= 0 && num <= MAXSETVAL && data != NULL)
+	 	if (data[num] == true)
+			return (true);
 	 return (false);
 }
 
