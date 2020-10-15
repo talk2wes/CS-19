@@ -18,11 +18,11 @@
 	  int static 		getMax(){ return MAXSETVAL; }
 	  void				deleteElement(int);
 	  void 				unionOf(IntSet &, IntSet &);
+	  bool 				hasElement(int) const;
 
 	  /*
 	  void intersectionOf(IntSet &, IntSet &);
 	  bool equals(const IntSet &) const;
-	  bool hasElement(int) const;
 	  
 	  */
 	private:

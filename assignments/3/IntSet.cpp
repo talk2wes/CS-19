@@ -21,12 +21,27 @@ IntSet::~IntSet()
 	data = NULL;
 }
 
+bool 	IntSet::hasElement(int num) const
+{
+	//write CODE HERE
+	 if (num >= 0 && num <= MAXSETVAL)
+	 	cout << "test" ; 
+	 return (false);
+}
+
+
 void 	IntSet::unionOf(IntSet& setA, IntSet& setB)
 {
 	/*See how can I protect against null references
 	if (setA == NULL || setB == NULL)
 		return;
 	*/
+
+	//Protect against self-refecence & NULL data
+	if ((data == setA.data && data == setB.data) ||
+		(setA.data == NULL) || (setB.data == NULL))
+		return;
+	
 	IntSet unionSet;
 	cout << "unionSet=" << unionSet.toString() << endl; 
 	for (int i = 0; i <= MAXSETVAL; i++)
