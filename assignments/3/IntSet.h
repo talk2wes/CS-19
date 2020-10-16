@@ -1,13 +1,10 @@
-////////////////////////////////////////////////////////////////////////////////
 #ifndef FILLIT_H
 	#define FILLIT_H
 	
 	#include <iostream>			//cout 
 	#include <cstdlib>			//rand
 	#include <string>
-			//itoa
 	
-	//using namespace std;
 	// CS19: C++ Integer Sets Program
 	// Starter Code by Steve J. Hodges
 	class IntSet{
