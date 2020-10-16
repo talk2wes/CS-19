@@ -44,6 +44,19 @@ void	IntSet::intersectionOf(IntSet& setA, IntSet& setB)
 	}
 }
 
+bool	IntSet::equals(const IntSet& setA) const
+{
+	//returns false if either have NULL data
+	if (this->data == NULL || setA.data == NULL)
+		return false;
+	for (int i = 0; i <= MAXSETVAL; i++)
+	{
+		if (this->data[i] != setA.data[i])
+			return (false);
+	}
+	return (true);
+}
+
 
 void 	IntSet::unionOf(IntSet& setA, IntSet& setB)
 {
