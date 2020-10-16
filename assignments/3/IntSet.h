@@ -1,3 +1,4 @@
+////////////////////////////////////////////////////////////////////////////////
 #ifndef FILLIT_H
 	#define FILLIT_H
 	
@@ -11,20 +12,17 @@
 	// Starter Code by Steve J. Hodges
 	class IntSet{
 	public:
-	  IntSet(int =-1,int =-1, int =-1, int =-1, int =-1);
-	  void 				insertElement(int);
-	  std::string 		toString() const;
-	  					~IntSet();
-	  int static 		getMax(){ return MAXSETVAL; }
-	  void				deleteElement(int);
-	  void 				unionOf(IntSet &, IntSet &);
-	  bool 				hasElement(int) const;
+	  		IntSet(int =-1,int =-1, int =-1, int =-1, int =-1);
+	  		~IntSet();
+	  void 		insertElement(int);
+	  std::string 	toString() const;
+	  int static 	getMax(){ return MAXSETVAL; }
+	  void		deleteElement(int);
+	  void 		unionOf(IntSet &, IntSet &);
+	  bool 		hasElement(int) const;
+	  void		intersectionOf(IntSet &, IntSet &);
+	  bool		equals(const IntSet &) const;
 
-	  /*
-	  void intersectionOf(IntSet &, IntSet &);
-	  bool equals(const IntSet &) const;
-	  
-	  */
 	private:
 	  static const int 	MAXSETVAL=1000; // largest legal value
 	  bool 				*data; // array to store elements

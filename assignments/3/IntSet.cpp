@@ -29,6 +29,21 @@ bool 	IntSet::hasElement(int num) const
 	 return (false);
 }
 
+void	IntSet::intersectionOf(IntSet& setA, IntSet& setB)
+{
+	//Protect against self-refecence & NULL data
+	if ((data == setA.data && data == setB.data) ||
+		(setA.data == NULL) || (setB.data == NULL))
+		return;
+	for (int i = 0; i <= MAXSETVAL; i++)
+	{
+		if (setA.data[i] == true && setB.data[i] == true)
+			this->insertElement(i);
+		else
+			this->deleteElement(i);
+	}
+}
+
 
 void 	IntSet::unionOf(IntSet& setA, IntSet& setB)
 {
@@ -36,21 +51,13 @@ void 	IntSet::unionOf(IntSet& setA, IntSet& setB)
 	if ((data == setA.data && data == setB.data) ||
 		(setA.data == NULL) || (setB.data == NULL))
 		return;
-	
-	IntSet unionSet;
-	cout << "unionSet=" << unionSet.toString() << endl; 
 	for (int i = 0; i <= MAXSETVAL; i++)
 	{
 		if (setA.data[i] == true || setB.data[i] == true)
-		{
-			unionSet.insertElement(i);
-		}
-		// CHECK TO SEE IF ELEMENT EXISTS IN EITHER 
-		// ADD ELEMENT TOO THE UNION SET 
-		// FIGURE OUT WHERE THE SET SHOULD GO
-		// PROTECT AGAINST SELF ASSIGNMENT PARAMETERS
+			this->insertElement(i);
+		else
+			this->deleteElement(i);
 	}
-	cout << "unionSet =" << unionSet.toString() << endl;
 }
 
 string IntSet::toString() const

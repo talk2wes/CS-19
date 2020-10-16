@@ -3,21 +3,23 @@ using namespace std;
 // NOTE: this main function test routine must be used for your final submission
 // this is not an exhaustive test, so you'll still need to do your own testing!
 int main(){  
-  IntSet is1(1,6), is2(5, 8, 9), is3(22, 45, 99);
-  is1.toString();
-  is2.insertElement(20);
-  is2.insertElement(7);
-  cout << "is1 =" << is1.toString() << endl; 
-  cout << "is2 =" << is2.toString() << endl; 
-  cout << "is3 =" << is3.toString() << endl;
-  cout << "remove 5 & 8 from is2\n";
-  is2.deleteElement(5);
-  is2.deleteElement(8);
-  cout << "is2 =" << is2.toString() << endl;
-  cout << "does is2 have " << 7 << " : " << is2.hasElement(7) << endl;
-  cout << "does is2 have " << 3 << " : " << is2.hasElement(3) << endl;
+	IntSet is1(1,6), is2(5, 8, 9), is3(22, 45, 99);
+	is1.toString();
+	is2.insertElement(20);
+	is2.insertElement(7);
+	cout << "is1 =" << is1.toString() << endl; 
+	cout << "is2 =" << is2.toString() << endl;
+	cout << "is3 =" << is3.toString() << endl;
+
+	cout << "remove 5 & 8 from is2\n";
+	is2.deleteElement(5);
+	is2.deleteElement(8);
+	cout << "is2 =" << is2.toString() << endl;
+	//cout << "does is2 have " << 7 << " : " << is2.hasElement(7) << endl;
+	//cout << "does is2 have " << 3 << " : " << is2.hasElement(3) << endl;
 
   is1.unionOf(is2, is3);
+  	cout << "is1=" << is1.toString() << endl;
 
 
 
