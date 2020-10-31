@@ -4,10 +4,30 @@ static const int MIN_DIF = 7;	//Minimum difference to be a match
 
 int		findDiff(std::string strArr[], std::string userInput)
 {
+	std::cout << "FIND DIFF ::::::\n";
 	int diff = 0;
-	//for the length of the string
-		//compare each value incrementing the diff conditionally
-	return -1; //dummy value
+	int biggest = 0;
+	int biggestInd = 0;
+	for (int i = 0; i < strArr->length(); i++)
+	{
+		diff = 0;
+		//std::cout << "strArr[" << i << "]=\t" << strArr[i] <<std::endl;
+		//std::cout << "userInput=\t" << userInput << std::endl;
+		for (int j = 0 ; j < strArr[i].length(); j++)
+		{
+			if (strArr[i][j] != userInput[j])
+				diff++;
+			//std::cout << "diff:" << diff << std::endl;
+		}
+		if (diff > biggest)
+		{
+			biggest = diff;
+			biggestInd = i;
+		}
+	}
+
+	std::cout << "biggestInd:" << biggestInd << std::endl;
+	return biggest; 
 }
 
 int		findIndex(std::string strArr[], std::string userInput)
