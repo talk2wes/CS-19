@@ -1,7 +1,12 @@
+// Wesley Johanson	Pengo: wjohanso		Talk2wes@gmail.com
+// Filename: pattern.cpp
+// Assignment 4: Pattern Matching
+
 #include <iostream> 
 #include <fstream>
-static const int MIN_DIF = 7;	//Minimum difference to be a match
+static const int MAX_DIF = 7;		//Minimum str difference to be a match
 
+// Counts the number of different characters that differ in the two strings
 int		findDiff(std::string str, std::string userInput)
 {
 	int diff = 0;
@@ -11,53 +16,37 @@ int		findDiff(std::string str, std::string userInput)
 	return diff;
 }	
 
-/*
-	//std::cout << "FIND DIFF ::::::\n";
-	int diff = 0;
-	int smallest = 1000;
-	int smallestInd = -1;
-	for (int i = 0; i < strArr->length(); i++)
-	{
-		diff = 0;
-		//std::cout << "\nstrArr[" << i << "]=\t" << strArr[i] <<std::endl;
-		//std::cout << "userInput=\t" << userInput << std::endl;
-		for (int j = 0 ; j < strArr[i].length(); j++)
-			if (strArr[i][j] != userInput[j])
-				diff++;
-		//std::cout << "diff:" << diff << std::endl;
-		if (diff < smallest)
-		{
-			smallest = diff;
-			smallestInd = i;
-		}
-	}
-	//std::cout << "smallestInd:" << smallestInd << std::endl;
-	if (smallest <= MIN_DIF)
-		return smallestInd;
-	return -1;
-}
-*/
-
+// Finds the index of the string that is most simliar to userInput
 int		findIndex(std::string strArr[], std::string userInput)
 {
 	int smallestDiff = 10000;
 	int smallestInd = -1;
+
+	//determine if the input is of the correct specifications
+	if (userInput.length() != 32) 
+		return -1;
+	for (int i = 0; i < userInput.length(); i++)
+		if (userInput[i] < '0' || userInput[i] > '1')
+			return -1;
+	
+	//Find the most similar string
 	for (int i = 0; i < strArr->length(); i++)
 	{
 		int diff = findDiff(strArr[i], userInput);
-		//std::cout << "diff[" << i << "] =\t" << diff << std::endl;
 		if (diff < smallestDiff)
 		{
-			//std::cout << "NEW SMALLEST FOUND\n";
 			smallestInd = i;
 			smallestDiff = diff;
 		}
 	}
-	if (smallestDiff <= MIN_DIF)
+
+	//Check if difference is below the exclusion thresold
+	if (smallestDiff <= MAX_DIF)
 		return smallestInd;
 	return -1;
 }
 
+// Opens & reads file into array. Returns the index of the most simliar string
 int		main(int argc, char** argv)
 {
 	const static std::string FILENAME = "patterns.txt";
@@ -76,14 +65,6 @@ int		main(int argc, char** argv)
 	while (fin >> tempStr)
 		strArr[i++] = tempStr;
 	
-	//testing that I actually have it in an array;
-	/*
-	i = 0;
-	while (i < 32) 
-		std::cout << "strArr:"<< strArr[i++] << std::endl;
-	*/
-
-	//Keep running each cin input into the program until EOF 
 	tempStr = "";
 	while (std::cin >> tempStr)
 	{
@@ -93,7 +74,6 @@ int		main(int argc, char** argv)
 		else
 			std::cout << index << "\n";
 	}
-
-	fin.close(); //DON'T CLOSE THE FILE UNTIL THE END DUMBASS >.>
+	fin.close();
 }
 
