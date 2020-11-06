@@ -43,7 +43,8 @@ int		findIndex(std::string strArr[], std::string userInput)
 	//Check if difference is below the exclusion thresold
 	if (smallestDiff <= MAX_DIF)
 		return smallestInd;
-	return -1;
+	else
+		return -1;
 }
 
 // Opens & reads file into array. Returns the index of the most simliar string
@@ -52,6 +53,42 @@ int		main(int argc, char** argv)
 	const static std::string FILENAME = "patterns.txt";
 	std::string 	strArr[32];
 	std::string 	tempStr = "";
+	
+
+	int i = 0;
+	strArr[i++] = "00000000000000000000000000000000";
+	strArr[i++] = "01010101010101010101010101010101";
+	strArr[i++] = "00110011001100110011001100110011";
+	strArr[i++] = "01100110011001100110011001100110";
+	strArr[i++] = "00001111000011110000111100001111";
+	strArr[i++] = "01011010010110100101101001011010";
+	strArr[i++] = "00111100001111000011110000111100";
+	strArr[i++] = "01101001011010010110100101101001";
+	strArr[i++] = "00000000111111110000000011111111";
+	strArr[i++] = "01010101101010100101010110101010";
+	strArr[i++] = "00110011110011000011001111001100";
+	strArr[i++] = "01100110100110010110011010011001";
+	strArr[i++] = "00001111111100000000111111110000";
+	strArr[i++] = "01011010101001010101101010100101";
+	strArr[i++] = "00111100110000110011110011000011";
+	strArr[i++] = "01101001100101100110100110010110";
+	strArr[i++] = "00000000000000001111111111111111";
+	strArr[i++] = "01010101010101011010101010101010";
+	strArr[i++] = "00110011001100111100110011001100";
+	strArr[i++] = "01100110011001101001100110011001";
+	strArr[i++] = "00001111000011111111000011110000";
+	strArr[i++] = "01011010010110101010010110100101";
+	strArr[i++] = "00111100001111001100001111000011";
+	strArr[i++] = "01101001011110011001011010010110";
+	strArr[i++] = "00000000111111111111111100000000";
+	strArr[i++] = "01010101101010101010101001010101";
+	strArr[i++] = "00110011110011001100110000110011";
+	strArr[i++] = "01100110100110011001100101100110";
+	strArr[i++] = "00001111111100001111000000001111";
+	strArr[i++] = "01011010101001011010010101011010";
+	strArr[i++] = "00111100110000111100001100111100";
+	strArr[i++] = "01101001100101101001011001101001";
+	/*
 	std::ifstream 	fin;
 	std::ofstream 	fout;
 
@@ -64,7 +101,8 @@ int		main(int argc, char** argv)
 	int i = 0;
 	while (fin >> tempStr)
 		strArr[i++] = tempStr;
-	
+	fin.close();
+	*/	
 	tempStr = "";
 	while (std::cin >> tempStr)
 	{
@@ -74,6 +112,5 @@ int		main(int argc, char** argv)
 		else
 			std::cout << index << "\n";
 	}
-	fin.close();
 }
 
