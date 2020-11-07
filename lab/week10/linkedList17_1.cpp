@@ -1,4 +1,8 @@
+#include <cstdlib>
 #include <iostream>	//cout
+#include <istream>
+#include <ostream>
+#include <string>
 
 class LinkNode
 {
@@ -33,11 +37,11 @@ class List
 			LinkNode* temp = first;
 			while (temp->next)
 			{
-				std::cout << *(temp->data) << std::endl;
+				std::cout << *(temp->data) << " ";
 				temp = temp->next;
 			}
 			//print the last one
-			std::cout << temp->data << std::endl;	
+			std::cout << *(temp->data) << std::endl;	
 		}
 
 		void insertFront(int* n)
@@ -78,15 +82,23 @@ class List
 		LinkNode* first;
 };
 
-int		main()
+using std::cout;
+int		main(int argc, char** argv)
 {
-	int* nums;
-	nums = new int[10];
-	nums[0] = 5;
+	List* myNums = new List();	
+	std::string temp = "";
+	int flip = 1;
+	while (std::cin >> temp)
+	{
+		if (flip == 1)
+			myNums->insertFront(new int(stoi(temp)));
+		else
+			myNums->insertBack(new int(stoi(temp)));
+		flip *= -1;
+		myNums->print();
+	}
+
+		
 	
-	List* myNums = new List();
-	myNums->insertFront(&nums[0]);
-	myNums->print();
-	
-	std::cout << "helloworld\n";
+	std::cout << "titties\n";
 }
