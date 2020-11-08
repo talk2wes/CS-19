@@ -60,6 +60,48 @@ class List
 			first = newNode;
 		}
 
+		//Reverses the order of the linked list. Convention is the LL is
+		//in order of left to right. Head->...->0
+		void reverse()
+		{
+			LinkNode* left;
+			LinkNode* right;
+
+			//ignore empty lists & lists of size one 
+			if ( !first || !(first->next) ) 
+				return;
+
+			//LinkedList setup: left->first->(other nodes) 
+			left = first;
+			first = left->next;
+			left->next = 0;
+			
+			//2+ nodes loop
+			while (true)
+			{
+				if (first->next == 0)
+				{//if there are no more nodes on the right
+					first->next = left;
+					return;
+				}else 
+				{//for nodes of 3+ nodes, this will run this 
+					right = first->next;
+					first->next = left;
+					left = first;
+					first = right;
+				}
+			}
+		}
+		
+		//Sorts the linklist into descending order
+		LinkNode* selectionSort(LinkNode* head)
+		{
+			LinkNode *temp = head;
+			LinkNode *newHead = 0;
+			return (newHead);
+		}
+
+
 		void insertBack(int* n)
 		{
 			//make a new node
@@ -82,6 +124,7 @@ class List
 		LinkNode* first;
 };
 
+
 using std::cout;
 int		main(int argc, char** argv)
 {
@@ -96,9 +139,8 @@ int		main(int argc, char** argv)
 			myNums->insertBack(new int(stoi(temp)));
 		flip *= -1;
 		myNums->print();
+		myNums->reverse();
+		myNums->print();
 	}
-
-		
-	
 	std::cout << "titties\n";
 }
