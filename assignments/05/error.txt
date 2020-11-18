@@ -1,0 +1,14 @@
+Cinco.cpp:20:8: error: no viable overloaded '='
+        words = new std::set<std::string>();
+        ~~~~~ ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/set:536:10: note: candidate function not viable: no known conversion from 'std::set<std::string> *' (aka 'set<basic_string<char, char_traits<char>, allocator<char> > > *') to 'const std::__1::set<std::__1::basic_string<char>, std::__1::less<std::__1::basic_string<char> >, std::__1::allocator<std::__1::basic_string<char> > >' for 1st argument; dereference the argument with *
+    set& operator=(const set& __s)
+         ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/set:592:10: note: candidate function not viable: no known conversion from 'std::set<std::string> *' (aka 'set<basic_string<char, char_traits<char>, allocator<char> > > *') to 'std::__1::set<std::__1::basic_string<char>, std::__1::less<std::__1::basic_string<char> >, std::__1::allocator<std::__1::basic_string<char> > >' for 1st argument; dereference the argument with *
+    set& operator=(set&& __s)
+         ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/set:585:10: note: candidate function not viable: no known conversion from 'std::set<std::string> *' (aka 'set<basic_string<char, char_traits<char>, allocator<char> > > *') to 'initializer_list<std::__1::set<std::__1::basic_string<char>, std::__1::less<std::__1::basic_string<char> >, std::__1::allocator<std::__1::basic_string<char> > >::value_type>' (aka 'initializer_list<std::__1::basic_string<char> >') for 1st argument
+    set& operator=(initializer_list<value_type> __il)
+         ^
+1 error generated.
+make: *** [Cinco.o] Error 1
