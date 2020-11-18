@@ -26,7 +26,7 @@ Dictionary::Dictionary(char* filename){
 
 	std::cout << "test 999\n";
 	//should us a try-catch statement incase the file doesn't open 
-	if (filename){
+	if (strcmp(filename, "")){
 		std::cout << "custom filename\n";
 		file.open(filename);
 	}else{
