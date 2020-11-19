@@ -81,7 +81,29 @@ class Cinco{
 
 void	Cinco::play(){
 	//STOP 
-	
+	std::cout << "Cinco! Assignment 5\nby Wesley Johanson\n"
+		<< "I'm thinking of a five letter word...\nyour guess? ";
+	std::string myGuess = "";
+	while (std::cin >> myGuess){
+		if (dict->validWord(myGuess)){ // valid words
+			numOfGuesses++;
+			//removed the count matching letters condition from the if statement
+			if (countInPlaceLetters(myGuess) == WORD_LENGTH)
+				std::cout << "Correct! You got it in " << numOfGuesses << " guesses.\n";
+			if (cheated)
+				std::cout << "but only by cheating\n";
+			return ; //correct guess
+		}else{ // invalid words
+			if (myGuess.compare("xxxxx") == 0){
+				numOfGuesses++;
+				std::cout << "Secret word : " << secret << "\n";
+				cheated = true;
+			}else{
+				std::cout << "I don't know that word\n";
+			}
+		}
+		std::cout << "your guess? \n";
+	}
 }
 
 Cinco::Cinco(std::string filename){
