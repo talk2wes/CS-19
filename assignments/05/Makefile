@@ -2,7 +2,7 @@
 ## Filename: Makefile
 ## Assignment 5: Cinco  
 
-EXECTUTABLE=Cinco
+EXECTUTABLE=p5
 STANDARD=-std=c++11
 #FILE1=IntSet
 MAIN=Cinco

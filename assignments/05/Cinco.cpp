@@ -1,3 +1,8 @@
+/* Wesley Johanson	Pengo: wjohanso		talk2wes@gmail.com
+ * Filename: Cinco.cpp
+ * Assignment 5: Cinco game 
+ */
+
 #include <iostream>
 #include <vector>
 #include <set>
@@ -6,8 +11,17 @@
 #include <fstream>
 #include <string>
 
-//I need to make sure that the input is NOT CASE SENSITIVE
+/**
+ * This program runs a game called Cinco. A game where the computer guess a 
+ * random five letter word and the user has to guess what that word is.
+ *
+ * Words are loaded into the dictionary with a text file. 
+ * @author Wesley Johanson, talk2wes@gmail.com
+ * @Since java 14.0.2 2020-07-14
+ */
 
+/* The dictionary class stores words from file into a set. Secret words are 
+ * of length 5 and have no repeating characters & are stored into a vector */
 class Dictionary{
 	public:
 		Dictionary(char* filename);
@@ -19,35 +33,35 @@ class Dictionary{
 		std::vector<std::string> 	secrets;
 		const std::string DEFAULT_FILENAME = "cinco-words.txt";
 		const int 		WORD_LENGTH = 5; 
-		//length of all words in dictionary ^^ 
 };
 
+//Default Constructor
 Dictionary::Dictionary(char* filename){
 	srand(time(0));
 	std::fstream file;
 	
-	std::cout << "test 999\n";
 	//should us a try-catch statement incase the file doesn't open 
 	if (strcmp(filename, "")){
-		std::cout << "custom filename\n";
 		file.open(filename);
 	}else{
-		std::cout << "default filename\n";
 		file.open(DEFAULT_FILENAME);
 	}
-	
+	//if (file.fail())
+		
 	std::string temp = "";
 	while (file >> temp){
 		words.insert(temp);	
-		//std::cout << temp << "\n";
 		if (this->isLegalSecretWord(temp))
 			secrets.push_back(temp);
 	}
 	file.close();
 }
 
+// Determines if the word passed is an element of the set of words in dictionary
 bool	Dictionary::validWord(std::string word){ return (words.count(word)); }
 
+// Determines if word a valid secret word. A secret word is an element of the
+// set, has length 5 and no repeating characters. 
 bool	Dictionary::isLegalSecretWord(std::string word){
 	if (word.length() != WORD_LENGTH)
 		return false;
@@ -60,12 +74,12 @@ bool	Dictionary::isLegalSecretWord(std::string word){
 	return true;
 }
 
+// Returns a randomly selected secret word
 std::string	Dictionary::getLegalSecretWord(){ 
 	return (secrets[rand() % secrets.size()]); 
 }
 
-// CINCO CLASS 
-
+//Class that uses dictionary and runs the game
 class Cinco{
 	public:
 		Cinco(std::string filename = "");
@@ -78,19 +92,30 @@ class Cinco{
 		int		numOfGuesses;
 		bool		cheated;
 		std::string	secret;
+		//std::string	toLower();
 		const int	WORD_LENGTH = 5;
 };
 
+/*
+std::string	toLower(std::string word){
+	std::string lowercaseWord = "";
+	for (int i = 0; i < word.length(); i++){
+		if (word[i] >= 'A' && word[i] <= 'Z'){
+			
+		}
+	}
+}
+*/
+
+// Main game loop
 void	Cinco::play(){
-	//STOP 
-	std::cout << "secret : " << secret << "\n";
 	std::cout << "Cinco! Assignment 5\nby Wesley Johanson\n"
 		<< "I'm thinking of a five letter word...\nyour guess? ";
 	std::string myGuess = "";
 	while (std::cin >> myGuess){
+		//myGuess = std::tolower(myGuess);
 		if (dict->validWord(myGuess)){ // valid words
 			numOfGuesses++;
-			//removed the count matching letters condition from the if statement
 			if (countInPlaceLetters(myGuess) == WORD_LENGTH){
 				std::cout << "Correct! You got it in " 
 				<< numOfGuesses << " guesses.\n";
@@ -115,6 +140,7 @@ void	Cinco::play(){
 	}
 }
 
+// Default Constructor
 Cinco::Cinco(std::string filename){
 	dict = new Dictionary((char*) filename.c_str());
 	cheated = false;
@@ -122,11 +148,14 @@ Cinco::Cinco(std::string filename){
 	numOfGuesses = 0;
 }
 
+// Destructor
 Cinco::~Cinco(){
 	delete[] dict;
 	dict = NULL;
 }
 
+// Returns the number of letters that are elements of both 
+// 'guess' and the secret word
 int	Cinco::countMatchingLetters(std::string guess){
 	int diffs = 0;
 	int lettersInAlphabet = 26;
@@ -147,6 +176,8 @@ int	Cinco::countMatchingLetters(std::string guess){
 	return diffs;
 }
 
+// Returns the number of in place characters that both 'guess' and secret
+// have.
 int 	Cinco::countInPlaceLetters(std::string guess){
 	int total = 0;
 	for (int i = 0; i < WORD_LENGTH; i++)
@@ -154,7 +185,8 @@ int 	Cinco::countInPlaceLetters(std::string guess){
 	return total;
 }
 
-
+//Main function just to initiate the program. Command line argument can be 
+//passed to use other text files as dictionaries. 
 int	main(int argc, char** argv){
 
 	class Cinco* game;
