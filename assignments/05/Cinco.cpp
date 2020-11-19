@@ -39,7 +39,7 @@ Dictionary::Dictionary(char* filename){
 	std::string temp = "";
 	while (file >> temp){
 		words.insert(temp);	
-		std::cout << temp << "\n";
+		//std::cout << temp << "\n";
 		if (this->isLegalSecretWord(temp))
 			secrets.push_back(temp);
 	}
@@ -60,7 +60,9 @@ bool	Dictionary::isLegalSecretWord(std::string word){
 	return true;
 }
 
-std::string	Dictionary::getLegalSecretWord(){ return (secrets[rand() % secrets.size()]); }
+std::string	Dictionary::getLegalSecretWord(){ 
+	return (secrets[rand() % secrets.size()]); 
+}
 
 // CINCO CLASS 
 
@@ -81,6 +83,7 @@ class Cinco{
 
 void	Cinco::play(){
 	//STOP 
+	std::cout << "secret : " << secret << "\n";
 	std::cout << "Cinco! Assignment 5\nby Wesley Johanson\n"
 		<< "I'm thinking of a five letter word...\nyour guess? ";
 	std::string myGuess = "";
@@ -88,11 +91,17 @@ void	Cinco::play(){
 		if (dict->validWord(myGuess)){ // valid words
 			numOfGuesses++;
 			//removed the count matching letters condition from the if statement
-			if (countInPlaceLetters(myGuess) == WORD_LENGTH)
-				std::cout << "Correct! You got it in " << numOfGuesses << " guesses.\n";
-			if (cheated)
-				std::cout << "but only by cheating\n";
-			return ; //correct guess
+			if (countInPlaceLetters(myGuess) == WORD_LENGTH){
+				std::cout << "Correct! You got it in " 
+				<< numOfGuesses << " guesses.\n";
+				if (cheated)
+					std::cout << "but only by cheating\n";
+				return ; //correct guess
+			}
+			std::cout << "Matching: " << 
+				countMatchingLetters(myGuess) << "\n" << 
+				"In-Place: " <<
+				countInPlaceLetters(myGuess) << "\n";
 		}else{ // invalid words
 			if (myGuess.compare("xxxxx") == 0){
 				numOfGuesses++;
@@ -102,7 +111,7 @@ void	Cinco::play(){
 				std::cout << "I don't know that word\n";
 			}
 		}
-		std::cout << "your guess? \n";
+		std::cout << "your guess? ";
 	}
 }
 
