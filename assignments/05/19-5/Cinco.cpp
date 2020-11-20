@@ -2,8 +2,7 @@
  * Filename: Cinco.cpp
  * Assignment 5: Cinco game 
  * 
- * Status: working and tested. I have NOT implemented the case sensitivity yet. 
- * the code will not find a word in dictionary if spelt with capital letters.
+ * Status: working and tested.
  */
 
 #include <iostream>
@@ -90,15 +89,29 @@ class Cinco{
 		bool		cheated;
 		std::string	secret;
 		const int	WORD_LENGTH = 5;
+		std::string*	toLower(std::string*);
 };
+
+//converts string to lowercase 
+std::string*	Cinco::toLower(std::string* word){
+	std::string* lowercase = new std::string();
+
+	
+	for (int i = 0; i < WORD_LENGTH; i++){
+		if ((*word)[i] >= 'A' && (*word)[i] <= 'Z')
+			(*word)[i] = (*word)[i] + ('z' - 'Z');
+
+	}
+	return word;
+}
 
 // Main game loop
 void	Cinco::play(){
 	std::cout << "CS19: Cinco! Assignment 5\nby Wesley Johanson\n"
 		<< "I'm thinking of a five letter word...\nyour guess? ";
-	std::string myGuess = "";
+	std::string myGuess =  "";
 	while (std::cin >> myGuess){
-		//myGuess = std::tolower(myGuess);
+		myGuess = *(toLower(&myGuess));
 		if (dict->validWord(myGuess)){ // valid words
 			numOfGuesses++;
 			if (countInPlaceLetters(myGuess) == WORD_LENGTH){
