@@ -8,5 +8,5 @@
 #include "splicer.h"
 
 int	main(int argc, char** argv){
-	std::cout << "testing 1\n";
+		std::cout << "testing 1\n";
  }

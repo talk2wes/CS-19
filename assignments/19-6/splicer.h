@@ -6,9 +6,6 @@
 	#define SPLICER_H
 	#include <iostream>
 	
-	class		List{
-
-	};
 
 	class		LinkNode{
 		friend class List;
@@ -18,6 +15,22 @@
 	private:
 		LinkNode*	next;
 		std::string*	data;
+	};
+
+	class		List{
+	public:
+		List(){ first = 0; size = 0; }
+		bool		isEmpty(){ return first == 0 ; }
+		~List(); // deallocates all objects in list
+		int		getSize(); // returns length of the list
+		std::string	toString(); //returns contents as a string
+		void		print(); //print each item in list
+		bool 		insert(std::string); //insert at front
+		bool		splice(std::string find, std::string replace);
+
+	private:
+		LinkNode*	first;
+		int		size;
 	};
 #endif
 
