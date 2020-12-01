@@ -7,6 +7,14 @@
 
 #include "splicer.h"
 
+using std::cout;
+
 int	main(int argc, char** argv){
-		std::cout << "testing 1\n";
+	cout << "testing 1\n";
+	List* myList = new List();	
+	cout << "size = " << myList->getSize() << "\n";	
+	std::string* tempstr = new std::string("ABC");
+
+	//myList->insert(*tempstr);
+	
  }

@@ -2,23 +2,23 @@
 ## Filename: Makefile
 ## Assignment 6: Splicer
 
-#Name of executable file that is produced 
-EXECTUTABLE=p5
+#Name of executable file that is psplicer
+EXECTUTABLE=p6
 #Compiler Standard
 STANDARD=-std=c++11 	
 #MAIN is name of .cpp file that has main function in it
 MAIN=main
-#Additional files to main 
-#FILE1=IntSet		
+#Additional *.cpp files to main 
+FILE1=splicer
 
-$(EXECTUTABLE): $(MAIN).o 
+$(EXECTUTABLE): $(MAIN).o  $(FILE1).o
 	g++ $(STANDARD) $(MAIN).o -o $(EXECTUTABLE)
 
 $(MAIN).o:
 	g++ $(STANDARD) -c $(MAIN).cpp
 
-#$(FILE1).o:
-#	g++ $(STANDARD) -c $(FILE1).cpp
+$(FILE1).o:
+	g++ $(STANDARD) -c $(FILE1).cpp
 
 clean:
 	rm *.o $(EXECTUTABLE)

@@ -2,6 +2,9 @@
  * Filename: splicer.cpp
  * Assignment 6: Splicer */
 
+
+#include "splicer.h"
+
 /* A public function named splice(string find, string replace) that takes two 
  * strings called find and replace. Do nothing if the find string is empty, 
  * or longer than one character. If the find string is exactly one character, 
@@ -25,9 +28,20 @@
  * the resulting list would be A-C-G-T-A-G (size 6) */
 
 bool 	List::insert(std::string s){
-	if (!s)
-		return;
-	
+	return false;	
 
 }
+
+List::~List(){
+
+}
+
+std::string	List::toString(){
+	std::string* str = new std::string();
+	return *str;
+}
+
+void	List::print(){
+}
+
 
