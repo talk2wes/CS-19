@@ -2,8 +2,8 @@
  * Filename: splicer.cpp
  * Assignment 6: Splicer */
 
-
 #include "splicer.h"
+using std::cout;
 
 /* A public function named splice(string find, string replace) that takes two 
  * strings called find and replace. Do nothing if the find string is empty, 
@@ -28,20 +28,92 @@
  * the resulting list would be A-C-G-T-A-G (size 6) */
 
 bool 	List::insert(std::string s){
-	return false;	
+	cout << "string passed = " << s << "\n";
+	//idk how to check is s is a null string. OHH it's not a pointer 
 
+	if (s.size() == 0) // size = 0 case 
+		return false;
+	//case size = 1 OR > 1 
+	List* newList = new List( *strToList(s) );
+	newList->append(this);
+	this->first = newList->first;
+	this->size = this->size + newList->size;
+	newList->first = 0;
+	newList->size = 0;
+	cout << "this list = ";
+	this->print(); //testing 
+	newList->~List();
+	return true;	
 }
 
-List::~List(){
+/* links newList at the end of this list */
+void	List::append(List* newList){
+	LinkNode* lastNode = this->first;
+	while (lastNode->next)
+		lastNode = lastNode->next;
+	lastNode->next = newList->first;
+}
 
+List*	List::strToList(std::string str){
+	List* newList = new List();
+	LinkNode* newNode;
+	for (int i = 0; i < str.size(); i++){
+		newNode = new LinkNode();
+		//make case insensitive & exclude invalid characters 
+		//std::string character = str.substr(i, 1);
+		newNode->data = new std::string( str.substr(i, 1) );
+		
+		cout << "\n";
+		cout << "*(newNode->data) = " << *(newNode->data) << "\n";
+		if (newList->size == 0){
+			newList->first = newNode;
+			newList->size++;
+		}else{ //append the newNode to the end of the list 
+			LinkNode* lastNode = newList->first;
+			while (lastNode->next)
+				lastNode = lastNode->next;
+			lastNode->next = newNode;
+			newList->size++;
+		}
+		cout << "newList = ";
+		newList->print(); //testing 
+	}
+	return newList;	
+}
+
+
+List::~List(){
+	cout << "the destructor was called \n";
+	if (first != 0){
+		while(first){
+			LinkNode* temp = first->next;
+			cout << "deleting: " << *(first->data) << "\n";
+			delete first;
+			first = temp;
+		}
+	}
 }
 
 std::string	List::toString(){
-	std::string* str = new std::string();
-	return *str;
+	std::string str = "";
+	LinkNode* temp = first;
+	while (temp){
+		str.append( *(temp->data) );
+		temp = temp->next;
+	}
+	return str;
 }
 
 void	List::print(){
+	LinkNode* temp = first;
+	cout << "{";
+	while (temp){
+		if (temp != first)
+			cout << ", ";
+		cout << *(temp->data);
+		temp = temp->next;
+	}
+	cout << "}\n";
 }
 
 

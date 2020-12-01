@@ -5,7 +5,7 @@
 #ifndef SPLICER_H
 	#define SPLICER_H
 	#include <iostream>
-	
+	#include <string> 	
 
 	class		LinkNode{
 		friend class List;
@@ -27,6 +27,9 @@
 		void		print(); //print each item in list
 		bool 		insert(std::string); //insert at front
 		bool		splice(std::string find, std::string replace);
+		List*		strToList(std::string);
+		void		append(List*);
+		static bool	validChar(std::string); //
 
 	private:
 		LinkNode*	first;
