@@ -17,6 +17,40 @@ using std::cout;
  * be G-A-T-C-G-T-G-A-T-G (size 10) */
 
  bool	List::splice(std::string find, std::string replace){
+	 //what happens when repalce is a blank string? 
+	LinkNode* tempNode = first;
+	LinkNode* prev = 0; 
+	if (find.size() == 0){
+		return false; //do nothing if find string is blank
+	}else if (find.size() > 1){
+		return false; //extra credit	
+	}
+	
+	//serach for the character in the List
+	while (tempNode != 0 && (*(tempNode->data)).compare(find) != 0){
+		prev = tempNode;
+		tempNode = tempNode->next;
+	}
+	if (tempNode == 0)
+		return false; //character not found
+	
+	//replace the character with the new node
+	List* tempList = strToList(replace); 
+	if (prev != 0)
+		prev->next = tempList->first;
+	tempList->append(tempNode->next);
+	this->size += tempList->size;
+	if (prev == 0)
+		this->first = tempList->first;
+		
+	//clean up 
+	tempList->first = 0;
+	prev = 0;
+	tempList->~List();
+	tempNode->~LinkNode();
+
+
+	cout << "end of splice\n";
 	return true;
  }
 
@@ -28,7 +62,7 @@ using std::cout;
  * the resulting list would be A-C-G-T-A-G (size 6) */
 
 bool 	List::insert(std::string s){
-	cout << "string passed = " << s << "\n";
+	//cout << "string passed = " << s << "\n";
 	//idk how to check is s is a null string. OHH it's not a pointer 
 
 	if (s.size() == 0) // size = 0 case 
@@ -40,8 +74,8 @@ bool 	List::insert(std::string s){
 	this->size = this->size + newList->size;
 	newList->first = 0;
 	newList->size = 0;
-	cout << "this list = ";
-	this->print(); //testing 
+	//cout << "this list = ";
+	//this->print(); //testing 
 	newList->~List();
 	return true;	
 }
@@ -54,6 +88,14 @@ void	List::append(List* newList){
 	lastNode->next = newList->first;
 }
 
+void 	List::append(LinkNode* newNode){
+	LinkNode* lastNode = this->first; 
+	while (lastNode->next)
+		lastNode = lastNode->next;
+	lastNode->next = newNode;
+}
+	
+
 List*	List::strToList(std::string str){
 	List* newList = new List();
 	LinkNode* newNode;
@@ -63,8 +105,8 @@ List*	List::strToList(std::string str){
 		//std::string character = str.substr(i, 1);
 		newNode->data = new std::string( str.substr(i, 1) );
 		
-		cout << "\n";
-		cout << "*(newNode->data) = " << *(newNode->data) << "\n";
+		//cout << "\n";
+		//cout << "*(newNode->data) = " << *(newNode->data) << "\n";
 		if (newList->size == 0){
 			newList->first = newNode;
 			newList->size++;
@@ -75,19 +117,19 @@ List*	List::strToList(std::string str){
 			lastNode->next = newNode;
 			newList->size++;
 		}
-		cout << "newList = ";
-		newList->print(); //testing 
+		//cout << "newList = ";
+		//newList->print(); //testing 
 	}
 	return newList;	
 }
 
 
 List::~List(){
-	cout << "the destructor was called \n";
+	//cout << "the destructor was called \n";
 	if (first != 0){
 		while(first){
 			LinkNode* temp = first->next;
-			cout << "deleting: " << *(first->data) << "\n";
+			//cout << "deleting: " << *(first->data) << "\n";
 			delete first;
 			first = temp;
 		}

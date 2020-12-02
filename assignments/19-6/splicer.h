@@ -29,6 +29,7 @@
 		bool		splice(std::string find, std::string replace);
 		List*		strToList(std::string);
 		void		append(List*);
+		void		append(LinkNode*);
 		static bool	validChar(std::string); //
 
 	private:

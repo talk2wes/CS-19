@@ -10,15 +10,22 @@
 using std::cout;
 
 int	main(int argc, char** argv){
-		cout << "testing \n";
 		List* myList = new List();	
-		cout << "initial size = " << myList->getSize() << "\n";	
+		std::string temp = "";
+		myList->insert("ABCDEFGHIJKLMNOP");
 		myList->print();
-		myList->insert("ABC");
-		cout << "size: " << myList->getSize() << "\n";
-		myList->insert("RETARD");
-		cout << "toString = " << myList->toString() << "\n";
-		cout << "deleting myList now\n";
-		myList->~List();
-		
- }
+		cout << "size = " << myList->getSize() << "\n";
+		/*
+		while (std::cin >> temp){
+			myList->insert(temp);
+			myList->print();
+			cout << myList->getSize() << "\n";
+
+		} */
+		while (std::cin >> temp){
+			myList->splice(temp, "Piss");
+			cout << "return from splice\n";
+			myList->print();
+			cout << "size = " << myList->getSize() << "\n";
+		}
+}
