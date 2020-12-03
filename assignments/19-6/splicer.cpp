@@ -36,21 +36,19 @@ using std::cout;
 	
 	//replace the character with the new node
 	List* tempList = strToList(replace); 
-	if (prev != 0)
-		prev->next = tempList->first;
-	tempList->append(tempNode->next);
-	this->size += tempList->size;
 	if (prev == 0)
 		this->first = tempList->first;
-		
+	else
+		prev->next = tempList->first;
+	tempList->append(tempNode->next);
+	this->size += tempList->size - 1;
+	
 	//clean up 
 	tempList->first = 0;
 	prev = 0;
 	tempList->~List();
 	tempNode->~LinkNode();
 
-
-	cout << "end of splice\n";
 	return true;
  }
 
@@ -62,7 +60,6 @@ using std::cout;
  * the resulting list would be A-C-G-T-A-G (size 6) */
 
 bool 	List::insert(std::string s){
-	//cout << "string passed = " << s << "\n";
 	//idk how to check is s is a null string. OHH it's not a pointer 
 
 	if (s.size() == 0) // size = 0 case 
@@ -74,8 +71,6 @@ bool 	List::insert(std::string s){
 	this->size = this->size + newList->size;
 	newList->first = 0;
 	newList->size = 0;
-	//cout << "this list = ";
-	//this->print(); //testing 
 	newList->~List();
 	return true;	
 }
@@ -102,11 +97,8 @@ List*	List::strToList(std::string str){
 	for (int i = 0; i < str.size(); i++){
 		newNode = new LinkNode();
 		//make case insensitive & exclude invalid characters 
-		//std::string character = str.substr(i, 1);
 		newNode->data = new std::string( str.substr(i, 1) );
 		
-		//cout << "\n";
-		//cout << "*(newNode->data) = " << *(newNode->data) << "\n";
 		if (newList->size == 0){
 			newList->first = newNode;
 			newList->size++;
@@ -117,8 +109,6 @@ List*	List::strToList(std::string str){
 			lastNode->next = newNode;
 			newList->size++;
 		}
-		//cout << "newList = ";
-		//newList->print(); //testing 
 	}
 	return newList;	
 }
@@ -128,10 +118,9 @@ List::~List(){
 	//cout << "the destructor was called \n";
 	if (first != 0){
 		while(first){
-			LinkNode* temp = first->next;
-			//cout << "deleting: " << *(first->data) << "\n";
+			LinkNode* nextNode= first->next;
 			delete first;
-			first = temp;
+			first = nextNode;
 		}
 	}
 }
@@ -139,6 +128,9 @@ List::~List(){
 std::string	List::toString(){
 	std::string str = "";
 	LinkNode* temp = first;
+	str.append("(");
+	str.append(std::to_string(size));
+	str.append(")");
 	while (temp){
 		str.append( *(temp->data) );
 		temp = temp->next;

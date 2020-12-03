@@ -6,6 +6,7 @@
 	#define SPLICER_H
 	#include <iostream>
 	#include <string> 	
+	#include <cctype> //toUpper toLower etc. 
 
 	class		LinkNode{
 		friend class List;
