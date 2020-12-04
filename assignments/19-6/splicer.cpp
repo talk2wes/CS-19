@@ -2,7 +2,7 @@
  * Filename: splicer.cpp
  * Assignment 6: Splicer 
  * 
- * Status: UNKNOWN
+ * Status: Working & tested 
  */
 
 #include "splicer.h"
@@ -62,7 +62,6 @@ using std::cout;
  * string, one per node, into the list in the same order as the string. For 
  * example if you insert "ACGT" into a list that contains A-G (size 2), then 
  * the resulting list would be A-C-G-T-A-G (size 6) */
-
 bool 	List::insert(std::string s){
 	s = upperCase(s);
 	if (s.size() == 0) 
@@ -105,7 +104,6 @@ std::string 	List::upperCase(std::string lowCaseStr){
 	}
 	return upCaseStr;
 }
-
 
 /* Converts strings to lists, such that each character is a node*/
 List*	List::strToList(std::string str){
