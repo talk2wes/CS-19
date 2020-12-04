@@ -7,6 +7,9 @@
 	#include <iostream>
 	#include <string> 	
 	#include <cctype> //toUpper toLower etc. 
+	#include <stdlib.h>
+	
+	using 	std::string;
 
 	class		LinkNode{
 		friend class List;
@@ -31,7 +34,7 @@
 		List*		strToList(std::string);
 		void		append(List*);
 		void		append(LinkNode*);
-		static bool	validChar(std::string); //
+		static string	upperCase(std::string);
 
 	private:
 		LinkNode*	first;

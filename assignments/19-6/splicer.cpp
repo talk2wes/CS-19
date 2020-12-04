@@ -1,6 +1,9 @@
 /* Wesley Johanson	Pengo: wjohanson	Talk2wes@gmail.com
  * Filename: splicer.cpp
- * Assignment 6: Splicer */
+ * Assignment 6: Splicer 
+ * 
+ * Status: UNKNOWN
+ */
 
 #include "splicer.h"
 using std::cout;
@@ -15,13 +18,14 @@ using std::cout;
  * present at the time of the command. For example if the list contains 
  * A-C-G-T-A-G (size 6) and you splice("A", "GAT") the resulting list would 
  * be G-A-T-C-G-T-G-A-T-G (size 10) */
-
  bool	List::splice(std::string find, std::string replace){
-	 //what happens when repalce is a blank string? 
 	LinkNode* tempNode = first;
 	LinkNode* prev = 0; 
-	if (find.size() == 0){
-		return false; //do nothing if find string is blank
+	find = upperCase(find);
+	replace = upperCase(replace);
+	
+	if (find.size() == 0 || replace.size() == 0){
+		return false; //invalid string
 	}else if (find.size() > 1){
 		return false; //extra credit	
 	}
@@ -60,11 +64,9 @@ using std::cout;
  * the resulting list would be A-C-G-T-A-G (size 6) */
 
 bool 	List::insert(std::string s){
-	//idk how to check is s is a null string. OHH it's not a pointer 
-
-	if (s.size() == 0) // size = 0 case 
+	s = upperCase(s);
+	if (s.size() == 0) 
 		return false;
-	//case size = 1 OR > 1 
 	List* newList = new List( *strToList(s) );
 	newList->append(this);
 	this->first = newList->first;
@@ -75,7 +77,7 @@ bool 	List::insert(std::string s){
 	return true;	
 }
 
-/* links newList at the end of this list */
+/* links nodes of newList at the end of 'this' list */
 void	List::append(List* newList){
 	LinkNode* lastNode = this->first;
 	while (lastNode->next)
@@ -83,22 +85,37 @@ void	List::append(List* newList){
 	lastNode->next = newList->first;
 }
 
+/* links nodes of newList at the end of 'this' list */
 void 	List::append(LinkNode* newNode){
 	LinkNode* lastNode = this->first; 
 	while (lastNode->next)
 		lastNode = lastNode->next;
 	lastNode->next = newNode;
 }
-	
 
+/* Converts lowercase strings to uppercase. Returns "" if invalid characters
+ * are found */
+std::string 	List::upperCase(std::string lowCaseStr){
+	std::string	upCaseStr = "";
+	
+	for (int i = 0; i < lowCaseStr.size(); i++){
+		if ( !isalpha(lowCaseStr[i]) )
+			return ""; //invalid char found
+		upCaseStr.push_back((char) toupper(lowCaseStr[i]));
+	}
+	return upCaseStr;
+}
+
+
+/* Converts strings to lists, such that each character is a node*/
 List*	List::strToList(std::string str){
 	List* newList = new List();
 	LinkNode* newNode;
+	str = upperCase(str);
 	for (int i = 0; i < str.size(); i++){
 		newNode = new LinkNode();
-		//make case insensitive & exclude invalid characters 
 		newNode->data = new std::string( str.substr(i, 1) );
-		
+
 		if (newList->size == 0){
 			newList->first = newNode;
 			newList->size++;
@@ -113,9 +130,8 @@ List*	List::strToList(std::string str){
 	return newList;	
 }
 
-
+/* The destructor*/
 List::~List(){
-	//cout << "the destructor was called \n";
 	if (first != 0){
 		while(first){
 			LinkNode* nextNode= first->next;
@@ -125,6 +141,7 @@ List::~List(){
 	}
 }
 
+/* Converts list to a string. Includes size in parethesis as first characters*/
 std::string	List::toString(){
 	std::string str = "";
 	LinkNode* temp = first;
@@ -138,6 +155,7 @@ std::string	List::toString(){
 	return str;
 }
 
+/* Prints the contents of the list in set format { A, B, ..., etc.} */
 void	List::print(){
 	LinkNode* temp = first;
 	cout << "{";

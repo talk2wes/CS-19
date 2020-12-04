@@ -43,6 +43,7 @@ int	main(int argc, char** argv){
 						cout << "toString: " << 
 							myList->toString() << "\n";
 						cout << "size = " << myList->getSize() << "\n";
+						myList->print();
 					} 
 					break;
 				case 3:
