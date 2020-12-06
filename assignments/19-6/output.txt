@@ -10,18 +10,19 @@ splice	"B"	"C"
 
 initial list before loop: {B, C, D, B, A}
 size = 5
-letter: B	index = 0
+letter: B	testingNode is @ index = 0
 letter: C
 letter: D
 letter: B
 letter: A
 replace head
 	tempList b4: {C}
+experimental fix
 	tempList after: {C, C, D, B, A}
 
-	BEFORE INCREMENT : {C, C, D, B, A}
+	BEFORE INCREMENT{C, C, D, B, A}
 size = 5
-letter: C	 prev index = 0
+letter: C	testingNode is @ index = 0	 prev index = 0
 letter: C
 letter: D
 letter: B
@@ -29,7 +30,7 @@ letter: A
 
 	initial list after loop: {C, C, D, B, A}
 size = 5
-letter: C
+letter: C	 prev index = 0
 letter: C	testingNode is @ index = 1
 letter: D
 letter: B
@@ -37,15 +38,15 @@ letter: A
 
 initial list before loop: {C, C, D, B, A}
 size = 5
-letter: C
-letter: C	index = 1
+letter: C	 prev index = 0
+letter: C	testingNode is @ index = 1
 letter: D
 letter: B
 letter: A
 
-	BEFORE INCREMENT : {C, C, D, B, A}
+	BEFORE INCREMENT{C, C, D, B, A}
 size = 5
-letter: C
+letter: C	 prev index = 0
 letter: C	testingNode is @ index = 1
 letter: D
 letter: B
@@ -63,11 +64,11 @@ initial list before loop: {C, C, D, B, A}
 size = 5
 letter: C
 letter: C	 prev index = 1
-letter: D	index = 2
+letter: D	testingNode is @ index = 2
 letter: B
 letter: A
 
-	BEFORE INCREMENT : {C, C, D, B, A}
+	BEFORE INCREMENT{C, C, D, B, A}
 size = 5
 letter: C
 letter: C	 prev index = 1
@@ -88,18 +89,19 @@ size = 5
 letter: C
 letter: C
 letter: D	 prev index = 2
-letter: B	index = 3
+letter: B	testingNode is @ index = 3
 letter: A
 replace body/tail
 	tempList b4: {C}
+experimental fix
 	tempList after: {C, A}
 
-	BEFORE INCREMENT : {C, C, D, C, A}
+	BEFORE INCREMENT{C, C, D, C, A}
 size = 5
 letter: C
 letter: C
 letter: D
-letter: C	 prev index = 3
+letter: C	testingNode is @ index = 3	 prev index = 3
 letter: A
 
 	initial list after loop: {C, C, D, C, A}
@@ -107,7 +109,7 @@ size = 5
 letter: C
 letter: C
 letter: D
-letter: C
+letter: C	 prev index = 3
 letter: A	testingNode is @ index = 4
 
 initial list before loop: {C, C, D, C, A}
@@ -115,15 +117,15 @@ size = 5
 letter: C
 letter: C
 letter: D
-letter: C
-letter: A	index = 4
+letter: C	 prev index = 3
+letter: A	testingNode is @ index = 4
 
-	BEFORE INCREMENT : {C, C, D, C, A}
+	BEFORE INCREMENT{C, C, D, C, A}
 size = 5
 letter: C
 letter: C
 letter: D
-letter: C
+letter: C	 prev index = 3
 letter: A	testingNode is @ index = 4
 
 	initial list after loop: {C, C, D, C, A}
@@ -140,28 +142,29 @@ splice	"C"	"CC"
 
 initial list before loop: {C, C, D, C, A}
 size = 5
-letter: C	index = 0
+letter: C	testingNode is @ index = 0
 letter: C
 letter: D
 letter: C
 letter: A
 replace head
 	tempList b4: {C, C}
+experimental fix
 	tempList after: {C, C, C, D, C, A}
 
-	BEFORE INCREMENT : {C, C, C, D, C, A}
+	BEFORE INCREMENT{C, C, C, D, C, A}
+size = 6
+letter: C
+letter: C	testingNode is @ index = 1	 prev index = 1
+letter: C
+letter: D
+letter: C
+letter: A
+
+	initial list after loop: {C, C, C, D, C, A}
 size = 6
 letter: C
 letter: C	 prev index = 1
-letter: C
-letter: D
-letter: C
-letter: A
-
-	initial list after loop: {C, C, C, D, C, A}
-size = 6
-letter: C
-letter: C
 letter: C	testingNode is @ index = 2
 letter: D
 letter: C
@@ -170,129 +173,143 @@ letter: A
 initial list before loop: {C, C, C, D, C, A}
 size = 6
 letter: C
-letter: C
-letter: C	index = 2
+letter: C	 prev index = 1
+letter: C	testingNode is @ index = 2
 letter: D
 letter: C
 letter: A
 replace body/tail
 	tempList b4: {C, C}
+experimental fix
 	tempList after: {C, C, D, C, A}
 
-	BEFORE INCREMENT : {C, C, C, D, C, A}
+	BEFORE INCREMENT{C, C, C, C, D, C, A}
 size = 7
 letter: C
 letter: C
-letter: C	testingNode is @ index = 2
+letter: C
+letter: C	testingNode is @ index = 3	 prev index = 3
 letter: D
 letter: C
 letter: A
 
-	initial list after loop: {C, C, C, D, C, A}
+	initial list after loop: {C, C, C, C, D, C, A}
 size = 7
 letter: C
 letter: C
-letter: C	 prev index = 2
-letter: D	testingNode is @ index = 3
+letter: C
+letter: C	 prev index = 3
+letter: D	testingNode is @ index = 4
 letter: C
 letter: A
 
-initial list before loop: {C, C, C, D, C, A}
+initial list before loop: {C, C, C, C, D, C, A}
 size = 7
 letter: C
 letter: C
-letter: C	 prev index = 2
-letter: D	index = 3
+letter: C
+letter: C	 prev index = 3
+letter: D	testingNode is @ index = 4
 letter: C
 letter: A
 
-	BEFORE INCREMENT : {C, C, C, D, C, A}
+	BEFORE INCREMENT{C, C, C, C, D, C, A}
 size = 7
 letter: C
 letter: C
-letter: C	 prev index = 2
-letter: D	testingNode is @ index = 3
+letter: C
+letter: C	 prev index = 3
+letter: D	testingNode is @ index = 4
 letter: C
 letter: A
 
-	initial list after loop: {C, C, C, D, C, A}
+	initial list after loop: {C, C, C, C, D, C, A}
 size = 7
 letter: C
 letter: C
 letter: C
-letter: D	 prev index = 3
-letter: C	testingNode is @ index = 4
+letter: C
+letter: D	 prev index = 4
+letter: C	testingNode is @ index = 5
 letter: A
 
-initial list before loop: {C, C, C, D, C, A}
+initial list before loop: {C, C, C, C, D, C, A}
 size = 7
 letter: C
 letter: C
 letter: C
-letter: D	 prev index = 3
-letter: C	index = 4
+letter: C
+letter: D	 prev index = 4
+letter: C	testingNode is @ index = 5
 letter: A
 replace body/tail
 	tempList b4: {C, C}
+experimental fix
 	tempList after: {C, C, A}
 
-	BEFORE INCREMENT : {C, C, C, D, C, C, A}
+	BEFORE INCREMENT{C, C, C, C, D, C, C, A}
 size = 8
+letter: C
 letter: C
 letter: C
 letter: C
 letter: D
 letter: C
-letter: C	 prev index = 5
+letter: C	testingNode is @ index = 6	 prev index = 6
 letter: A
 
-	initial list after loop: {C, C, C, D, C, C, A}
+	initial list after loop: {C, C, C, C, D, C, C, A}
 size = 8
+letter: C
 letter: C
 letter: C
 letter: C
 letter: D
 letter: C
-letter: C
-letter: A	testingNode is @ index = 6
+letter: C	 prev index = 6
+letter: A	testingNode is @ index = 7
 
-initial list before loop: {C, C, C, D, C, C, A}
+initial list before loop: {C, C, C, C, D, C, C, A}
 size = 8
+letter: C
 letter: C
 letter: C
 letter: C
 letter: D
 letter: C
-letter: C
-letter: A	index = 6
+letter: C	 prev index = 6
+letter: A	testingNode is @ index = 7
 
-	BEFORE INCREMENT : {C, C, C, D, C, C, A}
+	BEFORE INCREMENT{C, C, C, C, D, C, C, A}
 size = 8
+letter: C
 letter: C
 letter: C
 letter: C
 letter: D
 letter: C
-letter: C
-letter: A	testingNode is @ index = 6
+letter: C	 prev index = 6
+letter: A	testingNode is @ index = 7
 
-	initial list after loop: {C, C, C, D, C, C, A}
+	initial list after loop: {C, C, C, C, D, C, C, A}
 size = 8
+letter: C
 letter: C
 letter: C
 letter: C
 letter: D
 letter: C
 letter: C
-letter: A	 prev index = 6
-end splice: {C, C, C, D, C, C, A}
-(8)CCCDCCA
+letter: A	 prev index = 7
+end splice: {C, C, C, C, D, C, C, A}
+(8)CCCCDCCA
 
 splice	"C"	"BAB"
 
-initial list before loop: {C, C, C, D, C, C, A}
+initial list before loop: {C, C, C, C, D, C, C, A}
 size = 8
-letter: C	index = 0
+letter: C	testingNode is @ index = 0
+letter: C
 letter: C
 letter: C
 letter: D
@@ -301,1842 +318,42 @@ letter: C
 letter: A
 replace head
 	tempList b4: {B, A, B}
-	tempList after: {B, A, B, C, C, D, C, C, A}
+experimental fix
+	tempList after: {B, A, B, C, C, C, D, C, C, A}
 
-	BEFORE INCREMENT : {B, A, B, C, C, D, C, C, A}
+	BEFORE INCREMENT{B, A, B, C, C, C, D, C, C, A}
+size = 10
+letter: B
+letter: A
+letter: B	testingNode is @ index = 2	 prev index = 2
+letter: C
+letter: C
+letter: C
+letter: D
+letter: C
+letter: C
+letter: A
+
+	initial list after loop: {B, A, B, C, C, C, D, C, C, A}
 size = 10
 letter: B
 letter: A
 letter: B	 prev index = 2
-letter: C
-letter: C
-letter: D
-letter: C
-letter: C
-letter: A
-
-	initial list after loop: {B, A, B, C, C, D, C, C, A}
-size = 10
-letter: B
-letter: A
-letter: B
 letter: C	testingNode is @ index = 3
 letter: C
-letter: D
-letter: C
-letter: C
-letter: A
-
-initial list before loop: {B, A, B, C, C, D, C, C, A}
-size = 10
-letter: B
-letter: A
-letter: B
-letter: C	index = 3
-letter: C
-letter: D
-letter: C
-letter: C
-letter: A
-replace body/tail
-	tempList b4: {B, A, B}
-	tempList after: {B, A, B, C, D, C, C, A}
-
-	BEFORE INCREMENT : {B, A, B, C, C, D, C, C, A}
-size = 12
-letter: B
-letter: A
-letter: B
-letter: C	testingNode is @ index = 3
-letter: C
-letter: D
-letter: C
-letter: C
-letter: A
-
-	initial list after loop: {B, A, B, C, C, D, C, C, A}
-size = 12
-letter: B
-letter: A
-letter: B
-letter: C	 prev index = 3
-letter: C	testingNode is @ index = 4
-letter: D
-letter: C
-letter: C
-letter: A
-
-initial list before loop: {B, A, B, C, C, D, C, C, A}
-size = 12
-letter: B
-letter: A
-letter: B
-letter: C	 prev index = 3
-letter: C	index = 4
-letter: D
-letter: C
-letter: C
-letter: A
-replace body/tail
-	tempList b4: {B, A, B}
-	tempList after: {B, A, B, D, C, C, A}
-
-	BEFORE INCREMENT : {B, A, B, C, B, A, B, D, C, C, A}
-size = 14
-letter: B
-letter: A
-letter: B
-letter: C
-letter: B
-letter: A
-letter: B	 prev index = 6
-letter: D
-letter: C
-letter: C
-letter: A
-
-	initial list after loop: {B, A, B, C, B, A, B, D, C, C, A}
-size = 14
-letter: B
-letter: A
-letter: B
-letter: C
-letter: B
-letter: A
-letter: B
-letter: D	testingNode is @ index = 7
-letter: C
-letter: C
-letter: A
-
-initial list before loop: {B, A, B, C, B, A, B, D, C, C, A}
-size = 14
-letter: B
-letter: A
-letter: B
-letter: C
-letter: B
-letter: A
-letter: B
-letter: D	index = 7
-letter: C
-letter: C
-letter: A
-
-	BEFORE INCREMENT : {B, A, B, C, B, A, B, D, C, C, A}
-size = 14
-letter: B
-letter: A
-letter: B
-letter: C
-letter: B
-letter: A
-letter: B
-letter: D	testingNode is @ index = 7
-letter: C
-letter: C
-letter: A
-
-	initial list after loop: {B, A, B, C, B, A, B, D, C, C, A}
-size = 14
-letter: B
-letter: A
-letter: B
-letter: C
-letter: B
-letter: A
-letter: B
-letter: D	 prev index = 7
-letter: C	testingNode is @ index = 8
-letter: C
-letter: A
-
-initial list before loop: {B, A, B, C, B, A, B, D, C, C, A}
-size = 14
-letter: B
-letter: A
-letter: B
-letter: C
-letter: B
-letter: A
-letter: B
-letter: D	 prev index = 7
-letter: C	index = 8
-letter: C
-letter: A
-replace body/tail
-	tempList b4: {B, A, B}
-	tempList after: {B, A, B, C, A}
-
-	BEFORE INCREMENT : {B, A, B, C, B, A, B, D, B, A, B, C, A}
-size = 16
-letter: B
-letter: A
-letter: B
-letter: C
-letter: B
-letter: A
-letter: B
-letter: D
-letter: B
-letter: A
-letter: B	 prev index = 10
-letter: C
-letter: A
-
-	initial list after loop: {B, A, B, C, B, A, B, D, B, A, B, C, A}
-size = 16
-letter: B
-letter: A
-letter: B
-letter: C
-letter: B
-letter: A
-letter: B
-letter: D
-letter: B
-letter: A
-letter: B
-letter: C	testingNode is @ index = 11
-letter: A
-
-initial list before loop: {B, A, B, C, B, A, B, D, B, A, B, C, A}
-size = 16
-letter: B
-letter: A
-letter: B
-letter: C
-letter: B
-letter: A
-letter: B
-letter: D
-letter: B
-letter: A
-letter: B
-letter: C	index = 11
-letter: A
-replace body/tail
-	tempList b4: {B, A, B}
-	tempList after: {B, A, B, A}
-
-	BEFORE INCREMENT : {B, A, B, C, B, A, B, D, B, A, B, C, A}
-size = 18
-letter: B
-letter: A
-letter: B
-letter: C
-letter: B
-letter: A
-letter: B
-letter: D
-letter: B
-letter: A
-letter: B
-letter: C	testingNode is @ index = 11
-letter: A
-
-	initial list after loop: {B, A, B, C, B, A, B, D, B, A, B, C, A}
-size = 18
-letter: B
-letter: A
-letter: B
-letter: C
-letter: B
-letter: A
-letter: B
-letter: D
-letter: B
-letter: A
-letter: B
-letter: C	 prev index = 11
-letter: A	testingNode is @ index = 12
-
-initial list before loop: {B, A, B, C, B, A, B, D, B, A, B, C, A}
-size = 18
-letter: B
-letter: A
-letter: B
-letter: C
-letter: B
-letter: A
-letter: B
-letter: D
-letter: B
-letter: A
-letter: B
-letter: C	 prev index = 11
-letter: A	index = 12
-
-	BEFORE INCREMENT : {B, A, B, C, B, A, B, D, B, A, B, C, A}
-size = 18
-letter: B
-letter: A
-letter: B
-letter: C
-letter: B
-letter: A
-letter: B
-letter: D
-letter: B
-letter: A
-letter: B
-letter: C	 prev index = 11
-letter: A	testingNode is @ index = 12
-
-	initial list after loop: {B, A, B, C, B, A, B, D, B, A, B, C, A}
-size = 18
-letter: B
-letter: A
-letter: B
-letter: C
-letter: B
-letter: A
-letter: B
-letter: D
-letter: B
-letter: A
-letter: B
-letter: C
-letter: A	 prev index = 12
-end splice: {B, A, B, C, B, A, B, D, B, A, B, C, A}
-(18)BABCBABDBABCA
-
-splice	"A"	""
-
-initial list before loop: {B, A, B, C, B, A, B, D, B, A, B, C, A}
-size = 18
-letter: B	index = 0
-letter: A
-letter: B
-letter: C
-letter: B
-letter: A
-letter: B
-letter: D
-letter: B
-letter: A
-letter: B
-letter: C
-letter: A
-
-	BEFORE INCREMENT : {B, A, B, C, B, A, B, D, B, A, B, C, A}
-size = 18
-letter: B	testingNode is @ index = 0
-letter: A
-letter: B
-letter: C
-letter: B
-letter: A
-letter: B
-letter: D
-letter: B
-letter: A
-letter: B
-letter: C
-letter: A
-
-	initial list after loop: {B, A, B, C, B, A, B, D, B, A, B, C, A}
-size = 18
-letter: B	 prev index = 0
-letter: A	testingNode is @ index = 1
-letter: B
-letter: C
-letter: B
-letter: A
-letter: B
-letter: D
-letter: B
-letter: A
-letter: B
-letter: C
-letter: A
-
-initial list before loop: {B, A, B, C, B, A, B, D, B, A, B, C, A}
-size = 18
-letter: B	 prev index = 0
-letter: A	index = 1
-letter: B
-letter: C
-letter: B
-letter: A
-letter: B
-letter: D
-letter: B
-letter: A
-letter: B
-letter: C
-letter: A
-
-	BEFORE INCREMENT : {B, B, C, B, A, B, D, B, A, B, C, A}
-size = 17
-letter: B	testingNode is @ index = 0
-letter: B
-letter: C
-letter: B
-letter: A
-letter: B
-letter: D
-letter: B
-letter: A
-letter: B
-letter: C
-letter: A
-
-	initial list after loop: {B, B, C, B, A, B, D, B, A, B, C, A}
-size = 17
-letter: B	 prev index = 0
-letter: B	testingNode is @ index = 1
-letter: C
-letter: B
-letter: A
-letter: B
-letter: D
-letter: B
-letter: A
-letter: B
-letter: C
-letter: A
-
-initial list before loop: {B, B, C, B, A, B, D, B, A, B, C, A}
-size = 17
-letter: B	 prev index = 0
-letter: B	index = 1
-letter: C
-letter: B
-letter: A
-letter: B
-letter: D
-letter: B
-letter: A
-letter: B
-letter: C
-letter: A
-
-	BEFORE INCREMENT : {B, B, C, B, A, B, D, B, A, B, C, A}
-size = 17
-letter: B	 prev index = 0
-letter: B	testingNode is @ index = 1
-letter: C
-letter: B
-letter: A
-letter: B
-letter: D
-letter: B
-letter: A
-letter: B
-letter: C
-letter: A
-
-	initial list after loop: {B, B, C, B, A, B, D, B, A, B, C, A}
-size = 17
-letter: B
-letter: B	 prev index = 1
-letter: C	testingNode is @ index = 2
-letter: B
-letter: A
-letter: B
-letter: D
-letter: B
-letter: A
-letter: B
-letter: C
-letter: A
-
-initial list before loop: {B, B, C, B, A, B, D, B, A, B, C, A}
-size = 17
-letter: B
-letter: B	 prev index = 1
-letter: C	index = 2
-letter: B
-letter: A
-letter: B
-letter: D
-letter: B
-letter: A
-letter: B
-letter: C
-letter: A
-
-	BEFORE INCREMENT : {B, B, C, B, A, B, D, B, A, B, C, A}
-size = 17
-letter: B
-letter: B	 prev index = 1
-letter: C	testingNode is @ index = 2
-letter: B
-letter: A
-letter: B
-letter: D
-letter: B
-letter: A
-letter: B
-letter: C
-letter: A
-
-	initial list after loop: {B, B, C, B, A, B, D, B, A, B, C, A}
-size = 17
-letter: B
-letter: B
-letter: C	 prev index = 2
-letter: B	testingNode is @ index = 3
-letter: A
-letter: B
-letter: D
-letter: B
-letter: A
-letter: B
-letter: C
-letter: A
-
-initial list before loop: {B, B, C, B, A, B, D, B, A, B, C, A}
-size = 17
-letter: B
-letter: B
-letter: C	 prev index = 2
-letter: B	index = 3
-letter: A
-letter: B
-letter: D
-letter: B
-letter: A
-letter: B
-letter: C
-letter: A
-
-	BEFORE INCREMENT : {B, B, C, B, A, B, D, B, A, B, C, A}
-size = 17
-letter: B
-letter: B
-letter: C	 prev index = 2
-letter: B	testingNode is @ index = 3
-letter: A
-letter: B
-letter: D
-letter: B
-letter: A
-letter: B
-letter: C
-letter: A
-
-	initial list after loop: {B, B, C, B, A, B, D, B, A, B, C, A}
-size = 17
-letter: B
-letter: B
-letter: C
-letter: B	 prev index = 3
-letter: A	testingNode is @ index = 4
-letter: B
-letter: D
-letter: B
-letter: A
-letter: B
-letter: C
-letter: A
-
-initial list before loop: {B, B, C, B, A, B, D, B, A, B, C, A}
-size = 17
-letter: B
-letter: B
-letter: C
-letter: B	 prev index = 3
-letter: A	index = 4
-letter: B
-letter: D
-letter: B
-letter: A
-letter: B
-letter: C
-letter: A
-
-	BEFORE INCREMENT : {B, B, C, B, B, D, B, A, B, C, A}
-size = 16
-letter: B
-letter: B
-letter: C
-letter: B	testingNode is @ index = 3
-letter: B
-letter: D
-letter: B
-letter: A
-letter: B
-letter: C
-letter: A
-
-	initial list after loop: {B, B, C, B, B, D, B, A, B, C, A}
-size = 16
-letter: B
-letter: B
-letter: C
-letter: B	 prev index = 3
-letter: B	testingNode is @ index = 4
-letter: D
-letter: B
-letter: A
-letter: B
-letter: C
-letter: A
-
-initial list before loop: {B, B, C, B, B, D, B, A, B, C, A}
-size = 16
-letter: B
-letter: B
-letter: C
-letter: B	 prev index = 3
-letter: B	index = 4
-letter: D
-letter: B
-letter: A
-letter: B
-letter: C
-letter: A
-
-	BEFORE INCREMENT : {B, B, C, B, B, D, B, A, B, C, A}
-size = 16
-letter: B
-letter: B
-letter: C
-letter: B	 prev index = 3
-letter: B	testingNode is @ index = 4
-letter: D
-letter: B
-letter: A
-letter: B
-letter: C
-letter: A
-
-	initial list after loop: {B, B, C, B, B, D, B, A, B, C, A}
-size = 16
-letter: B
-letter: B
-letter: C
-letter: B
-letter: B	 prev index = 4
-letter: D	testingNode is @ index = 5
-letter: B
-letter: A
-letter: B
-letter: C
-letter: A
-
-initial list before loop: {B, B, C, B, B, D, B, A, B, C, A}
-size = 16
-letter: B
-letter: B
-letter: C
-letter: B
-letter: B	 prev index = 4
-letter: D	index = 5
-letter: B
-letter: A
-letter: B
-letter: C
-letter: A
-
-	BEFORE INCREMENT : {B, B, C, B, B, D, B, A, B, C, A}
-size = 16
-letter: B
-letter: B
-letter: C
-letter: B
-letter: B	 prev index = 4
-letter: D	testingNode is @ index = 5
-letter: B
-letter: A
-letter: B
-letter: C
-letter: A
-
-	initial list after loop: {B, B, C, B, B, D, B, A, B, C, A}
-size = 16
-letter: B
-letter: B
-letter: C
-letter: B
-letter: B
-letter: D	 prev index = 5
-letter: B	testingNode is @ index = 6
-letter: A
-letter: B
-letter: C
-letter: A
-
-initial list before loop: {B, B, C, B, B, D, B, A, B, C, A}
-size = 16
-letter: B
-letter: B
-letter: C
-letter: B
-letter: B
-letter: D	 prev index = 5
-letter: B	index = 6
-letter: A
-letter: B
-letter: C
-letter: A
-
-	BEFORE INCREMENT : {B, B, C, B, B, D, B, A, B, C, A}
-size = 16
-letter: B
-letter: B
-letter: C
-letter: B
-letter: B
-letter: D	 prev index = 5
-letter: B	testingNode is @ index = 6
-letter: A
-letter: B
-letter: C
-letter: A
-
-	initial list after loop: {B, B, C, B, B, D, B, A, B, C, A}
-size = 16
-letter: B
-letter: B
-letter: C
-letter: B
-letter: B
-letter: D
-letter: B	 prev index = 6
-letter: A	testingNode is @ index = 7
-letter: B
-letter: C
-letter: A
-
-initial list before loop: {B, B, C, B, B, D, B, A, B, C, A}
-size = 16
-letter: B
-letter: B
-letter: C
-letter: B
-letter: B
-letter: D
-letter: B	 prev index = 6
-letter: A	index = 7
-letter: B
-letter: C
-letter: A
-
-	BEFORE INCREMENT : {B, B, C, B, B, D, B, B, C, A}
-size = 15
-letter: B
-letter: B
-letter: C
-letter: B
-letter: B
-letter: D
-letter: B	testingNode is @ index = 6
-letter: B
-letter: C
-letter: A
-
-	initial list after loop: {B, B, C, B, B, D, B, B, C, A}
-size = 15
-letter: B
-letter: B
-letter: C
-letter: B
-letter: B
-letter: D
-letter: B	 prev index = 6
-letter: B	testingNode is @ index = 7
-letter: C
-letter: A
-
-initial list before loop: {B, B, C, B, B, D, B, B, C, A}
-size = 15
-letter: B
-letter: B
-letter: C
-letter: B
-letter: B
-letter: D
-letter: B	 prev index = 6
-letter: B	index = 7
-letter: C
-letter: A
-
-	BEFORE INCREMENT : {B, B, C, B, B, D, B, B, C, A}
-size = 15
-letter: B
-letter: B
-letter: C
-letter: B
-letter: B
-letter: D
-letter: B	 prev index = 6
-letter: B	testingNode is @ index = 7
-letter: C
-letter: A
-
-	initial list after loop: {B, B, C, B, B, D, B, B, C, A}
-size = 15
-letter: B
-letter: B
-letter: C
-letter: B
-letter: B
-letter: D
-letter: B
-letter: B	 prev index = 7
-letter: C	testingNode is @ index = 8
-letter: A
-
-initial list before loop: {B, B, C, B, B, D, B, B, C, A}
-size = 15
-letter: B
-letter: B
-letter: C
-letter: B
-letter: B
-letter: D
-letter: B
-letter: B	 prev index = 7
-letter: C	index = 8
-letter: A
-
-	BEFORE INCREMENT : {B, B, C, B, B, D, B, B, C, A}
-size = 15
-letter: B
-letter: B
-letter: C
-letter: B
-letter: B
-letter: D
-letter: B
-letter: B	 prev index = 7
-letter: C	testingNode is @ index = 8
-letter: A
-
-	initial list after loop: {B, B, C, B, B, D, B, B, C, A}
-size = 15
-letter: B
-letter: B
-letter: C
-letter: B
-letter: B
-letter: D
-letter: B
-letter: B
-letter: C	 prev index = 8
-letter: A	testingNode is @ index = 9
-
-initial list before loop: {B, B, C, B, B, D, B, B, C, A}
-size = 15
-letter: B
-letter: B
-letter: C
-letter: B
-letter: B
-letter: D
-letter: B
-letter: B
-letter: C	 prev index = 8
-letter: A	index = 9
-
-	BEFORE INCREMENT : {B, B, C, B, B, D, B, B, C}
-size = 14
-letter: B
-letter: B
-letter: C
-letter: B
-letter: B
-letter: D
-letter: B
-letter: B
-letter: C	testingNode is @ index = 8
-
-	initial list after loop: {B, B, C, B, B, D, B, B, C}
-size = 14
-letter: B
-letter: B
-letter: C
-letter: B
-letter: B
-letter: D
-letter: B
-letter: B
-letter: C	 prev index = 8
-end splice: {B, B, C, B, B, D, B, B, C}
-(14)BBCBBDBBC
-
-splice	"F"	""
-
-initial list before loop: {B, B, C, B, B, D, B, B, C}
-size = 14
-letter: B	index = 0
-letter: B
-letter: C
-letter: B
-letter: B
-letter: D
-letter: B
-letter: B
-letter: C
-
-	BEFORE INCREMENT : {B, B, C, B, B, D, B, B, C}
-size = 14
-letter: B	testingNode is @ index = 0
-letter: B
-letter: C
-letter: B
-letter: B
-letter: D
-letter: B
-letter: B
-letter: C
-
-	initial list after loop: {B, B, C, B, B, D, B, B, C}
-size = 14
-letter: B	 prev index = 0
-letter: B	testingNode is @ index = 1
-letter: C
-letter: B
-letter: B
-letter: D
-letter: B
-letter: B
-letter: C
-
-initial list before loop: {B, B, C, B, B, D, B, B, C}
-size = 14
-letter: B	 prev index = 0
-letter: B	index = 1
-letter: C
-letter: B
-letter: B
-letter: D
-letter: B
-letter: B
-letter: C
-
-	BEFORE INCREMENT : {B, B, C, B, B, D, B, B, C}
-size = 14
-letter: B	 prev index = 0
-letter: B	testingNode is @ index = 1
-letter: C
-letter: B
-letter: B
-letter: D
-letter: B
-letter: B
-letter: C
-
-	initial list after loop: {B, B, C, B, B, D, B, B, C}
-size = 14
-letter: B
-letter: B	 prev index = 1
-letter: C	testingNode is @ index = 2
-letter: B
-letter: B
-letter: D
-letter: B
-letter: B
-letter: C
-
-initial list before loop: {B, B, C, B, B, D, B, B, C}
-size = 14
-letter: B
-letter: B	 prev index = 1
-letter: C	index = 2
-letter: B
-letter: B
-letter: D
-letter: B
-letter: B
-letter: C
-
-	BEFORE INCREMENT : {B, B, C, B, B, D, B, B, C}
-size = 14
-letter: B
-letter: B	 prev index = 1
-letter: C	testingNode is @ index = 2
-letter: B
-letter: B
-letter: D
-letter: B
-letter: B
-letter: C
-
-	initial list after loop: {B, B, C, B, B, D, B, B, C}
-size = 14
-letter: B
-letter: B
-letter: C	 prev index = 2
-letter: B	testingNode is @ index = 3
-letter: B
-letter: D
-letter: B
-letter: B
-letter: C
-
-initial list before loop: {B, B, C, B, B, D, B, B, C}
-size = 14
-letter: B
-letter: B
-letter: C	 prev index = 2
-letter: B	index = 3
-letter: B
-letter: D
-letter: B
-letter: B
-letter: C
-
-	BEFORE INCREMENT : {B, B, C, B, B, D, B, B, C}
-size = 14
-letter: B
-letter: B
-letter: C	 prev index = 2
-letter: B	testingNode is @ index = 3
-letter: B
-letter: D
-letter: B
-letter: B
-letter: C
-
-	initial list after loop: {B, B, C, B, B, D, B, B, C}
-size = 14
-letter: B
-letter: B
-letter: C
-letter: B	 prev index = 3
-letter: B	testingNode is @ index = 4
-letter: D
-letter: B
-letter: B
-letter: C
-
-initial list before loop: {B, B, C, B, B, D, B, B, C}
-size = 14
-letter: B
-letter: B
-letter: C
-letter: B	 prev index = 3
-letter: B	index = 4
-letter: D
-letter: B
-letter: B
-letter: C
-
-	BEFORE INCREMENT : {B, B, C, B, B, D, B, B, C}
-size = 14
-letter: B
-letter: B
-letter: C
-letter: B	 prev index = 3
-letter: B	testingNode is @ index = 4
-letter: D
-letter: B
-letter: B
-letter: C
-
-	initial list after loop: {B, B, C, B, B, D, B, B, C}
-size = 14
-letter: B
-letter: B
-letter: C
-letter: B
-letter: B	 prev index = 4
-letter: D	testingNode is @ index = 5
-letter: B
-letter: B
-letter: C
-
-initial list before loop: {B, B, C, B, B, D, B, B, C}
-size = 14
-letter: B
-letter: B
-letter: C
-letter: B
-letter: B	 prev index = 4
-letter: D	index = 5
-letter: B
-letter: B
-letter: C
-
-	BEFORE INCREMENT : {B, B, C, B, B, D, B, B, C}
-size = 14
-letter: B
-letter: B
-letter: C
-letter: B
-letter: B	 prev index = 4
-letter: D	testingNode is @ index = 5
-letter: B
-letter: B
-letter: C
-
-	initial list after loop: {B, B, C, B, B, D, B, B, C}
-size = 14
-letter: B
-letter: B
-letter: C
-letter: B
-letter: B
-letter: D	 prev index = 5
-letter: B	testingNode is @ index = 6
-letter: B
-letter: C
-
-initial list before loop: {B, B, C, B, B, D, B, B, C}
-size = 14
-letter: B
-letter: B
-letter: C
-letter: B
-letter: B
-letter: D	 prev index = 5
-letter: B	index = 6
-letter: B
-letter: C
-
-	BEFORE INCREMENT : {B, B, C, B, B, D, B, B, C}
-size = 14
-letter: B
-letter: B
-letter: C
-letter: B
-letter: B
-letter: D	 prev index = 5
-letter: B	testingNode is @ index = 6
-letter: B
-letter: C
-
-	initial list after loop: {B, B, C, B, B, D, B, B, C}
-size = 14
-letter: B
-letter: B
-letter: C
-letter: B
-letter: B
-letter: D
-letter: B	 prev index = 6
-letter: B	testingNode is @ index = 7
-letter: C
-
-initial list before loop: {B, B, C, B, B, D, B, B, C}
-size = 14
-letter: B
-letter: B
-letter: C
-letter: B
-letter: B
-letter: D
-letter: B	 prev index = 6
-letter: B	index = 7
-letter: C
-
-	BEFORE INCREMENT : {B, B, C, B, B, D, B, B, C}
-size = 14
-letter: B
-letter: B
-letter: C
-letter: B
-letter: B
-letter: D
-letter: B	 prev index = 6
-letter: B	testingNode is @ index = 7
-letter: C
-
-	initial list after loop: {B, B, C, B, B, D, B, B, C}
-size = 14
-letter: B
-letter: B
-letter: C
-letter: B
-letter: B
-letter: D
-letter: B
-letter: B	 prev index = 7
-letter: C	testingNode is @ index = 8
-
-initial list before loop: {B, B, C, B, B, D, B, B, C}
-size = 14
-letter: B
-letter: B
-letter: C
-letter: B
-letter: B
-letter: D
-letter: B
-letter: B	 prev index = 7
-letter: C	index = 8
-
-	BEFORE INCREMENT : {B, B, C, B, B, D, B, B, C}
-size = 14
-letter: B
-letter: B
-letter: C
-letter: B
-letter: B
-letter: D
-letter: B
-letter: B	 prev index = 7
-letter: C	testingNode is @ index = 8
-
-	initial list after loop: {B, B, C, B, B, D, B, B, C}
-size = 14
-letter: B
-letter: B
-letter: C
-letter: B
-letter: B
-letter: D
-letter: B
-letter: B
-letter: C	 prev index = 8
-end splice: {B, B, C, B, B, D, B, B, C}
-(14)BBCBBDBBC
-
-splice	"D"	""
-
-initial list before loop: {B, B, C, B, B, D, B, B, C}
-size = 14
-letter: B	index = 0
-letter: B
-letter: C
-letter: B
-letter: B
-letter: D
-letter: B
-letter: B
-letter: C
-
-	BEFORE INCREMENT : {B, B, C, B, B, D, B, B, C}
-size = 14
-letter: B	testingNode is @ index = 0
-letter: B
-letter: C
-letter: B
-letter: B
-letter: D
-letter: B
-letter: B
-letter: C
-
-	initial list after loop: {B, B, C, B, B, D, B, B, C}
-size = 14
-letter: B	 prev index = 0
-letter: B	testingNode is @ index = 1
-letter: C
-letter: B
-letter: B
-letter: D
-letter: B
-letter: B
-letter: C
-
-initial list before loop: {B, B, C, B, B, D, B, B, C}
-size = 14
-letter: B	 prev index = 0
-letter: B	index = 1
-letter: C
-letter: B
-letter: B
-letter: D
-letter: B
-letter: B
-letter: C
-
-	BEFORE INCREMENT : {B, B, C, B, B, D, B, B, C}
-size = 14
-letter: B	 prev index = 0
-letter: B	testingNode is @ index = 1
-letter: C
-letter: B
-letter: B
-letter: D
-letter: B
-letter: B
-letter: C
-
-	initial list after loop: {B, B, C, B, B, D, B, B, C}
-size = 14
-letter: B
-letter: B	 prev index = 1
-letter: C	testingNode is @ index = 2
-letter: B
-letter: B
-letter: D
-letter: B
-letter: B
-letter: C
-
-initial list before loop: {B, B, C, B, B, D, B, B, C}
-size = 14
-letter: B
-letter: B	 prev index = 1
-letter: C	index = 2
-letter: B
-letter: B
-letter: D
-letter: B
-letter: B
-letter: C
-
-	BEFORE INCREMENT : {B, B, C, B, B, D, B, B, C}
-size = 14
-letter: B
-letter: B	 prev index = 1
-letter: C	testingNode is @ index = 2
-letter: B
-letter: B
-letter: D
-letter: B
-letter: B
-letter: C
-
-	initial list after loop: {B, B, C, B, B, D, B, B, C}
-size = 14
-letter: B
-letter: B
-letter: C	 prev index = 2
-letter: B	testingNode is @ index = 3
-letter: B
-letter: D
-letter: B
-letter: B
-letter: C
-
-initial list before loop: {B, B, C, B, B, D, B, B, C}
-size = 14
-letter: B
-letter: B
-letter: C	 prev index = 2
-letter: B	index = 3
-letter: B
-letter: D
-letter: B
-letter: B
-letter: C
-
-	BEFORE INCREMENT : {B, B, C, B, B, D, B, B, C}
-size = 14
-letter: B
-letter: B
-letter: C	 prev index = 2
-letter: B	testingNode is @ index = 3
-letter: B
-letter: D
-letter: B
-letter: B
-letter: C
-
-	initial list after loop: {B, B, C, B, B, D, B, B, C}
-size = 14
-letter: B
-letter: B
-letter: C
-letter: B	 prev index = 3
-letter: B	testingNode is @ index = 4
-letter: D
-letter: B
-letter: B
-letter: C
-
-initial list before loop: {B, B, C, B, B, D, B, B, C}
-size = 14
-letter: B
-letter: B
-letter: C
-letter: B	 prev index = 3
-letter: B	index = 4
-letter: D
-letter: B
-letter: B
-letter: C
-
-	BEFORE INCREMENT : {B, B, C, B, B, D, B, B, C}
-size = 14
-letter: B
-letter: B
-letter: C
-letter: B	 prev index = 3
-letter: B	testingNode is @ index = 4
-letter: D
-letter: B
-letter: B
-letter: C
-
-	initial list after loop: {B, B, C, B, B, D, B, B, C}
-size = 14
-letter: B
-letter: B
-letter: C
-letter: B
-letter: B	 prev index = 4
-letter: D	testingNode is @ index = 5
-letter: B
-letter: B
-letter: C
-
-initial list before loop: {B, B, C, B, B, D, B, B, C}
-size = 14
-letter: B
-letter: B
-letter: C
-letter: B
-letter: B	 prev index = 4
-letter: D	index = 5
-letter: B
-letter: B
-letter: C
-
-	BEFORE INCREMENT : {B, B, C, B, B, B, B, C}
-size = 13
-letter: B
-letter: B
-letter: C
-letter: B
-letter: B	testingNode is @ index = 4
-letter: B
-letter: B
-letter: C
-
-	initial list after loop: {B, B, C, B, B, B, B, C}
-size = 13
-letter: B
-letter: B
-letter: C
-letter: B
-letter: B	 prev index = 4
-letter: B	testingNode is @ index = 5
-letter: B
-letter: C
-
-initial list before loop: {B, B, C, B, B, B, B, C}
-size = 13
-letter: B
-letter: B
-letter: C
-letter: B
-letter: B	 prev index = 4
-letter: B	index = 5
-letter: B
-letter: C
-
-	BEFORE INCREMENT : {B, B, C, B, B, B, B, C}
-size = 13
-letter: B
-letter: B
-letter: C
-letter: B
-letter: B	 prev index = 4
-letter: B	testingNode is @ index = 5
-letter: B
-letter: C
-
-	initial list after loop: {B, B, C, B, B, B, B, C}
-size = 13
-letter: B
-letter: B
-letter: C
-letter: B
-letter: B
-letter: B	 prev index = 5
-letter: B	testingNode is @ index = 6
-letter: C
-
-initial list before loop: {B, B, C, B, B, B, B, C}
-size = 13
-letter: B
-letter: B
-letter: C
-letter: B
-letter: B
-letter: B	 prev index = 5
-letter: B	index = 6
-letter: C
-
-	BEFORE INCREMENT : {B, B, C, B, B, B, B, C}
-size = 13
-letter: B
-letter: B
-letter: C
-letter: B
-letter: B
-letter: B	 prev index = 5
-letter: B	testingNode is @ index = 6
-letter: C
-
-	initial list after loop: {B, B, C, B, B, B, B, C}
-size = 13
-letter: B
-letter: B
-letter: C
-letter: B
-letter: B
-letter: B
-letter: B	 prev index = 6
-letter: C	testingNode is @ index = 7
-
-initial list before loop: {B, B, C, B, B, B, B, C}
-size = 13
-letter: B
-letter: B
-letter: C
-letter: B
-letter: B
-letter: B
-letter: B	 prev index = 6
-letter: C	index = 7
-
-	BEFORE INCREMENT : {B, B, C, B, B, B, B, C}
-size = 13
-letter: B
-letter: B
-letter: C
-letter: B
-letter: B
-letter: B
-letter: B	 prev index = 6
-letter: C	testingNode is @ index = 7
-
-	initial list after loop: {B, B, C, B, B, B, B, C}
-size = 13
-letter: B
-letter: B
-letter: C
-letter: B
-letter: B
-letter: B
-letter: B
-letter: C	 prev index = 7
-end splice: {B, B, C, B, B, B, B, C}
-(13)BBCBBBBC
-(0)
-(0)
-(1)A
-(5)BCDBA
-
-splice	""	""
-(5)BCDBA
-
-splice	"B"	"C"
-
-initial list before loop: {B, C, D, B, A}
-size = 5
-letter: B	index = 0
-letter: C
-letter: D
-letter: B
-letter: A
-replace head
-	tempList b4: {C}
-	tempList after: {C, C, D, B, A}
-
-	BEFORE INCREMENT : {C, C, D, B, A}
-size = 5
-letter: C	 prev index = 0
-letter: C
-letter: D
-letter: B
-letter: A
-
-	initial list after loop: {C, C, D, B, A}
-size = 5
-letter: C
-letter: C	testingNode is @ index = 1
-letter: D
-letter: B
-letter: A
-
-initial list before loop: {C, C, D, B, A}
-size = 5
-letter: C
-letter: C	index = 1
-letter: D
-letter: B
-letter: A
-
-	BEFORE INCREMENT : {C, C, D, B, A}
-size = 5
-letter: C
-letter: C	testingNode is @ index = 1
-letter: D
-letter: B
-letter: A
-
-	initial list after loop: {C, C, D, B, A}
-size = 5
-letter: C
-letter: C	 prev index = 1
-letter: D	testingNode is @ index = 2
-letter: B
-letter: A
-
-initial list before loop: {C, C, D, B, A}
-size = 5
-letter: C
-letter: C	 prev index = 1
-letter: D	index = 2
-letter: B
-letter: A
-
-	BEFORE INCREMENT : {C, C, D, B, A}
-size = 5
-letter: C
-letter: C	 prev index = 1
-letter: D	testingNode is @ index = 2
-letter: B
-letter: A
-
-	initial list after loop: {C, C, D, B, A}
-size = 5
-letter: C
-letter: C
-letter: D	 prev index = 2
-letter: B	testingNode is @ index = 3
-letter: A
-
-initial list before loop: {C, C, D, B, A}
-size = 5
-letter: C
-letter: C
-letter: D	 prev index = 2
-letter: B	index = 3
-letter: A
-replace body/tail
-	tempList b4: {C}
-	tempList after: {C, A}
-
-	BEFORE INCREMENT : {C, C, D, C, A}
-size = 5
-letter: C
-letter: C
-letter: D
-letter: C	 prev index = 3
-letter: A
-
-	initial list after loop: {C, C, D, C, A}
-size = 5
-letter: C
-letter: C
-letter: D
-letter: C
-letter: A	testingNode is @ index = 4
-
-initial list before loop: {C, C, D, C, A}
-size = 5
-letter: C
-letter: C
-letter: D
-letter: C
-letter: A	index = 4
-
-	BEFORE INCREMENT : {C, C, D, C, A}
-size = 5
-letter: C
-letter: C
-letter: D
-letter: C
-letter: A	testingNode is @ index = 4
-
-	initial list after loop: {C, C, D, C, A}
-size = 5
-letter: C
-letter: C
-letter: D
-letter: C
-letter: A	 prev index = 4
-end splice: {C, C, D, C, A}
-(5)CCDCA
-
-splice	"C"	"CC"
-
-initial list before loop: {C, C, D, C, A}
-size = 5
-letter: C	index = 0
-letter: C
-letter: D
-letter: C
-letter: A
-replace head
-	tempList b4: {C, C}
-	tempList after: {C, C, C, D, C, A}
-
-	BEFORE INCREMENT : {C, C, C, D, C, A}
-size = 6
-letter: C
-letter: C	 prev index = 1
-letter: C
-letter: D
-letter: C
-letter: A
-
-	initial list after loop: {C, C, C, D, C, A}
-size = 6
-letter: C
-letter: C
-letter: C	testingNode is @ index = 2
-letter: D
-letter: C
-letter: A
-
-initial list before loop: {C, C, C, D, C, A}
-size = 6
-letter: C
-letter: C
-letter: C	index = 2
-letter: D
-letter: C
-letter: A
-replace body/tail
-	tempList b4: {C, C}
-	tempList after: {C, C, D, C, A}
-
-	BEFORE INCREMENT : {C, C, C, D, C, A}
-size = 7
-letter: C
-letter: C
-letter: C	testingNode is @ index = 2
-letter: D
-letter: C
-letter: A
-
-	initial list after loop: {C, C, C, D, C, A}
-size = 7
-letter: C
-letter: C
-letter: C	 prev index = 2
-letter: D	testingNode is @ index = 3
-letter: C
-letter: A
-
-initial list before loop: {C, C, C, D, C, A}
-size = 7
-letter: C
-letter: C
-letter: C	 prev index = 2
-letter: D	index = 3
-letter: C
-letter: A
-
-	BEFORE INCREMENT : {C, C, C, D, C, A}
-size = 7
-letter: C
-letter: C
-letter: C	 prev index = 2
-letter: D	testingNode is @ index = 3
-letter: C
-letter: A
-
-	initial list after loop: {C, C, C, D, C, A}
-size = 7
-letter: C
-letter: C
-letter: C
-letter: D	 prev index = 3
-letter: C	testingNode is @ index = 4
-letter: A
-
-initial list before loop: {C, C, C, D, C, A}
-size = 7
-letter: C
-letter: C
-letter: C
-letter: D	 prev index = 3
-letter: C	index = 4
-letter: A
-replace body/tail
-	tempList b4: {C, C}
-	tempList after: {C, C, A}
-
-	BEFORE INCREMENT : {C, C, C, D, C, C, A}
-size = 8
-letter: C
-letter: C
-letter: C
-letter: D
-letter: C
-letter: C	 prev index = 5
-letter: A
-
-	initial list after loop: {C, C, C, D, C, C, A}
-size = 8
-letter: C
-letter: C
-letter: C
-letter: D
-letter: C
-letter: C
-letter: A	testingNode is @ index = 6
-
-initial list before loop: {C, C, C, D, C, C, A}
-size = 8
-letter: C
-letter: C
-letter: C
-letter: D
-letter: C
-letter: C
-letter: A	index = 6
-
-	BEFORE INCREMENT : {C, C, C, D, C, C, A}
-size = 8
-letter: C
-letter: C
-letter: C
-letter: D
-letter: C
-letter: C
-letter: A	testingNode is @ index = 6
-
-	initial list after loop: {C, C, C, D, C, C, A}
-size = 8
-letter: C
-letter: C
-letter: C
-letter: D
-letter: C
-letter: C
-letter: A	 prev index = 6
-end splice: {C, C, C, D, C, C, A}
-(8)CCCDCCA
-
-splice	"C"	"BAB"
-
-initial list before loop: {C, C, C, D, C, C, A}
-size = 8
-letter: C	index = 0
-letter: C
 letter: C
 letter: D
 letter: C
 letter: C
 letter: A
-replace head
-	tempList b4: {B, A, B}
-	tempList after: {B, A, B, C, C, D, C, C, A}
 
-	BEFORE INCREMENT : {B, A, B, C, C, D, C, C, A}
+initial list before loop: {B, A, B, C, C, C, D, C, C, A}
 size = 10
 letter: B
 letter: A
 letter: B	 prev index = 2
-letter: C
-letter: C
-letter: D
-letter: C
-letter: C
-letter: A
-
-	initial list after loop: {B, A, B, C, C, D, C, C, A}
-size = 10
-letter: B
-letter: A
-letter: B
 letter: C	testingNode is @ index = 3
 letter: C
-letter: D
-letter: C
-letter: C
-letter: A
-
-initial list before loop: {B, A, B, C, C, D, C, C, A}
-size = 10
-letter: B
-letter: A
-letter: B
-letter: C	index = 3
 letter: C
 letter: D
 letter: C
@@ -2144,191 +361,309 @@ letter: C
 letter: A
 replace body/tail
 	tempList b4: {B, A, B}
+experimental fix
+	tempList after: {B, A, B, C, C, D, C, C, A}
+
+	BEFORE INCREMENT{B, A, B, B, A, B, C, C, D, C, C, A}
+size = 12
+letter: B
+letter: A
+letter: B
+letter: B
+letter: A
+letter: B	testingNode is @ index = 5	 prev index = 5
+letter: C
+letter: C
+letter: D
+letter: C
+letter: C
+letter: A
+
+	initial list after loop: {B, A, B, B, A, B, C, C, D, C, C, A}
+size = 12
+letter: B
+letter: A
+letter: B
+letter: B
+letter: A
+letter: B	 prev index = 5
+letter: C	testingNode is @ index = 6
+letter: C
+letter: D
+letter: C
+letter: C
+letter: A
+
+initial list before loop: {B, A, B, B, A, B, C, C, D, C, C, A}
+size = 12
+letter: B
+letter: A
+letter: B
+letter: B
+letter: A
+letter: B	 prev index = 5
+letter: C	testingNode is @ index = 6
+letter: C
+letter: D
+letter: C
+letter: C
+letter: A
+replace body/tail
+	tempList b4: {B, A, B}
+experimental fix
 	tempList after: {B, A, B, C, D, C, C, A}
 
-	BEFORE INCREMENT : {B, A, B, C, C, D, C, C, A}
-size = 12
+	BEFORE INCREMENT{B, A, B, B, A, B, B, A, B, C, D, C, C, A}
+size = 14
 letter: B
 letter: A
 letter: B
-letter: C	testingNode is @ index = 3
+letter: B
+letter: A
+letter: B
+letter: B
+letter: A
+letter: B	testingNode is @ index = 8	 prev index = 8
 letter: C
 letter: D
 letter: C
 letter: C
 letter: A
 
-	initial list after loop: {B, A, B, C, C, D, C, C, A}
-size = 12
+	initial list after loop: {B, A, B, B, A, B, B, A, B, C, D, C, C, A}
+size = 14
 letter: B
 letter: A
 letter: B
-letter: C	 prev index = 3
-letter: C	testingNode is @ index = 4
+letter: B
+letter: A
+letter: B
+letter: B
+letter: A
+letter: B	 prev index = 8
+letter: C	testingNode is @ index = 9
 letter: D
 letter: C
 letter: C
 letter: A
 
-initial list before loop: {B, A, B, C, C, D, C, C, A}
-size = 12
+initial list before loop: {B, A, B, B, A, B, B, A, B, C, D, C, C, A}
+size = 14
 letter: B
 letter: A
 letter: B
-letter: C	 prev index = 3
-letter: C	index = 4
+letter: B
+letter: A
+letter: B
+letter: B
+letter: A
+letter: B	 prev index = 8
+letter: C	testingNode is @ index = 9
 letter: D
 letter: C
 letter: C
 letter: A
 replace body/tail
 	tempList b4: {B, A, B}
+experimental fix
 	tempList after: {B, A, B, D, C, C, A}
 
-	BEFORE INCREMENT : {B, A, B, C, B, A, B, D, C, C, A}
-size = 14
+	BEFORE INCREMENT{B, A, B, B, A, B, B, A, B, B, A, B, D, C, C, A}
+size = 16
 letter: B
 letter: A
 letter: B
-letter: C
 letter: B
 letter: A
-letter: B	 prev index = 6
+letter: B
+letter: B
+letter: A
+letter: B
+letter: B
+letter: A
+letter: B	testingNode is @ index = 11	 prev index = 11
 letter: D
 letter: C
 letter: C
 letter: A
 
-	initial list after loop: {B, A, B, C, B, A, B, D, C, C, A}
-size = 14
+	initial list after loop: {B, A, B, B, A, B, B, A, B, B, A, B, D, C, C, A}
+size = 16
 letter: B
 letter: A
 letter: B
-letter: C
 letter: B
 letter: A
 letter: B
-letter: D	testingNode is @ index = 7
-letter: C
-letter: C
-letter: A
-
-initial list before loop: {B, A, B, C, B, A, B, D, C, C, A}
-size = 14
 letter: B
 letter: A
 letter: B
-letter: C
 letter: B
 letter: A
-letter: B
-letter: D	index = 7
+letter: B	 prev index = 11
+letter: D	testingNode is @ index = 12
 letter: C
 letter: C
 letter: A
 
-	BEFORE INCREMENT : {B, A, B, C, B, A, B, D, C, C, A}
-size = 14
+initial list before loop: {B, A, B, B, A, B, B, A, B, B, A, B, D, C, C, A}
+size = 16
 letter: B
 letter: A
 letter: B
+letter: B
+letter: A
+letter: B
+letter: B
+letter: A
+letter: B
+letter: B
+letter: A
+letter: B	 prev index = 11
+letter: D	testingNode is @ index = 12
 letter: C
+letter: C
+letter: A
+
+	BEFORE INCREMENT{B, A, B, B, A, B, B, A, B, B, A, B, D, C, C, A}
+size = 16
 letter: B
 letter: A
 letter: B
-letter: D	testingNode is @ index = 7
+letter: B
+letter: A
+letter: B
+letter: B
+letter: A
+letter: B
+letter: B
+letter: A
+letter: B	 prev index = 11
+letter: D	testingNode is @ index = 12
 letter: C
 letter: C
 letter: A
 
-	initial list after loop: {B, A, B, C, B, A, B, D, C, C, A}
-size = 14
+	initial list after loop: {B, A, B, B, A, B, B, A, B, B, A, B, D, C, C, A}
+size = 16
 letter: B
 letter: A
 letter: B
-letter: C
 letter: B
 letter: A
 letter: B
-letter: D	 prev index = 7
-letter: C	testingNode is @ index = 8
+letter: B
+letter: A
+letter: B
+letter: B
+letter: A
+letter: B
+letter: D	 prev index = 12
+letter: C	testingNode is @ index = 13
 letter: C
 letter: A
 
-initial list before loop: {B, A, B, C, B, A, B, D, C, C, A}
-size = 14
+initial list before loop: {B, A, B, B, A, B, B, A, B, B, A, B, D, C, C, A}
+size = 16
 letter: B
 letter: A
 letter: B
-letter: C
 letter: B
 letter: A
 letter: B
-letter: D	 prev index = 7
-letter: C	index = 8
+letter: B
+letter: A
+letter: B
+letter: B
+letter: A
+letter: B
+letter: D	 prev index = 12
+letter: C	testingNode is @ index = 13
 letter: C
 letter: A
 replace body/tail
 	tempList b4: {B, A, B}
+experimental fix
 	tempList after: {B, A, B, C, A}
 
-	BEFORE INCREMENT : {B, A, B, C, B, A, B, D, B, A, B, C, A}
-size = 16
+	BEFORE INCREMENT{B, A, B, B, A, B, B, A, B, B, A, B, D, B, A, B, C, A}
+size = 18
 letter: B
 letter: A
 letter: B
-letter: C
+letter: B
+letter: A
+letter: B
+letter: B
+letter: A
+letter: B
 letter: B
 letter: A
 letter: B
 letter: D
 letter: B
 letter: A
-letter: B	 prev index = 10
+letter: B	testingNode is @ index = 15	 prev index = 15
 letter: C
 letter: A
 
-	initial list after loop: {B, A, B, C, B, A, B, D, B, A, B, C, A}
-size = 16
+	initial list after loop: {B, A, B, B, A, B, B, A, B, B, A, B, D, B, A, B, C, A}
+size = 18
 letter: B
 letter: A
 letter: B
-letter: C
+letter: B
+letter: A
+letter: B
+letter: B
+letter: A
+letter: B
 letter: B
 letter: A
 letter: B
 letter: D
 letter: B
 letter: A
-letter: B
-letter: C	testingNode is @ index = 11
+letter: B	 prev index = 15
+letter: C	testingNode is @ index = 16
 letter: A
 
-initial list before loop: {B, A, B, C, B, A, B, D, B, A, B, C, A}
-size = 16
+initial list before loop: {B, A, B, B, A, B, B, A, B, B, A, B, D, B, A, B, C, A}
+size = 18
 letter: B
 letter: A
 letter: B
-letter: C
+letter: B
+letter: A
+letter: B
+letter: B
+letter: A
+letter: B
 letter: B
 letter: A
 letter: B
 letter: D
 letter: B
 letter: A
-letter: B
-letter: C	index = 11
+letter: B	 prev index = 15
+letter: C	testingNode is @ index = 16
 letter: A
 replace body/tail
 	tempList b4: {B, A, B}
+experimental fix
 	tempList after: {B, A, B, A}
 
-	BEFORE INCREMENT : {B, A, B, C, B, A, B, D, B, A, B, C, A}
-size = 18
+	BEFORE INCREMENT{B, A, B, B, A, B, B, A, B, B, A, B, D, B, A, B, B, A, B, A}
+size = 20
 letter: B
 letter: A
 letter: B
-letter: C
+letter: B
+letter: A
+letter: B
+letter: B
+letter: A
+letter: B
 letter: B
 letter: A
 letter: B
@@ -2336,15 +671,22 @@ letter: D
 letter: B
 letter: A
 letter: B
-letter: C	testingNode is @ index = 11
+letter: B
+letter: A
+letter: B	testingNode is @ index = 18	 prev index = 18
 letter: A
 
-	initial list after loop: {B, A, B, C, B, A, B, D, B, A, B, C, A}
-size = 18
+	initial list after loop: {B, A, B, B, A, B, B, A, B, B, A, B, D, B, A, B, B, A, B, A}
+size = 20
 letter: B
 letter: A
 letter: B
-letter: C
+letter: B
+letter: A
+letter: B
+letter: B
+letter: A
+letter: B
 letter: B
 letter: A
 letter: B
@@ -2352,15 +694,22 @@ letter: D
 letter: B
 letter: A
 letter: B
-letter: C	 prev index = 11
-letter: A	testingNode is @ index = 12
+letter: B
+letter: A
+letter: B	 prev index = 18
+letter: A	testingNode is @ index = 19
 
-initial list before loop: {B, A, B, C, B, A, B, D, B, A, B, C, A}
-size = 18
+initial list before loop: {B, A, B, B, A, B, B, A, B, B, A, B, D, B, A, B, B, A, B, A}
+size = 20
 letter: B
 letter: A
 letter: B
-letter: C
+letter: B
+letter: A
+letter: B
+letter: B
+letter: A
+letter: B
 letter: B
 letter: A
 letter: B
@@ -2368,15 +717,22 @@ letter: D
 letter: B
 letter: A
 letter: B
-letter: C	 prev index = 11
-letter: A	index = 12
+letter: B
+letter: A
+letter: B	 prev index = 18
+letter: A	testingNode is @ index = 19
 
-	BEFORE INCREMENT : {B, A, B, C, B, A, B, D, B, A, B, C, A}
-size = 18
+	BEFORE INCREMENT{B, A, B, B, A, B, B, A, B, B, A, B, D, B, A, B, B, A, B, A}
+size = 20
 letter: B
 letter: A
 letter: B
-letter: C
+letter: B
+letter: A
+letter: B
+letter: B
+letter: A
+letter: B
 letter: B
 letter: A
 letter: B
@@ -2384,15 +740,22 @@ letter: D
 letter: B
 letter: A
 letter: B
-letter: C	 prev index = 11
-letter: A	testingNode is @ index = 12
+letter: B
+letter: A
+letter: B	 prev index = 18
+letter: A	testingNode is @ index = 19
 
-	initial list after loop: {B, A, B, C, B, A, B, D, B, A, B, C, A}
-size = 18
+	initial list after loop: {B, A, B, B, A, B, B, A, B, B, A, B, D, B, A, B, B, A, B, A}
+size = 20
 letter: B
 letter: A
 letter: B
-letter: C
+letter: B
+letter: A
+letter: B
+letter: B
+letter: A
+letter: B
 letter: B
 letter: A
 letter: B
@@ -2400,35 +763,26 @@ letter: D
 letter: B
 letter: A
 letter: B
-letter: C
-letter: A	 prev index = 12
-end splice: {B, A, B, C, B, A, B, D, B, A, B, C, A}
-(18)BABCBABDBABCA
+letter: B
+letter: A
+letter: B
+letter: A	 prev index = 19
+end splice: {B, A, B, B, A, B, B, A, B, B, A, B, D, B, A, B, B, A, B, A}
+(20)BABBABBABBABDBABBABA
 
 splice	"A"	""
 
-initial list before loop: {B, A, B, C, B, A, B, D, B, A, B, C, A}
-size = 18
-letter: B	index = 0
-letter: A
-letter: B
-letter: C
-letter: B
-letter: A
-letter: B
-letter: D
-letter: B
-letter: A
-letter: B
-letter: C
-letter: A
-
-	BEFORE INCREMENT : {B, A, B, C, B, A, B, D, B, A, B, C, A}
-size = 18
+initial list before loop: {B, A, B, B, A, B, B, A, B, B, A, B, D, B, A, B, B, A, B, A}
+size = 20
 letter: B	testingNode is @ index = 0
 letter: A
 letter: B
-letter: C
+letter: B
+letter: A
+letter: B
+letter: B
+letter: A
+letter: B
 letter: B
 letter: A
 letter: B
@@ -2436,15 +790,45 @@ letter: D
 letter: B
 letter: A
 letter: B
-letter: C
+letter: B
+letter: A
+letter: B
 letter: A
 
-	initial list after loop: {B, A, B, C, B, A, B, D, B, A, B, C, A}
-size = 18
+	BEFORE INCREMENT{B, A, B, B, A, B, B, A, B, B, A, B, D, B, A, B, B, A, B, A}
+size = 20
+letter: B	testingNode is @ index = 0
+letter: A
+letter: B
+letter: B
+letter: A
+letter: B
+letter: B
+letter: A
+letter: B
+letter: B
+letter: A
+letter: B
+letter: D
+letter: B
+letter: A
+letter: B
+letter: B
+letter: A
+letter: B
+letter: A
+
+	initial list after loop: {B, A, B, B, A, B, B, A, B, B, A, B, D, B, A, B, B, A, B, A}
+size = 20
 letter: B	 prev index = 0
 letter: A	testingNode is @ index = 1
 letter: B
-letter: C
+letter: B
+letter: A
+letter: B
+letter: B
+letter: A
+letter: B
 letter: B
 letter: A
 letter: B
@@ -2452,15 +836,241 @@ letter: D
 letter: B
 letter: A
 letter: B
-letter: C
+letter: B
+letter: A
+letter: B
 letter: A
 
-initial list before loop: {B, A, B, C, B, A, B, D, B, A, B, C, A}
+initial list before loop: {B, A, B, B, A, B, B, A, B, B, A, B, D, B, A, B, B, A, B, A}
+size = 20
+letter: B	 prev index = 0
+letter: A	testingNode is @ index = 1
+letter: B
+letter: B
+letter: A
+letter: B
+letter: B
+letter: A
+letter: B
+letter: B
+letter: A
+letter: B
+letter: D
+letter: B
+letter: A
+letter: B
+letter: B
+letter: A
+letter: B
+letter: A
+
+	BEFORE INCREMENT{B, B, B, A, B, B, A, B, B, A, B, D, B, A, B, B, A, B, A}
+size = 19
+letter: B	testingNode is @ index = 0	 prev index = 0
+letter: B
+letter: B
+letter: A
+letter: B
+letter: B
+letter: A
+letter: B
+letter: B
+letter: A
+letter: B
+letter: D
+letter: B
+letter: A
+letter: B
+letter: B
+letter: A
+letter: B
+letter: A
+
+	initial list after loop: {B, B, B, A, B, B, A, B, B, A, B, D, B, A, B, B, A, B, A}
+size = 19
+letter: B	 prev index = 0
+letter: B	testingNode is @ index = 1
+letter: B
+letter: A
+letter: B
+letter: B
+letter: A
+letter: B
+letter: B
+letter: A
+letter: B
+letter: D
+letter: B
+letter: A
+letter: B
+letter: B
+letter: A
+letter: B
+letter: A
+
+initial list before loop: {B, B, B, A, B, B, A, B, B, A, B, D, B, A, B, B, A, B, A}
+size = 19
+letter: B	 prev index = 0
+letter: B	testingNode is @ index = 1
+letter: B
+letter: A
+letter: B
+letter: B
+letter: A
+letter: B
+letter: B
+letter: A
+letter: B
+letter: D
+letter: B
+letter: A
+letter: B
+letter: B
+letter: A
+letter: B
+letter: A
+
+	BEFORE INCREMENT{B, B, B, A, B, B, A, B, B, A, B, D, B, A, B, B, A, B, A}
+size = 19
+letter: B	 prev index = 0
+letter: B	testingNode is @ index = 1
+letter: B
+letter: A
+letter: B
+letter: B
+letter: A
+letter: B
+letter: B
+letter: A
+letter: B
+letter: D
+letter: B
+letter: A
+letter: B
+letter: B
+letter: A
+letter: B
+letter: A
+
+	initial list after loop: {B, B, B, A, B, B, A, B, B, A, B, D, B, A, B, B, A, B, A}
+size = 19
+letter: B
+letter: B	 prev index = 1
+letter: B	testingNode is @ index = 2
+letter: A
+letter: B
+letter: B
+letter: A
+letter: B
+letter: B
+letter: A
+letter: B
+letter: D
+letter: B
+letter: A
+letter: B
+letter: B
+letter: A
+letter: B
+letter: A
+
+initial list before loop: {B, B, B, A, B, B, A, B, B, A, B, D, B, A, B, B, A, B, A}
+size = 19
+letter: B
+letter: B	 prev index = 1
+letter: B	testingNode is @ index = 2
+letter: A
+letter: B
+letter: B
+letter: A
+letter: B
+letter: B
+letter: A
+letter: B
+letter: D
+letter: B
+letter: A
+letter: B
+letter: B
+letter: A
+letter: B
+letter: A
+
+	BEFORE INCREMENT{B, B, B, A, B, B, A, B, B, A, B, D, B, A, B, B, A, B, A}
+size = 19
+letter: B
+letter: B	 prev index = 1
+letter: B	testingNode is @ index = 2
+letter: A
+letter: B
+letter: B
+letter: A
+letter: B
+letter: B
+letter: A
+letter: B
+letter: D
+letter: B
+letter: A
+letter: B
+letter: B
+letter: A
+letter: B
+letter: A
+
+	initial list after loop: {B, B, B, A, B, B, A, B, B, A, B, D, B, A, B, B, A, B, A}
+size = 19
+letter: B
+letter: B
+letter: B	 prev index = 2
+letter: A	testingNode is @ index = 3
+letter: B
+letter: B
+letter: A
+letter: B
+letter: B
+letter: A
+letter: B
+letter: D
+letter: B
+letter: A
+letter: B
+letter: B
+letter: A
+letter: B
+letter: A
+
+initial list before loop: {B, B, B, A, B, B, A, B, B, A, B, D, B, A, B, B, A, B, A}
+size = 19
+letter: B
+letter: B
+letter: B	 prev index = 2
+letter: A	testingNode is @ index = 3
+letter: B
+letter: B
+letter: A
+letter: B
+letter: B
+letter: A
+letter: B
+letter: D
+letter: B
+letter: A
+letter: B
+letter: B
+letter: A
+letter: B
+letter: A
+
+	BEFORE INCREMENT{B, B, B, B, B, A, B, B, A, B, D, B, A, B, B, A, B, A}
 size = 18
-letter: B	 prev index = 0
-letter: A	index = 1
 letter: B
-letter: C
+letter: B
+letter: B	testingNode is @ index = 2	 prev index = 2
+letter: B
+letter: B
+letter: A
+letter: B
 letter: B
 letter: A
 letter: B
@@ -2468,1141 +1078,2123 @@ letter: D
 letter: B
 letter: A
 letter: B
-letter: C
+letter: B
+letter: A
+letter: B
 letter: A
 
-	BEFORE INCREMENT : {B, B, C, B, A, B, D, B, A, B, C, A}
-size = 17
-letter: B	testingNode is @ index = 0
-letter: B
-letter: C
-letter: B
-letter: A
-letter: B
-letter: D
-letter: B
-letter: A
-letter: B
-letter: C
-letter: A
-
-	initial list after loop: {B, B, C, B, A, B, D, B, A, B, C, A}
-size = 17
-letter: B	 prev index = 0
-letter: B	testingNode is @ index = 1
-letter: C
-letter: B
-letter: A
-letter: B
-letter: D
-letter: B
-letter: A
-letter: B
-letter: C
-letter: A
-
-initial list before loop: {B, B, C, B, A, B, D, B, A, B, C, A}
-size = 17
-letter: B	 prev index = 0
-letter: B	index = 1
-letter: C
-letter: B
-letter: A
-letter: B
-letter: D
-letter: B
-letter: A
-letter: B
-letter: C
-letter: A
-
-	BEFORE INCREMENT : {B, B, C, B, A, B, D, B, A, B, C, A}
-size = 17
-letter: B	 prev index = 0
-letter: B	testingNode is @ index = 1
-letter: C
-letter: B
-letter: A
-letter: B
-letter: D
-letter: B
-letter: A
-letter: B
-letter: C
-letter: A
-
-	initial list after loop: {B, B, C, B, A, B, D, B, A, B, C, A}
-size = 17
-letter: B
-letter: B	 prev index = 1
-letter: C	testingNode is @ index = 2
-letter: B
-letter: A
-letter: B
-letter: D
-letter: B
-letter: A
-letter: B
-letter: C
-letter: A
-
-initial list before loop: {B, B, C, B, A, B, D, B, A, B, C, A}
-size = 17
-letter: B
-letter: B	 prev index = 1
-letter: C	index = 2
-letter: B
-letter: A
-letter: B
-letter: D
-letter: B
-letter: A
-letter: B
-letter: C
-letter: A
-
-	BEFORE INCREMENT : {B, B, C, B, A, B, D, B, A, B, C, A}
-size = 17
-letter: B
-letter: B	 prev index = 1
-letter: C	testingNode is @ index = 2
-letter: B
-letter: A
-letter: B
-letter: D
-letter: B
-letter: A
-letter: B
-letter: C
-letter: A
-
-	initial list after loop: {B, B, C, B, A, B, D, B, A, B, C, A}
-size = 17
+	initial list after loop: {B, B, B, B, B, A, B, B, A, B, D, B, A, B, B, A, B, A}
+size = 18
 letter: B
 letter: B
-letter: C	 prev index = 2
-letter: B	testingNode is @ index = 3
-letter: A
-letter: B
-letter: D
-letter: B
-letter: A
-letter: B
-letter: C
-letter: A
-
-initial list before loop: {B, B, C, B, A, B, D, B, A, B, C, A}
-size = 17
-letter: B
-letter: B
-letter: C	 prev index = 2
-letter: B	index = 3
-letter: A
-letter: B
-letter: D
-letter: B
-letter: A
-letter: B
-letter: C
-letter: A
-
-	BEFORE INCREMENT : {B, B, C, B, A, B, D, B, A, B, C, A}
-size = 17
-letter: B
-letter: B
-letter: C	 prev index = 2
-letter: B	testingNode is @ index = 3
-letter: A
-letter: B
-letter: D
-letter: B
-letter: A
-letter: B
-letter: C
-letter: A
-
-	initial list after loop: {B, B, C, B, A, B, D, B, A, B, C, A}
-size = 17
-letter: B
-letter: B
-letter: C
-letter: B	 prev index = 3
-letter: A	testingNode is @ index = 4
-letter: B
-letter: D
-letter: B
-letter: A
-letter: B
-letter: C
-letter: A
-
-initial list before loop: {B, B, C, B, A, B, D, B, A, B, C, A}
-size = 17
-letter: B
-letter: B
-letter: C
-letter: B	 prev index = 3
-letter: A	index = 4
-letter: B
-letter: D
-letter: B
-letter: A
-letter: B
-letter: C
-letter: A
-
-	BEFORE INCREMENT : {B, B, C, B, B, D, B, A, B, C, A}
-size = 16
-letter: B
-letter: B
-letter: C
+letter: B	 prev index = 2
 letter: B	testingNode is @ index = 3
 letter: B
+letter: A
+letter: B
+letter: B
+letter: A
+letter: B
 letter: D
 letter: B
 letter: A
 letter: B
-letter: C
+letter: B
+letter: A
+letter: B
 letter: A
 
-	initial list after loop: {B, B, C, B, B, D, B, A, B, C, A}
-size = 16
+initial list before loop: {B, B, B, B, B, A, B, B, A, B, D, B, A, B, B, A, B, A}
+size = 18
 letter: B
 letter: B
-letter: C
+letter: B	 prev index = 2
+letter: B	testingNode is @ index = 3
+letter: B
+letter: A
+letter: B
+letter: B
+letter: A
+letter: B
+letter: D
+letter: B
+letter: A
+letter: B
+letter: B
+letter: A
+letter: B
+letter: A
+
+	BEFORE INCREMENT{B, B, B, B, B, A, B, B, A, B, D, B, A, B, B, A, B, A}
+size = 18
+letter: B
+letter: B
+letter: B	 prev index = 2
+letter: B	testingNode is @ index = 3
+letter: B
+letter: A
+letter: B
+letter: B
+letter: A
+letter: B
+letter: D
+letter: B
+letter: A
+letter: B
+letter: B
+letter: A
+letter: B
+letter: A
+
+	initial list after loop: {B, B, B, B, B, A, B, B, A, B, D, B, A, B, B, A, B, A}
+size = 18
+letter: B
+letter: B
+letter: B
 letter: B	 prev index = 3
 letter: B	testingNode is @ index = 4
+letter: A
+letter: B
+letter: B
+letter: A
+letter: B
 letter: D
 letter: B
 letter: A
 letter: B
-letter: C
+letter: B
+letter: A
+letter: B
 letter: A
 
-initial list before loop: {B, B, C, B, B, D, B, A, B, C, A}
-size = 16
+initial list before loop: {B, B, B, B, B, A, B, B, A, B, D, B, A, B, B, A, B, A}
+size = 18
 letter: B
 letter: B
-letter: C
-letter: B	 prev index = 3
-letter: B	index = 4
-letter: D
 letter: B
-letter: A
-letter: B
-letter: C
-letter: A
-
-	BEFORE INCREMENT : {B, B, C, B, B, D, B, A, B, C, A}
-size = 16
-letter: B
-letter: B
-letter: C
 letter: B	 prev index = 3
 letter: B	testingNode is @ index = 4
+letter: A
+letter: B
+letter: B
+letter: A
+letter: B
 letter: D
 letter: B
 letter: A
 letter: B
-letter: C
+letter: B
+letter: A
+letter: B
 letter: A
 
-	initial list after loop: {B, B, C, B, B, D, B, A, B, C, A}
-size = 16
+	BEFORE INCREMENT{B, B, B, B, B, A, B, B, A, B, D, B, A, B, B, A, B, A}
+size = 18
 letter: B
 letter: B
-letter: C
+letter: B
+letter: B	 prev index = 3
+letter: B	testingNode is @ index = 4
+letter: A
+letter: B
+letter: B
+letter: A
+letter: B
+letter: D
+letter: B
+letter: A
+letter: B
+letter: B
+letter: A
+letter: B
+letter: A
+
+	initial list after loop: {B, B, B, B, B, A, B, B, A, B, D, B, A, B, B, A, B, A}
+size = 18
+letter: B
+letter: B
+letter: B
 letter: B
 letter: B	 prev index = 4
-letter: D	testingNode is @ index = 5
+letter: A	testingNode is @ index = 5
+letter: B
 letter: B
 letter: A
 letter: B
-letter: C
+letter: D
+letter: B
+letter: A
+letter: B
+letter: B
+letter: A
+letter: B
 letter: A
 
-initial list before loop: {B, B, C, B, B, D, B, A, B, C, A}
-size = 16
+initial list before loop: {B, B, B, B, B, A, B, B, A, B, D, B, A, B, B, A, B, A}
+size = 18
 letter: B
 letter: B
-letter: C
+letter: B
 letter: B
 letter: B	 prev index = 4
-letter: D	index = 5
+letter: A	testingNode is @ index = 5
+letter: B
 letter: B
 letter: A
 letter: B
-letter: C
+letter: D
+letter: B
+letter: A
+letter: B
+letter: B
+letter: A
+letter: B
 letter: A
 
-	BEFORE INCREMENT : {B, B, C, B, B, D, B, A, B, C, A}
-size = 16
+	BEFORE INCREMENT{B, B, B, B, B, B, B, A, B, D, B, A, B, B, A, B, A}
+size = 17
 letter: B
 letter: B
-letter: C
+letter: B
+letter: B
+letter: B	testingNode is @ index = 4	 prev index = 4
+letter: B
+letter: B
+letter: A
+letter: B
+letter: D
+letter: B
+letter: A
+letter: B
+letter: B
+letter: A
+letter: B
+letter: A
+
+	initial list after loop: {B, B, B, B, B, B, B, A, B, D, B, A, B, B, A, B, A}
+size = 17
+letter: B
+letter: B
+letter: B
 letter: B
 letter: B	 prev index = 4
-letter: D	testingNode is @ index = 5
+letter: B	testingNode is @ index = 5
 letter: B
 letter: A
 letter: B
-letter: C
+letter: D
+letter: B
+letter: A
+letter: B
+letter: B
+letter: A
+letter: B
 letter: A
 
-	initial list after loop: {B, B, C, B, B, D, B, A, B, C, A}
-size = 16
+initial list before loop: {B, B, B, B, B, B, B, A, B, D, B, A, B, B, A, B, A}
+size = 17
 letter: B
 letter: B
-letter: C
 letter: B
 letter: B
-letter: D	 prev index = 5
+letter: B	 prev index = 4
+letter: B	testingNode is @ index = 5
+letter: B
+letter: A
+letter: B
+letter: D
+letter: B
+letter: A
+letter: B
+letter: B
+letter: A
+letter: B
+letter: A
+
+	BEFORE INCREMENT{B, B, B, B, B, B, B, A, B, D, B, A, B, B, A, B, A}
+size = 17
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B	 prev index = 4
+letter: B	testingNode is @ index = 5
+letter: B
+letter: A
+letter: B
+letter: D
+letter: B
+letter: A
+letter: B
+letter: B
+letter: A
+letter: B
+letter: A
+
+	initial list after loop: {B, B, B, B, B, B, B, A, B, D, B, A, B, B, A, B, A}
+size = 17
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B	 prev index = 5
 letter: B	testingNode is @ index = 6
 letter: A
 letter: B
-letter: C
+letter: D
+letter: B
+letter: A
+letter: B
+letter: B
+letter: A
+letter: B
 letter: A
 
-initial list before loop: {B, B, C, B, B, D, B, A, B, C, A}
-size = 16
+initial list before loop: {B, B, B, B, B, B, B, A, B, D, B, A, B, B, A, B, A}
+size = 17
 letter: B
 letter: B
-letter: C
 letter: B
 letter: B
-letter: D	 prev index = 5
-letter: B	index = 6
-letter: A
 letter: B
-letter: C
-letter: A
-
-	BEFORE INCREMENT : {B, B, C, B, B, D, B, A, B, C, A}
-size = 16
-letter: B
-letter: B
-letter: C
-letter: B
-letter: B
-letter: D	 prev index = 5
+letter: B	 prev index = 5
 letter: B	testingNode is @ index = 6
 letter: A
 letter: B
-letter: C
+letter: D
+letter: B
+letter: A
+letter: B
+letter: B
+letter: A
+letter: B
 letter: A
 
-	initial list after loop: {B, B, C, B, B, D, B, A, B, C, A}
-size = 16
+	BEFORE INCREMENT{B, B, B, B, B, B, B, A, B, D, B, A, B, B, A, B, A}
+size = 17
 letter: B
 letter: B
-letter: C
 letter: B
+letter: B
+letter: B
+letter: B	 prev index = 5
+letter: B	testingNode is @ index = 6
+letter: A
 letter: B
 letter: D
+letter: B
+letter: A
+letter: B
+letter: B
+letter: A
+letter: B
+letter: A
+
+	initial list after loop: {B, B, B, B, B, B, B, A, B, D, B, A, B, B, A, B, A}
+size = 17
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
 letter: B	 prev index = 6
 letter: A	testingNode is @ index = 7
 letter: B
-letter: C
+letter: D
+letter: B
+letter: A
+letter: B
+letter: B
+letter: A
+letter: B
 letter: A
 
-initial list before loop: {B, B, C, B, B, D, B, A, B, C, A}
+initial list before loop: {B, B, B, B, B, B, B, A, B, D, B, A, B, B, A, B, A}
+size = 17
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B	 prev index = 6
+letter: A	testingNode is @ index = 7
+letter: B
+letter: D
+letter: B
+letter: A
+letter: B
+letter: B
+letter: A
+letter: B
+letter: A
+
+	BEFORE INCREMENT{B, B, B, B, B, B, B, B, D, B, A, B, B, A, B, A}
 size = 16
 letter: B
 letter: B
-letter: C
 letter: B
+letter: B
+letter: B
+letter: B
+letter: B	testingNode is @ index = 6	 prev index = 6
 letter: B
 letter: D
-letter: B	 prev index = 6
-letter: A	index = 7
 letter: B
-letter: C
+letter: A
+letter: B
+letter: B
+letter: A
+letter: B
 letter: A
 
-	BEFORE INCREMENT : {B, B, C, B, B, D, B, B, C, A}
-size = 15
+	initial list after loop: {B, B, B, B, B, B, B, B, D, B, A, B, B, A, B, A}
+size = 16
 letter: B
 letter: B
-letter: C
 letter: B
 letter: B
-letter: D
-letter: B	testingNode is @ index = 6
-letter: B
-letter: C
-letter: A
-
-	initial list after loop: {B, B, C, B, B, D, B, B, C, A}
-size = 15
 letter: B
 letter: B
-letter: C
-letter: B
-letter: B
-letter: D
 letter: B	 prev index = 6
 letter: B	testingNode is @ index = 7
-letter: C
+letter: D
+letter: B
+letter: A
+letter: B
+letter: B
+letter: A
+letter: B
 letter: A
 
-initial list before loop: {B, B, C, B, B, D, B, B, C, A}
-size = 15
+initial list before loop: {B, B, B, B, B, B, B, B, D, B, A, B, B, A, B, A}
+size = 16
 letter: B
 letter: B
-letter: C
 letter: B
 letter: B
-letter: D
-letter: B	 prev index = 6
-letter: B	index = 7
-letter: C
-letter: A
-
-	BEFORE INCREMENT : {B, B, C, B, B, D, B, B, C, A}
-size = 15
 letter: B
 letter: B
-letter: C
-letter: B
-letter: B
-letter: D
 letter: B	 prev index = 6
 letter: B	testingNode is @ index = 7
-letter: C
+letter: D
+letter: B
+letter: A
+letter: B
+letter: B
+letter: A
+letter: B
 letter: A
 
-	initial list after loop: {B, B, C, B, B, D, B, B, C, A}
-size = 15
+	BEFORE INCREMENT{B, B, B, B, B, B, B, B, D, B, A, B, B, A, B, A}
+size = 16
 letter: B
 letter: B
-letter: C
 letter: B
 letter: B
+letter: B
+letter: B
+letter: B	 prev index = 6
+letter: B	testingNode is @ index = 7
 letter: D
+letter: B
+letter: A
+letter: B
+letter: B
+letter: A
+letter: B
+letter: A
+
+	initial list after loop: {B, B, B, B, B, B, B, B, D, B, A, B, B, A, B, A}
+size = 16
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
 letter: B
 letter: B	 prev index = 7
-letter: C	testingNode is @ index = 8
+letter: D	testingNode is @ index = 8
+letter: B
+letter: A
+letter: B
+letter: B
+letter: A
+letter: B
 letter: A
 
-initial list before loop: {B, B, C, B, B, D, B, B, C, A}
-size = 15
+initial list before loop: {B, B, B, B, B, B, B, B, D, B, A, B, B, A, B, A}
+size = 16
 letter: B
 letter: B
-letter: C
 letter: B
 letter: B
-letter: D
+letter: B
+letter: B
 letter: B
 letter: B	 prev index = 7
-letter: C	index = 8
+letter: D	testingNode is @ index = 8
+letter: B
+letter: A
+letter: B
+letter: B
+letter: A
+letter: B
 letter: A
 
-	BEFORE INCREMENT : {B, B, C, B, B, D, B, B, C, A}
-size = 15
+	BEFORE INCREMENT{B, B, B, B, B, B, B, B, D, B, A, B, B, A, B, A}
+size = 16
 letter: B
 letter: B
-letter: C
 letter: B
 letter: B
-letter: D
+letter: B
+letter: B
 letter: B
 letter: B	 prev index = 7
-letter: C	testingNode is @ index = 8
+letter: D	testingNode is @ index = 8
+letter: B
+letter: A
+letter: B
+letter: B
+letter: A
+letter: B
 letter: A
 
-	initial list after loop: {B, B, C, B, B, D, B, B, C, A}
+	initial list after loop: {B, B, B, B, B, B, B, B, D, B, A, B, B, A, B, A}
+size = 16
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: D	 prev index = 8
+letter: B	testingNode is @ index = 9
+letter: A
+letter: B
+letter: B
+letter: A
+letter: B
+letter: A
+
+initial list before loop: {B, B, B, B, B, B, B, B, D, B, A, B, B, A, B, A}
+size = 16
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: D	 prev index = 8
+letter: B	testingNode is @ index = 9
+letter: A
+letter: B
+letter: B
+letter: A
+letter: B
+letter: A
+
+	BEFORE INCREMENT{B, B, B, B, B, B, B, B, D, B, A, B, B, A, B, A}
+size = 16
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: D	 prev index = 8
+letter: B	testingNode is @ index = 9
+letter: A
+letter: B
+letter: B
+letter: A
+letter: B
+letter: A
+
+	initial list after loop: {B, B, B, B, B, B, B, B, D, B, A, B, B, A, B, A}
+size = 16
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: D
+letter: B	 prev index = 9
+letter: A	testingNode is @ index = 10
+letter: B
+letter: B
+letter: A
+letter: B
+letter: A
+
+initial list before loop: {B, B, B, B, B, B, B, B, D, B, A, B, B, A, B, A}
+size = 16
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: D
+letter: B	 prev index = 9
+letter: A	testingNode is @ index = 10
+letter: B
+letter: B
+letter: A
+letter: B
+letter: A
+
+	BEFORE INCREMENT{B, B, B, B, B, B, B, B, D, B, B, B, A, B, A}
 size = 15
 letter: B
 letter: B
-letter: C
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: D
+letter: B	testingNode is @ index = 9	 prev index = 9
+letter: B
+letter: B
+letter: A
+letter: B
+letter: A
+
+	initial list after loop: {B, B, B, B, B, B, B, B, D, B, B, B, A, B, A}
+size = 15
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: D
+letter: B	 prev index = 9
+letter: B	testingNode is @ index = 10
+letter: B
+letter: A
+letter: B
+letter: A
+
+initial list before loop: {B, B, B, B, B, B, B, B, D, B, B, B, A, B, A}
+size = 15
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: D
+letter: B	 prev index = 9
+letter: B	testingNode is @ index = 10
+letter: B
+letter: A
+letter: B
+letter: A
+
+	BEFORE INCREMENT{B, B, B, B, B, B, B, B, D, B, B, B, A, B, A}
+size = 15
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: D
+letter: B	 prev index = 9
+letter: B	testingNode is @ index = 10
+letter: B
+letter: A
+letter: B
+letter: A
+
+	initial list after loop: {B, B, B, B, B, B, B, B, D, B, B, B, A, B, A}
+size = 15
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: D
+letter: B
+letter: B	 prev index = 10
+letter: B	testingNode is @ index = 11
+letter: A
+letter: B
+letter: A
+
+initial list before loop: {B, B, B, B, B, B, B, B, D, B, B, B, A, B, A}
+size = 15
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: D
+letter: B
+letter: B	 prev index = 10
+letter: B	testingNode is @ index = 11
+letter: A
+letter: B
+letter: A
+
+	BEFORE INCREMENT{B, B, B, B, B, B, B, B, D, B, B, B, A, B, A}
+size = 15
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: D
+letter: B
+letter: B	 prev index = 10
+letter: B	testingNode is @ index = 11
+letter: A
+letter: B
+letter: A
+
+	initial list after loop: {B, B, B, B, B, B, B, B, D, B, B, B, A, B, A}
+size = 15
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
 letter: B
 letter: B
 letter: D
 letter: B
 letter: B
-letter: C	 prev index = 8
-letter: A	testingNode is @ index = 9
+letter: B	 prev index = 11
+letter: A	testingNode is @ index = 12
+letter: B
+letter: A
 
-initial list before loop: {B, B, C, B, B, D, B, B, C, A}
+initial list before loop: {B, B, B, B, B, B, B, B, D, B, B, B, A, B, A}
 size = 15
 letter: B
 letter: B
-letter: C
+letter: B
+letter: B
+letter: B
+letter: B
 letter: B
 letter: B
 letter: D
 letter: B
 letter: B
-letter: C	 prev index = 8
-letter: A	index = 9
+letter: B	 prev index = 11
+letter: A	testingNode is @ index = 12
+letter: B
+letter: A
 
-	BEFORE INCREMENT : {B, B, C, B, B, D, B, B, C}
+	BEFORE INCREMENT{B, B, B, B, B, B, B, B, D, B, B, B, B, A}
 size = 14
 letter: B
 letter: B
-letter: C
+letter: B
+letter: B
+letter: B
+letter: B
 letter: B
 letter: B
 letter: D
 letter: B
 letter: B
-letter: C	testingNode is @ index = 8
+letter: B	testingNode is @ index = 11	 prev index = 11
+letter: B
+letter: A
 
-	initial list after loop: {B, B, C, B, B, D, B, B, C}
+	initial list after loop: {B, B, B, B, B, B, B, B, D, B, B, B, B, A}
 size = 14
 letter: B
 letter: B
-letter: C
+letter: B
+letter: B
+letter: B
+letter: B
 letter: B
 letter: B
 letter: D
 letter: B
 letter: B
-letter: C	 prev index = 8
-end splice: {B, B, C, B, B, D, B, B, C}
-(14)BBCBBDBBC
+letter: B	 prev index = 11
+letter: B	testingNode is @ index = 12
+letter: A
+
+initial list before loop: {B, B, B, B, B, B, B, B, D, B, B, B, B, A}
+size = 14
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: D
+letter: B
+letter: B
+letter: B	 prev index = 11
+letter: B	testingNode is @ index = 12
+letter: A
+
+	BEFORE INCREMENT{B, B, B, B, B, B, B, B, D, B, B, B, B, A}
+size = 14
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: D
+letter: B
+letter: B
+letter: B	 prev index = 11
+letter: B	testingNode is @ index = 12
+letter: A
+
+	initial list after loop: {B, B, B, B, B, B, B, B, D, B, B, B, B, A}
+size = 14
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: D
+letter: B
+letter: B
+letter: B
+letter: B	 prev index = 12
+letter: A	testingNode is @ index = 13
+
+initial list before loop: {B, B, B, B, B, B, B, B, D, B, B, B, B, A}
+size = 14
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: D
+letter: B
+letter: B
+letter: B
+letter: B	 prev index = 12
+letter: A	testingNode is @ index = 13
+
+	BEFORE INCREMENT{B, B, B, B, B, B, B, B, D, B, B, B, B}
+size = 13
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: D
+letter: B
+letter: B
+letter: B
+letter: B	testingNode is @ index = 12	 prev index = 12
+
+	initial list after loop: {B, B, B, B, B, B, B, B, D, B, B, B, B}
+size = 13
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: D
+letter: B
+letter: B
+letter: B
+letter: B	 prev index = 12
+end splice: {B, B, B, B, B, B, B, B, D, B, B, B, B}
+(13)BBBBBBBBDBBBB
 
 splice	"F"	""
 
-initial list before loop: {B, B, C, B, B, D, B, B, C}
-size = 14
-letter: B	index = 0
-letter: B
-letter: C
-letter: B
-letter: B
-letter: D
-letter: B
-letter: B
-letter: C
-
-	BEFORE INCREMENT : {B, B, C, B, B, D, B, B, C}
-size = 14
+initial list before loop: {B, B, B, B, B, B, B, B, D, B, B, B, B}
+size = 13
 letter: B	testingNode is @ index = 0
 letter: B
-letter: C
+letter: B
+letter: B
+letter: B
+letter: B
 letter: B
 letter: B
 letter: D
 letter: B
 letter: B
-letter: C
+letter: B
+letter: B
 
-	initial list after loop: {B, B, C, B, B, D, B, B, C}
-size = 14
+	BEFORE INCREMENT{B, B, B, B, B, B, B, B, D, B, B, B, B}
+size = 13
+letter: B	testingNode is @ index = 0
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: D
+letter: B
+letter: B
+letter: B
+letter: B
+
+	initial list after loop: {B, B, B, B, B, B, B, B, D, B, B, B, B}
+size = 13
 letter: B	 prev index = 0
 letter: B	testingNode is @ index = 1
-letter: C
+letter: B
+letter: B
+letter: B
+letter: B
 letter: B
 letter: B
 letter: D
 letter: B
 letter: B
-letter: C
+letter: B
+letter: B
 
-initial list before loop: {B, B, C, B, B, D, B, B, C}
-size = 14
-letter: B	 prev index = 0
-letter: B	index = 1
-letter: C
-letter: B
-letter: B
-letter: D
-letter: B
-letter: B
-letter: C
-
-	BEFORE INCREMENT : {B, B, C, B, B, D, B, B, C}
-size = 14
+initial list before loop: {B, B, B, B, B, B, B, B, D, B, B, B, B}
+size = 13
 letter: B	 prev index = 0
 letter: B	testingNode is @ index = 1
-letter: C
+letter: B
+letter: B
+letter: B
+letter: B
 letter: B
 letter: B
 letter: D
 letter: B
 letter: B
-letter: C
+letter: B
+letter: B
 
-	initial list after loop: {B, B, C, B, B, D, B, B, C}
-size = 14
+	BEFORE INCREMENT{B, B, B, B, B, B, B, B, D, B, B, B, B}
+size = 13
+letter: B	 prev index = 0
+letter: B	testingNode is @ index = 1
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: D
+letter: B
+letter: B
+letter: B
+letter: B
+
+	initial list after loop: {B, B, B, B, B, B, B, B, D, B, B, B, B}
+size = 13
 letter: B
 letter: B	 prev index = 1
-letter: C	testingNode is @ index = 2
+letter: B	testingNode is @ index = 2
+letter: B
+letter: B
+letter: B
 letter: B
 letter: B
 letter: D
 letter: B
 letter: B
-letter: C
+letter: B
+letter: B
 
-initial list before loop: {B, B, C, B, B, D, B, B, C}
-size = 14
+initial list before loop: {B, B, B, B, B, B, B, B, D, B, B, B, B}
+size = 13
 letter: B
 letter: B	 prev index = 1
-letter: C	index = 2
+letter: B	testingNode is @ index = 2
+letter: B
+letter: B
+letter: B
 letter: B
 letter: B
 letter: D
 letter: B
 letter: B
-letter: C
+letter: B
+letter: B
 
-	BEFORE INCREMENT : {B, B, C, B, B, D, B, B, C}
-size = 14
+	BEFORE INCREMENT{B, B, B, B, B, B, B, B, D, B, B, B, B}
+size = 13
 letter: B
 letter: B	 prev index = 1
-letter: C	testingNode is @ index = 2
+letter: B	testingNode is @ index = 2
+letter: B
+letter: B
+letter: B
 letter: B
 letter: B
 letter: D
 letter: B
 letter: B
-letter: C
+letter: B
+letter: B
 
-	initial list after loop: {B, B, C, B, B, D, B, B, C}
-size = 14
+	initial list after loop: {B, B, B, B, B, B, B, B, D, B, B, B, B}
+size = 13
 letter: B
 letter: B
-letter: C	 prev index = 2
+letter: B	 prev index = 2
 letter: B	testingNode is @ index = 3
 letter: B
-letter: D
 letter: B
 letter: B
-letter: C
-
-initial list before loop: {B, B, C, B, B, D, B, B, C}
-size = 14
-letter: B
-letter: B
-letter: C	 prev index = 2
-letter: B	index = 3
 letter: B
 letter: D
 letter: B
 letter: B
-letter: C
+letter: B
+letter: B
 
-	BEFORE INCREMENT : {B, B, C, B, B, D, B, B, C}
-size = 14
+initial list before loop: {B, B, B, B, B, B, B, B, D, B, B, B, B}
+size = 13
 letter: B
 letter: B
-letter: C	 prev index = 2
+letter: B	 prev index = 2
 letter: B	testingNode is @ index = 3
 letter: B
+letter: B
+letter: B
+letter: B
 letter: D
 letter: B
 letter: B
-letter: C
+letter: B
+letter: B
 
-	initial list after loop: {B, B, C, B, B, D, B, B, C}
-size = 14
+	BEFORE INCREMENT{B, B, B, B, B, B, B, B, D, B, B, B, B}
+size = 13
 letter: B
 letter: B
-letter: C
+letter: B	 prev index = 2
+letter: B	testingNode is @ index = 3
+letter: B
+letter: B
+letter: B
+letter: B
+letter: D
+letter: B
+letter: B
+letter: B
+letter: B
+
+	initial list after loop: {B, B, B, B, B, B, B, B, D, B, B, B, B}
+size = 13
+letter: B
+letter: B
+letter: B
 letter: B	 prev index = 3
 letter: B	testingNode is @ index = 4
+letter: B
+letter: B
+letter: B
 letter: D
 letter: B
 letter: B
-letter: C
+letter: B
+letter: B
 
-initial list before loop: {B, B, C, B, B, D, B, B, C}
-size = 14
+initial list before loop: {B, B, B, B, B, B, B, B, D, B, B, B, B}
+size = 13
 letter: B
 letter: B
-letter: C
-letter: B	 prev index = 3
-letter: B	index = 4
-letter: D
 letter: B
-letter: B
-letter: C
-
-	BEFORE INCREMENT : {B, B, C, B, B, D, B, B, C}
-size = 14
-letter: B
-letter: B
-letter: C
 letter: B	 prev index = 3
 letter: B	testingNode is @ index = 4
+letter: B
+letter: B
+letter: B
 letter: D
 letter: B
 letter: B
-letter: C
+letter: B
+letter: B
 
-	initial list after loop: {B, B, C, B, B, D, B, B, C}
-size = 14
+	BEFORE INCREMENT{B, B, B, B, B, B, B, B, D, B, B, B, B}
+size = 13
 letter: B
 letter: B
-letter: C
+letter: B
+letter: B	 prev index = 3
+letter: B	testingNode is @ index = 4
+letter: B
+letter: B
+letter: B
+letter: D
+letter: B
+letter: B
+letter: B
+letter: B
+
+	initial list after loop: {B, B, B, B, B, B, B, B, D, B, B, B, B}
+size = 13
+letter: B
+letter: B
+letter: B
 letter: B
 letter: B	 prev index = 4
-letter: D	testingNode is @ index = 5
+letter: B	testingNode is @ index = 5
 letter: B
 letter: B
-letter: C
+letter: D
+letter: B
+letter: B
+letter: B
+letter: B
 
-initial list before loop: {B, B, C, B, B, D, B, B, C}
-size = 14
+initial list before loop: {B, B, B, B, B, B, B, B, D, B, B, B, B}
+size = 13
 letter: B
 letter: B
-letter: C
+letter: B
 letter: B
 letter: B	 prev index = 4
-letter: D	index = 5
+letter: B	testingNode is @ index = 5
 letter: B
 letter: B
-letter: C
+letter: D
+letter: B
+letter: B
+letter: B
+letter: B
 
-	BEFORE INCREMENT : {B, B, C, B, B, D, B, B, C}
-size = 14
+	BEFORE INCREMENT{B, B, B, B, B, B, B, B, D, B, B, B, B}
+size = 13
 letter: B
 letter: B
-letter: C
+letter: B
 letter: B
 letter: B	 prev index = 4
-letter: D	testingNode is @ index = 5
+letter: B	testingNode is @ index = 5
 letter: B
 letter: B
-letter: C
+letter: D
+letter: B
+letter: B
+letter: B
+letter: B
 
-	initial list after loop: {B, B, C, B, B, D, B, B, C}
-size = 14
+	initial list after loop: {B, B, B, B, B, B, B, B, D, B, B, B, B}
+size = 13
 letter: B
 letter: B
-letter: C
 letter: B
 letter: B
-letter: D	 prev index = 5
+letter: B
+letter: B	 prev index = 5
 letter: B	testingNode is @ index = 6
 letter: B
-letter: C
+letter: D
+letter: B
+letter: B
+letter: B
+letter: B
 
-initial list before loop: {B, B, C, B, B, D, B, B, C}
-size = 14
+initial list before loop: {B, B, B, B, B, B, B, B, D, B, B, B, B}
+size = 13
 letter: B
 letter: B
-letter: C
 letter: B
 letter: B
-letter: D	 prev index = 5
-letter: B	index = 6
 letter: B
-letter: C
-
-	BEFORE INCREMENT : {B, B, C, B, B, D, B, B, C}
-size = 14
-letter: B
-letter: B
-letter: C
-letter: B
-letter: B
-letter: D	 prev index = 5
+letter: B	 prev index = 5
 letter: B	testingNode is @ index = 6
 letter: B
-letter: C
+letter: D
+letter: B
+letter: B
+letter: B
+letter: B
 
-	initial list after loop: {B, B, C, B, B, D, B, B, C}
-size = 14
+	BEFORE INCREMENT{B, B, B, B, B, B, B, B, D, B, B, B, B}
+size = 13
 letter: B
 letter: B
-letter: C
 letter: B
+letter: B
+letter: B
+letter: B	 prev index = 5
+letter: B	testingNode is @ index = 6
 letter: B
 letter: D
+letter: B
+letter: B
+letter: B
+letter: B
+
+	initial list after loop: {B, B, B, B, B, B, B, B, D, B, B, B, B}
+size = 13
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
 letter: B	 prev index = 6
 letter: B	testingNode is @ index = 7
-letter: C
-
-initial list before loop: {B, B, C, B, B, D, B, B, C}
-size = 14
-letter: B
-letter: B
-letter: C
-letter: B
-letter: B
 letter: D
-letter: B	 prev index = 6
-letter: B	index = 7
-letter: C
+letter: B
+letter: B
+letter: B
+letter: B
 
-	BEFORE INCREMENT : {B, B, C, B, B, D, B, B, C}
-size = 14
+initial list before loop: {B, B, B, B, B, B, B, B, D, B, B, B, B}
+size = 13
 letter: B
 letter: B
-letter: C
 letter: B
 letter: B
-letter: D
+letter: B
+letter: B
 letter: B	 prev index = 6
 letter: B	testingNode is @ index = 7
-letter: C
-
-	initial list after loop: {B, B, C, B, B, D, B, B, C}
-size = 14
-letter: B
-letter: B
-letter: C
-letter: B
-letter: B
 letter: D
+letter: B
+letter: B
+letter: B
+letter: B
+
+	BEFORE INCREMENT{B, B, B, B, B, B, B, B, D, B, B, B, B}
+size = 13
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B	 prev index = 6
+letter: B	testingNode is @ index = 7
+letter: D
+letter: B
+letter: B
+letter: B
+letter: B
+
+	initial list after loop: {B, B, B, B, B, B, B, B, D, B, B, B, B}
+size = 13
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
 letter: B
 letter: B	 prev index = 7
-letter: C	testingNode is @ index = 8
+letter: D	testingNode is @ index = 8
+letter: B
+letter: B
+letter: B
+letter: B
 
-initial list before loop: {B, B, C, B, B, D, B, B, C}
-size = 14
+initial list before loop: {B, B, B, B, B, B, B, B, D, B, B, B, B}
+size = 13
 letter: B
 letter: B
-letter: C
 letter: B
 letter: B
-letter: D
+letter: B
+letter: B
 letter: B
 letter: B	 prev index = 7
-letter: C	index = 8
+letter: D	testingNode is @ index = 8
+letter: B
+letter: B
+letter: B
+letter: B
 
-	BEFORE INCREMENT : {B, B, C, B, B, D, B, B, C}
-size = 14
+	BEFORE INCREMENT{B, B, B, B, B, B, B, B, D, B, B, B, B}
+size = 13
 letter: B
 letter: B
-letter: C
 letter: B
 letter: B
-letter: D
+letter: B
+letter: B
 letter: B
 letter: B	 prev index = 7
-letter: C	testingNode is @ index = 8
+letter: D	testingNode is @ index = 8
+letter: B
+letter: B
+letter: B
+letter: B
 
-	initial list after loop: {B, B, C, B, B, D, B, B, C}
-size = 14
+	initial list after loop: {B, B, B, B, B, B, B, B, D, B, B, B, B}
+size = 13
 letter: B
 letter: B
-letter: C
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: D	 prev index = 8
+letter: B	testingNode is @ index = 9
+letter: B
+letter: B
+letter: B
+
+initial list before loop: {B, B, B, B, B, B, B, B, D, B, B, B, B}
+size = 13
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: D	 prev index = 8
+letter: B	testingNode is @ index = 9
+letter: B
+letter: B
+letter: B
+
+	BEFORE INCREMENT{B, B, B, B, B, B, B, B, D, B, B, B, B}
+size = 13
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: D	 prev index = 8
+letter: B	testingNode is @ index = 9
+letter: B
+letter: B
+letter: B
+
+	initial list after loop: {B, B, B, B, B, B, B, B, D, B, B, B, B}
+size = 13
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: D
+letter: B	 prev index = 9
+letter: B	testingNode is @ index = 10
+letter: B
+letter: B
+
+initial list before loop: {B, B, B, B, B, B, B, B, D, B, B, B, B}
+size = 13
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: D
+letter: B	 prev index = 9
+letter: B	testingNode is @ index = 10
+letter: B
+letter: B
+
+	BEFORE INCREMENT{B, B, B, B, B, B, B, B, D, B, B, B, B}
+size = 13
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: D
+letter: B	 prev index = 9
+letter: B	testingNode is @ index = 10
+letter: B
+letter: B
+
+	initial list after loop: {B, B, B, B, B, B, B, B, D, B, B, B, B}
+size = 13
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: D
+letter: B
+letter: B	 prev index = 10
+letter: B	testingNode is @ index = 11
+letter: B
+
+initial list before loop: {B, B, B, B, B, B, B, B, D, B, B, B, B}
+size = 13
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: D
+letter: B
+letter: B	 prev index = 10
+letter: B	testingNode is @ index = 11
+letter: B
+
+	BEFORE INCREMENT{B, B, B, B, B, B, B, B, D, B, B, B, B}
+size = 13
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: D
+letter: B
+letter: B	 prev index = 10
+letter: B	testingNode is @ index = 11
+letter: B
+
+	initial list after loop: {B, B, B, B, B, B, B, B, D, B, B, B, B}
+size = 13
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
 letter: B
 letter: B
 letter: D
 letter: B
 letter: B
-letter: C	 prev index = 8
-end splice: {B, B, C, B, B, D, B, B, C}
-(14)BBCBBDBBC
+letter: B	 prev index = 11
+letter: B	testingNode is @ index = 12
+
+initial list before loop: {B, B, B, B, B, B, B, B, D, B, B, B, B}
+size = 13
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: D
+letter: B
+letter: B
+letter: B	 prev index = 11
+letter: B	testingNode is @ index = 12
+
+	BEFORE INCREMENT{B, B, B, B, B, B, B, B, D, B, B, B, B}
+size = 13
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: D
+letter: B
+letter: B
+letter: B	 prev index = 11
+letter: B	testingNode is @ index = 12
+
+	initial list after loop: {B, B, B, B, B, B, B, B, D, B, B, B, B}
+size = 13
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: D
+letter: B
+letter: B
+letter: B
+letter: B	 prev index = 12
+end splice: {B, B, B, B, B, B, B, B, D, B, B, B, B}
+(13)BBBBBBBBDBBBB
 
 splice	"D"	""
 
-initial list before loop: {B, B, C, B, B, D, B, B, C}
-size = 14
-letter: B	index = 0
-letter: B
-letter: C
-letter: B
-letter: B
-letter: D
-letter: B
-letter: B
-letter: C
-
-	BEFORE INCREMENT : {B, B, C, B, B, D, B, B, C}
-size = 14
+initial list before loop: {B, B, B, B, B, B, B, B, D, B, B, B, B}
+size = 13
 letter: B	testingNode is @ index = 0
 letter: B
-letter: C
+letter: B
+letter: B
+letter: B
+letter: B
 letter: B
 letter: B
 letter: D
 letter: B
 letter: B
-letter: C
+letter: B
+letter: B
 
-	initial list after loop: {B, B, C, B, B, D, B, B, C}
-size = 14
+	BEFORE INCREMENT{B, B, B, B, B, B, B, B, D, B, B, B, B}
+size = 13
+letter: B	testingNode is @ index = 0
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: D
+letter: B
+letter: B
+letter: B
+letter: B
+
+	initial list after loop: {B, B, B, B, B, B, B, B, D, B, B, B, B}
+size = 13
 letter: B	 prev index = 0
 letter: B	testingNode is @ index = 1
-letter: C
+letter: B
+letter: B
+letter: B
+letter: B
 letter: B
 letter: B
 letter: D
 letter: B
 letter: B
-letter: C
+letter: B
+letter: B
 
-initial list before loop: {B, B, C, B, B, D, B, B, C}
-size = 14
-letter: B	 prev index = 0
-letter: B	index = 1
-letter: C
-letter: B
-letter: B
-letter: D
-letter: B
-letter: B
-letter: C
-
-	BEFORE INCREMENT : {B, B, C, B, B, D, B, B, C}
-size = 14
+initial list before loop: {B, B, B, B, B, B, B, B, D, B, B, B, B}
+size = 13
 letter: B	 prev index = 0
 letter: B	testingNode is @ index = 1
-letter: C
+letter: B
+letter: B
+letter: B
+letter: B
 letter: B
 letter: B
 letter: D
 letter: B
 letter: B
-letter: C
+letter: B
+letter: B
 
-	initial list after loop: {B, B, C, B, B, D, B, B, C}
-size = 14
+	BEFORE INCREMENT{B, B, B, B, B, B, B, B, D, B, B, B, B}
+size = 13
+letter: B	 prev index = 0
+letter: B	testingNode is @ index = 1
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: D
+letter: B
+letter: B
+letter: B
+letter: B
+
+	initial list after loop: {B, B, B, B, B, B, B, B, D, B, B, B, B}
+size = 13
 letter: B
 letter: B	 prev index = 1
-letter: C	testingNode is @ index = 2
+letter: B	testingNode is @ index = 2
+letter: B
+letter: B
+letter: B
 letter: B
 letter: B
 letter: D
 letter: B
 letter: B
-letter: C
+letter: B
+letter: B
 
-initial list before loop: {B, B, C, B, B, D, B, B, C}
-size = 14
+initial list before loop: {B, B, B, B, B, B, B, B, D, B, B, B, B}
+size = 13
 letter: B
 letter: B	 prev index = 1
-letter: C	index = 2
+letter: B	testingNode is @ index = 2
+letter: B
+letter: B
+letter: B
 letter: B
 letter: B
 letter: D
 letter: B
 letter: B
-letter: C
+letter: B
+letter: B
 
-	BEFORE INCREMENT : {B, B, C, B, B, D, B, B, C}
-size = 14
+	BEFORE INCREMENT{B, B, B, B, B, B, B, B, D, B, B, B, B}
+size = 13
 letter: B
 letter: B	 prev index = 1
-letter: C	testingNode is @ index = 2
+letter: B	testingNode is @ index = 2
 letter: B
 letter: B
-letter: D
 letter: B
 letter: B
-letter: C
-
-	initial list after loop: {B, B, C, B, B, D, B, B, C}
-size = 14
-letter: B
-letter: B
-letter: C	 prev index = 2
-letter: B	testingNode is @ index = 3
 letter: B
 letter: D
 letter: B
 letter: B
-letter: C
+letter: B
+letter: B
 
-initial list before loop: {B, B, C, B, B, D, B, B, C}
-size = 14
-letter: B
-letter: B
-letter: C	 prev index = 2
-letter: B	index = 3
-letter: B
-letter: D
-letter: B
-letter: B
-letter: C
-
-	BEFORE INCREMENT : {B, B, C, B, B, D, B, B, C}
-size = 14
-letter: B
-letter: B
-letter: C	 prev index = 2
-letter: B	testingNode is @ index = 3
-letter: B
-letter: D
-letter: B
-letter: B
-letter: C
-
-	initial list after loop: {B, B, C, B, B, D, B, B, C}
-size = 14
-letter: B
-letter: B
-letter: C
-letter: B	 prev index = 3
-letter: B	testingNode is @ index = 4
-letter: D
-letter: B
-letter: B
-letter: C
-
-initial list before loop: {B, B, C, B, B, D, B, B, C}
-size = 14
-letter: B
-letter: B
-letter: C
-letter: B	 prev index = 3
-letter: B	index = 4
-letter: D
-letter: B
-letter: B
-letter: C
-
-	BEFORE INCREMENT : {B, B, C, B, B, D, B, B, C}
-size = 14
-letter: B
-letter: B
-letter: C
-letter: B	 prev index = 3
-letter: B	testingNode is @ index = 4
-letter: D
-letter: B
-letter: B
-letter: C
-
-	initial list after loop: {B, B, C, B, B, D, B, B, C}
-size = 14
-letter: B
-letter: B
-letter: C
-letter: B
-letter: B	 prev index = 4
-letter: D	testingNode is @ index = 5
-letter: B
-letter: B
-letter: C
-
-initial list before loop: {B, B, C, B, B, D, B, B, C}
-size = 14
-letter: B
-letter: B
-letter: C
-letter: B
-letter: B	 prev index = 4
-letter: D	index = 5
-letter: B
-letter: B
-letter: C
-
-	BEFORE INCREMENT : {B, B, C, B, B, B, B, C}
+	initial list after loop: {B, B, B, B, B, B, B, B, D, B, B, B, B}
 size = 13
 letter: B
 letter: B
-letter: C
+letter: B	 prev index = 2
+letter: B	testingNode is @ index = 3
 letter: B
-letter: B	testingNode is @ index = 4
 letter: B
 letter: B
-letter: C
+letter: B
+letter: D
+letter: B
+letter: B
+letter: B
+letter: B
 
-	initial list after loop: {B, B, C, B, B, B, B, C}
+initial list before loop: {B, B, B, B, B, B, B, B, D, B, B, B, B}
 size = 13
 letter: B
 letter: B
-letter: C
+letter: B	 prev index = 2
+letter: B	testingNode is @ index = 3
+letter: B
+letter: B
+letter: B
+letter: B
+letter: D
+letter: B
+letter: B
+letter: B
+letter: B
+
+	BEFORE INCREMENT{B, B, B, B, B, B, B, B, D, B, B, B, B}
+size = 13
+letter: B
+letter: B
+letter: B	 prev index = 2
+letter: B	testingNode is @ index = 3
+letter: B
+letter: B
+letter: B
+letter: B
+letter: D
+letter: B
+letter: B
+letter: B
+letter: B
+
+	initial list after loop: {B, B, B, B, B, B, B, B, D, B, B, B, B}
+size = 13
+letter: B
+letter: B
+letter: B
+letter: B	 prev index = 3
+letter: B	testingNode is @ index = 4
+letter: B
+letter: B
+letter: B
+letter: D
+letter: B
+letter: B
+letter: B
+letter: B
+
+initial list before loop: {B, B, B, B, B, B, B, B, D, B, B, B, B}
+size = 13
+letter: B
+letter: B
+letter: B
+letter: B	 prev index = 3
+letter: B	testingNode is @ index = 4
+letter: B
+letter: B
+letter: B
+letter: D
+letter: B
+letter: B
+letter: B
+letter: B
+
+	BEFORE INCREMENT{B, B, B, B, B, B, B, B, D, B, B, B, B}
+size = 13
+letter: B
+letter: B
+letter: B
+letter: B	 prev index = 3
+letter: B	testingNode is @ index = 4
+letter: B
+letter: B
+letter: B
+letter: D
+letter: B
+letter: B
+letter: B
+letter: B
+
+	initial list after loop: {B, B, B, B, B, B, B, B, D, B, B, B, B}
+size = 13
+letter: B
+letter: B
+letter: B
 letter: B
 letter: B	 prev index = 4
 letter: B	testingNode is @ index = 5
 letter: B
-letter: C
+letter: B
+letter: D
+letter: B
+letter: B
+letter: B
+letter: B
 
-initial list before loop: {B, B, C, B, B, B, B, C}
+initial list before loop: {B, B, B, B, B, B, B, B, D, B, B, B, B}
 size = 13
 letter: B
 letter: B
-letter: C
 letter: B
-letter: B	 prev index = 4
-letter: B	index = 5
-letter: B
-letter: C
-
-	BEFORE INCREMENT : {B, B, C, B, B, B, B, C}
-size = 13
-letter: B
-letter: B
-letter: C
 letter: B
 letter: B	 prev index = 4
 letter: B	testingNode is @ index = 5
 letter: B
-letter: C
+letter: B
+letter: D
+letter: B
+letter: B
+letter: B
+letter: B
 
-	initial list after loop: {B, B, C, B, B, B, B, C}
+	BEFORE INCREMENT{B, B, B, B, B, B, B, B, D, B, B, B, B}
 size = 13
 letter: B
 letter: B
-letter: C
+letter: B
+letter: B
+letter: B	 prev index = 4
+letter: B	testingNode is @ index = 5
+letter: B
+letter: B
+letter: D
+letter: B
+letter: B
+letter: B
+letter: B
+
+	initial list after loop: {B, B, B, B, B, B, B, B, D, B, B, B, B}
+size = 13
+letter: B
+letter: B
+letter: B
 letter: B
 letter: B
 letter: B	 prev index = 5
 letter: B	testingNode is @ index = 6
-letter: C
+letter: B
+letter: D
+letter: B
+letter: B
+letter: B
+letter: B
 
-initial list before loop: {B, B, C, B, B, B, B, C}
+initial list before loop: {B, B, B, B, B, B, B, B, D, B, B, B, B}
 size = 13
 letter: B
 letter: B
-letter: C
 letter: B
-letter: B
-letter: B	 prev index = 5
-letter: B	index = 6
-letter: C
-
-	BEFORE INCREMENT : {B, B, C, B, B, B, B, C}
-size = 13
-letter: B
-letter: B
-letter: C
 letter: B
 letter: B
 letter: B	 prev index = 5
 letter: B	testingNode is @ index = 6
-letter: C
+letter: B
+letter: D
+letter: B
+letter: B
+letter: B
+letter: B
 
-	initial list after loop: {B, B, C, B, B, B, B, C}
+	BEFORE INCREMENT{B, B, B, B, B, B, B, B, D, B, B, B, B}
 size = 13
 letter: B
 letter: B
-letter: C
+letter: B
+letter: B
+letter: B
+letter: B	 prev index = 5
+letter: B	testingNode is @ index = 6
+letter: B
+letter: D
+letter: B
+letter: B
+letter: B
+letter: B
+
+	initial list after loop: {B, B, B, B, B, B, B, B, D, B, B, B, B}
+size = 13
+letter: B
+letter: B
+letter: B
 letter: B
 letter: B
 letter: B
 letter: B	 prev index = 6
-letter: C	testingNode is @ index = 7
+letter: B	testingNode is @ index = 7
+letter: D
+letter: B
+letter: B
+letter: B
+letter: B
 
-initial list before loop: {B, B, C, B, B, B, B, C}
+initial list before loop: {B, B, B, B, B, B, B, B, D, B, B, B, B}
 size = 13
 letter: B
 letter: B
-letter: C
+letter: B
 letter: B
 letter: B
 letter: B
 letter: B	 prev index = 6
-letter: C	index = 7
+letter: B	testingNode is @ index = 7
+letter: D
+letter: B
+letter: B
+letter: B
+letter: B
 
-	BEFORE INCREMENT : {B, B, C, B, B, B, B, C}
+	BEFORE INCREMENT{B, B, B, B, B, B, B, B, D, B, B, B, B}
 size = 13
 letter: B
 letter: B
-letter: C
+letter: B
 letter: B
 letter: B
 letter: B
 letter: B	 prev index = 6
-letter: C	testingNode is @ index = 7
+letter: B	testingNode is @ index = 7
+letter: D
+letter: B
+letter: B
+letter: B
+letter: B
 
-	initial list after loop: {B, B, C, B, B, B, B, C}
+	initial list after loop: {B, B, B, B, B, B, B, B, D, B, B, B, B}
 size = 13
 letter: B
 letter: B
-letter: C
 letter: B
 letter: B
 letter: B
 letter: B
-letter: C	 prev index = 7
-end splice: {B, B, C, B, B, B, B, C}
-(13)BBCBBBBC
+letter: B
+letter: B	 prev index = 7
+letter: D	testingNode is @ index = 8
+letter: B
+letter: B
+letter: B
+letter: B
+
+initial list before loop: {B, B, B, B, B, B, B, B, D, B, B, B, B}
+size = 13
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B	 prev index = 7
+letter: D	testingNode is @ index = 8
+letter: B
+letter: B
+letter: B
+letter: B
+
+	BEFORE INCREMENT{B, B, B, B, B, B, B, B, B, B, B, B}
+size = 12
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B	testingNode is @ index = 7	 prev index = 7
+letter: B
+letter: B
+letter: B
+letter: B
+
+	initial list after loop: {B, B, B, B, B, B, B, B, B, B, B, B}
+size = 12
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B	 prev index = 7
+letter: B	testingNode is @ index = 8
+letter: B
+letter: B
+letter: B
+
+initial list before loop: {B, B, B, B, B, B, B, B, B, B, B, B}
+size = 12
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B	 prev index = 7
+letter: B	testingNode is @ index = 8
+letter: B
+letter: B
+letter: B
+
+	BEFORE INCREMENT{B, B, B, B, B, B, B, B, B, B, B, B}
+size = 12
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B	 prev index = 7
+letter: B	testingNode is @ index = 8
+letter: B
+letter: B
+letter: B
+
+	initial list after loop: {B, B, B, B, B, B, B, B, B, B, B, B}
+size = 12
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B	 prev index = 8
+letter: B	testingNode is @ index = 9
+letter: B
+letter: B
+
+initial list before loop: {B, B, B, B, B, B, B, B, B, B, B, B}
+size = 12
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B	 prev index = 8
+letter: B	testingNode is @ index = 9
+letter: B
+letter: B
+
+	BEFORE INCREMENT{B, B, B, B, B, B, B, B, B, B, B, B}
+size = 12
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B	 prev index = 8
+letter: B	testingNode is @ index = 9
+letter: B
+letter: B
+
+	initial list after loop: {B, B, B, B, B, B, B, B, B, B, B, B}
+size = 12
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B	 prev index = 9
+letter: B	testingNode is @ index = 10
+letter: B
+
+initial list before loop: {B, B, B, B, B, B, B, B, B, B, B, B}
+size = 12
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B	 prev index = 9
+letter: B	testingNode is @ index = 10
+letter: B
+
+	BEFORE INCREMENT{B, B, B, B, B, B, B, B, B, B, B, B}
+size = 12
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B	 prev index = 9
+letter: B	testingNode is @ index = 10
+letter: B
+
+	initial list after loop: {B, B, B, B, B, B, B, B, B, B, B, B}
+size = 12
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B	 prev index = 10
+letter: B	testingNode is @ index = 11
+
+initial list before loop: {B, B, B, B, B, B, B, B, B, B, B, B}
+size = 12
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B	 prev index = 10
+letter: B	testingNode is @ index = 11
+
+	BEFORE INCREMENT{B, B, B, B, B, B, B, B, B, B, B, B}
+size = 12
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B	 prev index = 10
+letter: B	testingNode is @ index = 11
+
+	initial list after loop: {B, B, B, B, B, B, B, B, B, B, B, B}
+size = 12
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B
+letter: B	 prev index = 11
+end splice: {B, B, B, B, B, B, B, B, B, B, B, B}
+(12)BBBBBBBBBBBB

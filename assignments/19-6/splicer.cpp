@@ -26,7 +26,7 @@ using std::cout;
 	bool successfulSplice = false;
  	
 
-	cout << "\nsplice\t\""<<find<<"\"\t\""<<replace << "\"\n"; //testing 
+	//cout << "\nsplice\t\""<<find<<"\"\t\""<<replace << "\"\n"; //testing 
 	if (find.size() == 0){
 		return false; //invalid string
 	}else if (find.size() > 1){
@@ -39,25 +39,25 @@ using std::cout;
 		//The node being searched for was found
 
 		//testing 
+		/*
 		LinkNode *testing_node = this->first;
 		int count = 0;
 		cout << "\ninitial list before loop: ";
 		print();
 		cout << "size = " << this->size << std::endl;
 		while (testing_node != 0){
+			cout << "letter: " << *(testing_node->data);
 			if (testing_node == tempNode){
-				cout << "letter: " << *(testing_node->data) << 
-				"\tindex = " << count << std::endl;
-			}else if (testing_node == prev){
-				cout << "letter: " << *(testing_node->data) << 
-					"\t prev index = " << count << std::endl;
-			}else{
-				cout << "letter: " << *(testing_node->data) << 
-					std::endl; 
+				cout << "\ttestingNode is @ index = " << count; 
 			}
+			if (testing_node == prev){
+				cout << "\t prev index = " << count;
+			}
+				cout <<	std::endl; 
 			count++;
 			testing_node = testing_node->next;
 		}
+		*/
 
 		if ( (*(tempNode->data)).compare(find) == 0){ 
 			successfulSplice = true;
@@ -80,56 +80,69 @@ using std::cout;
 					tempNode = prev;  //prev->next;
 					this->size--;
 				}
+				
+
+
+
 			}else{ //replace node case
 				//replace the character with the new node
 				List* tempList = strToList(replace); 
 				if (prev == 0){ //replace head node
-					cout << "replace head\n";
+					//cout << "replace head\n";
 					this->first = tempList->first;
 				}else{ //replace body/tail node 
-					cout << "replace body/tail\n";
+					//cout << "replace body/tail\n";
 					prev->next = tempList->first;
 				}
+				/*
 				cout << "\ttempList b4: ";// testing 
 				tempList->print();
+				*/
 
 				//get previous in the right position TEST FIX
 				prev = tempList->first;
 				while (prev->next != 0)
 					prev = prev->next;
-
-
 				tempList->append(tempNode->next);
+				tempNode = prev; // EXPERIMENTAL FIX
+				//cout << "experimental fix\n";
+
 				this->size += tempList->size - 1;
 
+				/*
 				cout << "\ttempList after: ";// testing 
 				tempList->print();
+				*/
 
 				//clean up 
 				tempList->first = 0;
 				tempList->~List();
 			}
+		}else{
+
 		}
+
 		//testing 
+		/*
 		count = 0;
 		testing_node = this->first;
-		cout << "\n\tBEFORE INCREMENT : ";
+		cout << "\n\tBEFORE INCREMENT";
 		print();
 		cout << "size = " << this->size << std::endl;
 		while (testing_node != 0){
+			cout << "letter: " << *(testing_node->data);
 			if (testing_node == tempNode){
-				cout << "letter: " << *(testing_node->data) << 
-				"\ttestingNode is @ index = " << count << std::endl;
-			}else if (testing_node == prev){
-				cout << "letter: " << *(testing_node->data) << 
-					"\t prev index = " << count << std::endl;
-			}else{
-				cout << "letter: " << *(testing_node->data) << 
-					std::endl; 
+				cout << "\ttestingNode is @ index = " << count; 
 			}
+			if (testing_node == prev){
+				cout << "\t prev index = " << count;
+			}
+				cout <<	std::endl; 
 			count++;
 			testing_node = testing_node->next;
 		}
+		*/
+	
 		//increment and check for the next node 
 		if (size < 2){
 			prev = 0;
@@ -139,28 +152,28 @@ using std::cout;
 		}
 
 		//testing 
+		/*
 		count = 0;
 		testing_node = this->first;
 		cout << "\n\tinitial list after loop: ";
 		print();
 		cout << "size = " << this->size << std::endl;
 		while (testing_node != 0){
+			cout << "letter: " << *(testing_node->data);
 			if (testing_node == tempNode){
-				cout << "letter: " << *(testing_node->data) << 
-				"\ttestingNode is @ index = " << count << std::endl;
-			}else if (testing_node == prev){
-				cout << "letter: " << *(testing_node->data) << 
-					"\t prev index = " << count << std::endl;
-			}else{
-				cout << "letter: " << *(testing_node->data) << 
-					std::endl; 
+				cout << "\ttestingNode is @ index = " << count; 
 			}
+			if (testing_node == prev){
+				cout << "\t prev index = " << count;
+			}
+				cout <<	std::endl; 
 			count++;
 			testing_node = testing_node->next;
 		}
+		*/
 	}
-	cout << "end splice: " ;
-	print();
+	//cout << "end splice: " ;
+	//print();
 	return successfulSplice;
 }
 
