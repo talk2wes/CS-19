@@ -24,82 +24,72 @@ using std::cout;
 	find = upperCase(find);
 	replace = upperCase(replace);
 	bool successfulSplice = false;
-	
-	if (find.size() == 0) // || replace.size() == 0){
+ 	
+
+	cout << "splice\t\""<<find<<"\"\t\""<<replace << "\"\n"; //testing 
+	if (find.size() == 0){
 		return false; //invalid string
-	else if (find.size() > 1)
+	}else if (find.size() > 1){
 		return false; //extra credit	
+	}
 	
-	//if replace is empty than replace all of the found char's with blanks	
+	//iterate through the nodes in the list
 	//serach for the character in the List
-	while (tempNode != 0 && (*(tempNode->data)).compare(find) != 0){
-		cout << "error 0\n";
-		prev = tempNode;
-		tempNode = tempNode->next;
-		successfulSplice = true;
-		cout << "error 1\n";
-		//search for the node with "find" character in it
+	while (tempNode != 0){ // && (*(tempNode->data)).compare(find) != 0){
+				
+		//The node being searched for was found
 		if ( (*(tempNode->data)).compare(find) == 0){ 
-			List* tempList = strToList(replace); 
-			cout << "error 2\n";
-			if (replace.size() == 0){ // delete node case
-				cout << "error 3\n";
+			successfulSplice = true;
+			if (replace.size() == 0){ //delete node case
 				if (prev == 0){ //head node  
-					cout << "error 4\n";
 					this->first = tempNode->next;
 					tempNode->~LinkNode();
-					tempNode = this->first->next;
+					tempNode = this->first;//this->first->next;
 					this->size--;
+
 				}else if ( tempNode->next == 0){ //tail node 
-					cout << "error 5\n";
+
 					prev->next = 0;
 					tempNode->~LinkNode();
+					tempNode = prev; // fix 
 					this->size--;
 				}else{ //middle node 
-					cout << "error 6\n";
 					prev->next = tempNode->next;
 					tempNode->~LinkNode();
-					tempNode = prev->next;
+					tempNode = prev;  //prev->next;
 					this->size--;
 				}
 			}else{ //replace node case
-				cout << "error 7\n";
-				if (prev == 0) //head node is being spliced  
-					this->first = tempList->first; 
-				else //any node past head is being spliced 
+				//replace the character with the new node
+				List* tempList = strToList(replace); 
+				cout << "replace: " << tempList->toString() << "\t"; // testing 
+				print(); // testing 
+				if (prev == 0) //replace head node
+					this->first = tempList->first;
+				else //replace body/tail node 
 					prev->next = tempList->first;
 				tempList->append(tempNode->next);
 				this->size += tempList->size - 1;
 
-				//what location will I continue to search for letters at?
-				//tempNode = tempNode->next; 
-
+				//clean up 
+				tempList->first = 0;
+				tempList->~List();
 			}
-			cout << "error 10\n";
+		}
+		
 
-			//clean up
-			tempList->~List();
-			cout << "error 12\n";
+		//increment and check for the next node 
+		if (size < 2){
+			prev = 0;
+		}else{
+			prev = tempNode;
+			tempNode = tempNode->next;
 		}
 	}
-	cout << "RETURN SPLICE\n";
-	//tempNode->~LinkNode();
+	cout << "end splice: " ;
+	print();
 	return successfulSplice;
-
-	//this code is not going to function the same now  REPLACE
-	/*
-	if (tempNode == 0)
-		return false; //character not found
-	*/
-	
-	//clean up || will probably have to move this  
-	/*
-	tempList->first = 0;
-	prev = 0;
-	tempList->~List();
-	tempNode->~LinkNode();
-	*/
- }
+}
 
 /* A public function named insert(string s) that inserts one or more new nodes 
  * to the start of the list. Do nothing if s is empty. Otherwise create one 
@@ -195,7 +185,8 @@ std::string	List::toString(){
 		str.append( *(temp->data) );
 		temp = temp->next;
 	}
-	print(); // testing 
+	cout << "\nsize = " << size << "\n"; //testing 
+	this->print(); //testing 
 	return str;
 }
 
