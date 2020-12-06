@@ -1,0 +1,18 @@
+				if (prev == 0){ //head node  
+					cout << "error 4\n";
+					this->first = tempNode->next;
+					tempNode->~LinkNode();
+					tempNode = this->first->next;
+					this->size--;
+				}else if ( tempNode->next == 0){ //tail node 
+					cout << "error 5\n";
+					prev->next = 0;
+					tempNode->~LinkNode();
+					this->size--;
+				}else{ //middle node 
+					cout << "error 6\n";
+					prev->next = tempNode->next;
+					tempNode->~LinkNode();
+					tempNode = prev->next;
+					this->size--;
+				}

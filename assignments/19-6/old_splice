@@ -1,0 +1,50 @@
+ bool	List::splice(std::string find, std::string replace){
+	LinkNode* tempNode = first;
+	LinkNode* prev = 0; 
+	find = upperCase(find);
+	replace = upperCase(replace);
+	
+	if (find.size() == 0) // || replace.size() == 0){
+		return false; //invalid string
+	else if (find.size() > 1)
+		return false; //extra credit	
+	
+	//if replace is empty than replace all of the found char's with blanks	
+	//serach for the character in the List
+	while (tempNode != 0 && (*(tempNode->data)).compare(find) != 0){
+		prev = tempNode;
+		tempNode = tempNode->next;
+		//replace the character with the new node
+		/*
+		if ( (*(tempNode->data)).compare(find) == 0){
+			List* tempList = strToList(replace); 
+			if (prev == 0)
+				this->first = tempList->first;
+			else
+				prev->next = tempList->first;
+			tempList->append(tempNode->next);
+			this->size += tempList->size - 1;
+			//what location will I continue to search for letters at?
+		}
+		*/
+	}
+	if (tempNode == 0)
+		return false; //character not found
+	
+	//replace the character with the new node
+	List* tempList = strToList(replace); 
+	if (prev == 0)
+		this->first = tempList->first;
+	else
+		prev->next = tempList->first;
+	tempList->append(tempNode->next);
+	this->size += tempList->size - 1;
+	
+	//clean up 
+	tempList->first = 0;
+	prev = 0;
+	tempList->~List();
+	tempNode->~LinkNode();
+
+	return true;
+ }
