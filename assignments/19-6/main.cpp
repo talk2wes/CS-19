@@ -2,7 +2,7 @@
  * Filename: main.cpp
  * Assignment 6: Splicer 
  *
- * Status: Unworking & Untested
+ * Status: working & tested
  */
 
 #include "splicer.h"
