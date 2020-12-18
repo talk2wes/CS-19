@@ -119,11 +119,12 @@ bool	inputValid(string word, vector<string> dictionary){
 		}
 		return true;
 }
-int	main(int argc, char** argv){
-	
-	//Determine if flag option is used 
-	string flag = "-r";	
-	int flagIndex = -1;
+
+
+/* Determines if the flag option was used on the command-line. 
+ * Sets flagIndex to the index of argv that the flag string is stored in.
+ * returns the index of argv that has the file name string.*/
+int	flagOption(int argc, char** argv, string& flag, int& flagIndex){
 	if (argc < 2 && argc > 3) return -1; //Error: undefined arguments
 	if (argc == 3){
 		if (flag.compare(argv[1]) == 0) flagIndex = 1;
@@ -131,16 +132,42 @@ int	main(int argc, char** argv){
 		if (flagIndex == -1) return -1; //Error: incorrect flag option 
 	}
 	int fileIndex = (flagIndex == 1) ? 2 : 1;
+	return fileIndex;
+}
+
+
+int	main(int argc, char** argv){
+	string flag = "-r";	
+	int flagIndex = -1; //default = -1 = no flag was used
+	ifstream dictionaryFile;
+	string temp;
+	vector<string>* dictionary = new vector<string>();
+	string startWord; //word to start search from
+	string endWord = "bacon"; //word to end search on 
+	/*solution space is the matrix (aka vector of vectors) where all of the 
+	 *adjacent words are stored and linked to each other*/
+	vector<vector<WNodePtr>*>* solutionSpace = new vector<WNodePtrVec*>();
+	//first vector in solutionSpace with the starting word for search
+	vector<WNodePtr>* startVec = new vector<WNodePtr>(); 
+	WNode* startNode = new WNode();
+/*
+	if (argc < 2 && argc > 3) return -1; //Error: undefined arguments
+	if (argc == 3){
+		if (flag.compare(argv[1]) == 0) flagIndex = 1;
+		else if (flag.compare(argv[2]) == 0) flagIndex = 2;
+		if (flagIndex == -1) return -1; //Error: incorrect flag option 
+	}
+	int fileIndex = (flagIndex == 1) ? 2 : 1;
+	*/
+	//determines if the flag option was used
+	int fileIndex = flagOption(argc, argv, flag, flagIndex);
 
 	//open the file
-	ifstream fin;
-	fin.open(argv[fileIndex]);
-	if (fin.fail()) return -1; //error opening file
+	dictionaryFile.open(argv[fileIndex]);
+	if (dictionaryFile.fail()) return -1; //error opening file
 	
 	//read the file into the dictionary
-	vector<string>* dictionary = new vector<string>();
-	string temp;
-	while (fin >> temp)
+	while (dictionaryFile >> temp)
 		dictionary->push_back(temp);
 	
 	//Program initial output
@@ -149,18 +176,15 @@ int	main(int argc, char** argv){
 	cout << "Your word?";
 
 	//Get the starting word from the user
-	string startWord;
 	std::cin >> startWord;
-	string endWord = "bacon";
-	while (inputValid(startWord, *dictionary) == false){
+	while (inputValid(startWord, *dictionary) == false){ 
 		cout << "Your word?";
 		std::cin >> startWord;
 	}
 
 	//Initialize the solutionspace and add the starting word
-	vector<vector<WNodePtr>*>* solutionSpace = new vector<WNodePtrVec*>();
-	vector<WNodePtr>* startVec = new vector<WNodePtr>();
-	WNode* startNode = new WNode(startWord);
+	startNode->word = startWord;
+	//WNode* startNode = new WNode(startWord);
 	startVec->push_back(startNode);
 	solutionSpace->push_back(startVec);
 
