@@ -10,21 +10,43 @@ using std::cout;
 using std::vector;
 
 bool	isAdjactent(string word1, string word2){
-
+	int diffs = 0;
 	if (word1.size() != word2.size()) return false;
 
+	for (int i = 0 ; i < word1.size(); i++){
+	
+	}
 	return true;
 }
 
 void	findAdjacentWords(vector<vector<WNodePtr>*>& solutionSpace,
-						vector<string>& dictionary){
+						vector<string>& dictionary, 
+						string endWord){
+	for (int i = 0; i < solutionSpace.size(); i++){
+
+		for (int j = 0; j < solutionSpace[i]->size(); j++){
+
+				
+		}
+	}
+
 
 	
 }
 
+bool	hasWord(vector<string> dictionary, string word){
+	for (int i = 0; i < dictionary.size(); i++)
+		if (word.compare(dictionary[i]) == 0)
+			return true;
+	return false;
+}
+
 bool	removeWord(vector<string>& dictionary, string word){
 	for (int i = 0; i < dictionary.size(); i++){
-
+		if (word.compare(dictionary[i]) == 0){
+			dictionary.erase(dictionary.begin() + i);
+			return true;
+		}
 	}
 	return false;
 }
@@ -68,6 +90,7 @@ int	main(int argc, char** argv){
 	string userInput;
 	std::cin >> userInput;
 	//MAKE THIS LOWER CASE AND CHECK FOR NON_ALPHA CHARACTERS. Ask again if invalid
+	//if -r option is made. Make sure the userInput word is IN THE DICTIONARY
 
 	//determine where to start and end
 	string startWord = (flagIndex > -1) ? userInput : "bacon";
@@ -82,12 +105,10 @@ int	main(int argc, char** argv){
 	solutionSpace->push_back(startVec);
 
 	//remove the startword from the dictionary
-
-	
-	findAdjacentWords(*solutionSpace, *dictionary);
+	findAdjacentWords(*solutionSpace, *dictionary, endWord);
 	cout << "start: " << startWord << "\nend: " << endWord << std::endl;
-	
-
+	cout << "has startWord? : " << hasWord(*dictionary, startWord) << std::endl;
+	//cout << "remove startWord? : " << removeWord(*dictionary, startWord) << std::endl;
 	
 	return 1;
 }
