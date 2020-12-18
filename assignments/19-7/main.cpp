@@ -11,9 +11,6 @@ using std::ifstream;
 using std::cout;
 using std::vector;
 
-//prototype 
-bool removeWord(vector<string>&, string);
-
 //returns true if words differ by one character
 bool	isAdjacent(string word1, string word2){
 	int diffs = 0;
@@ -53,8 +50,19 @@ void	printSolution(WNodePtr bacon){
 	}
 }
 
-/*finds all adjacent words in the i'th vector, stores them in a new vector
- *and then adds that vector to the solution space*/
+//removes the word from the dictionary 
+bool	removeWord(vector<string>& dictionary, string word){
+	for (int i = 0; i < dictionary.size(); i++){
+		if (word.compare(dictionary[i]) == 0){
+			dictionary.erase(dictionary.begin() + i);
+			return true;
+		}
+	}
+	return false;
+}
+
+/* Finds and Links all adjacent words from the dictionary. Then stores them 
+ * into the solution space. returns true if endWord is in last column */ 
 bool	findAdjacentWords(vector<vector<WNodePtr>*>& solutionSpace,
 						vector<string>* dictionary, 
 						string endWord){
@@ -96,17 +104,6 @@ bool	hasWord(vector<string> dictionary, string word){
 	return false;
 }
 
-//removes the word from the dictionary 
-bool	removeWord(vector<string>& dictionary, string word){
-	for (int i = 0; i < dictionary.size(); i++){
-		if (word.compare(dictionary[i]) == 0){
-			dictionary.erase(dictionary.begin() + i);
-			return true;
-		}
-	}
-	return false;
-}
-
 //checks if the user input is a valid word to start with
 bool	inputValid(string word, vector<string> dictionary){
 		if (word.size() != 5){
@@ -119,7 +116,6 @@ bool	inputValid(string word, vector<string> dictionary){
 		}
 		return true;
 }
-
 
 /* Determines if the flag option was used on the command-line. 
  * Sets flagIndex to the index of argv that the flag string is stored in.
@@ -135,6 +131,26 @@ int	flagOption(int argc, char** argv, string& flag, int& flagIndex){
 	return fileIndex;
 }
 
+//Finds a path to the bacon and prints the result if it exists 
+void	findPath2Bacon(vector<vector<WNodePtr>*>* solutionSpace,
+vector<string>* dictionary,string endWord, int flagIndex){
+	string startWord = solutionSpace[0][0][0][0]->word;
+	WNodePtr bacon;
+	if (findAdjacentWords(*solutionSpace, dictionary, endWord)){
+		//Solution was found
+		bacon = findSolutionNode(*solutionSpace, endWord);
+		if (flagIndex == -1)
+			printSolution(bacon);
+		else
+			printReverseSolution(bacon);
+	}else{ 
+		//No solution found
+		if (flagIndex > -1 )
+			cout << "no path from " << startWord << " to " << endWord << "\n";
+		else
+			cout << "no path from " << endWord << " to " << startWord << "\n";
+	}
+}
 
 int	main(int argc, char** argv){
 	string flag = "-r";	
@@ -149,16 +165,9 @@ int	main(int argc, char** argv){
 	vector<vector<WNodePtr>*>* solutionSpace = new vector<WNodePtrVec*>();
 	//first vector in solutionSpace with the starting word for search
 	vector<WNodePtr>* startVec = new vector<WNodePtr>(); 
-	WNode* startNode = new WNode();
-/*
-	if (argc < 2 && argc > 3) return -1; //Error: undefined arguments
-	if (argc == 3){
-		if (flag.compare(argv[1]) == 0) flagIndex = 1;
-		else if (flag.compare(argv[2]) == 0) flagIndex = 2;
-		if (flagIndex == -1) return -1; //Error: incorrect flag option 
-	}
-	int fileIndex = (flagIndex == 1) ? 2 : 1;
-	*/
+	WNode* startNode = new WNode(); // first node in startVec
+	WNodePtr bacon; //address of bacon node to find in solutionSpace
+
 	//determines if the flag option was used
 	int fileIndex = flagOption(argc, argv, flag, flagIndex);
 
@@ -182,26 +191,12 @@ int	main(int argc, char** argv){
 		std::cin >> startWord;
 	}
 
-	//Initialize the solutionspace and add the starting word
+	//Add word to start search from into solutionSpace
 	startNode->word = startWord;
-	//WNode* startNode = new WNode(startWord);
 	startVec->push_back(startNode);
 	solutionSpace->push_back(startVec);
 
-	//find all adjacencies, until bacon found or no solution
-	if (findAdjacentWords(*solutionSpace, dictionary, endWord)){
-		//Solution was found
-		WNodePtr bacon = findSolutionNode(*solutionSpace, endWord);
-		if (flagIndex == -1)
-			printSolution(bacon);
-		else
-			printReverseSolution(bacon);
-	}else{ 
-		//No solution found
-		if (flagIndex > -1 )
-			cout << "no path from " << startWord << " to " << endWord << "\n";
-		else
-			cout << "no path from " << endWord << " to " << startWord << "\n";
-	}
+	//find path to the bacon, print solution if it exists
+	findPath2Bacon(solutionSpace, dictionary, endWord, flagIndex);
 	return 1;
 }
